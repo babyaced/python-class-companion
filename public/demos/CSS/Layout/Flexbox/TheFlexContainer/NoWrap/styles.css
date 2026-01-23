@@ -1,0 +1,9 @@
+.flex-container {
+    display:flex;
+}
+
+.flex-item{
+    width: 100px;
+    text-align: center;
+    gap: 10px;
+}

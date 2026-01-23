@@ -1,0 +1,9 @@
+.flex-container{
+    display: flex;
+}
+
+.flex-container p {
+    width: 100px;
+    text-align: center;
+    border: 2px solid black;
+}

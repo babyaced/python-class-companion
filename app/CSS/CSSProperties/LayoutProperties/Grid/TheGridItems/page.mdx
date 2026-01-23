@@ -1,0 +1,46 @@
+import HTMLCSSJSPlayground from '../../../../../../components/HTMLCSSJSPlayground';
+import Link from 'next/link';
+
+# The Grid items
+
+Grid items are the direct children of a grid container. They can be positioned and sized within the grid using various CSS properties.
+
+## Grid Item Properties
+
+### Setting the Start and End Positions (`grid-column-start`, `grid-column-end`, `grid-row-start`, `grid-row-end`)
+
+You can control the start and end positions of a grid item within the grid by using the `grid-column-start`, `grid-column-end`, `grid-row-start`, and `grid-row-end` properties. These properties allow you to specify the grid lines where the item should start and end.
+
+- **grid-column-start**: Specifies the starting grid line for a grid item in the horizontal direction.
+- **grid-column-end**: Specifies the ending grid line for a grid item in the horizontal direction.
+- **grid-row-start**: Specifies the starting grid line for a grid item in the vertical direction.
+- **grid-row-end**: Specifies the ending grid line for a grid item in the vertical direction.
+
+#### Example
+<HTMLCSSJSPlayground folderPath={"CSS/Layout/Grid/GridItems/RowColumnStartAndEnd"} activeFile={"styles.css"}/>
+
+You can also use the shorthand properties `grid-column` and `grid-row` to set both the start and end positions in a single declaration. 
+
+<HTMLCSSJSPlayground folderPath={"CSS/Layout/Grid/GridItems/RowColumnShorthand"} activeFile={"styles.css"}/>
+
+Isn't that much easier to read and write?
+
+### Grid Area (`grid-area`)
+
+`grid-area` can be used to specify a grid item's position and size within the grid by defining the start and end lines for both rows and columns in a single declaration.
+
+You can provide four values to the `grid-area` property in the following order:
+1. `grid-row-start`
+2. `grid-column-start`
+3. `grid-row-end`
+4. `grid-column-end`
+
+<HTMLCSSJSPlayground folderPath={"CSS/Layout/Grid/GridItems/GridArea"} activeFile={"styles.css"}/>
+
+When you have defined the grid container using named areas with the `grid-template-areas` property (<Link href="/CSS/CSSProperties/LayoutProperties/Grid/TheGridContainer#defining-columns-and-rows-using-content-name-grid-template-areas" style={{color: "var(--x-color-primary-600)", textDecorationLine: "underline"}} >see previous page for more details</Link>), you can also use the `grid-area` property to assign a grid item to one of those named areas.
+
+<HTMLCSSJSPlayground folderPath={"CSS/Layout/Grid/GridItems/GridAreaWithGridTemplateAreas"} activeFile={"styles.css"}/>
+
+
+
+

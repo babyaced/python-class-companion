@@ -1,0 +1,74 @@
+import HTMLCSSJSPlayground from '../../../../../../components/HTMLCSSJSPlayground';
+import { Callout } from 'nextra/components'
+import Link from 'next/link';
+
+# The Grid Container
+The grid container is the element in which all your grid items live. To create a grid container, you need to set the `display` property of an element to `grid`. 
+After that you can use many other CSS properties to define the structure and behavior of your grid.
+
+## Grid Container Properties
+
+### Defining the Number of Columns (`grid-template-columns`) and Rows (`grid-template-rows`)
+
+You can define the number of columns in your grid using the `grid-template-columns` property. The syntax for these properties are as follows:
+
+- The number of columns/rows is the number of values you provide.
+    - Each value must be separated by a space.
+- Each value represents the width of a column.
+    - Each value must be a valid CSS length unit (e.g., `px`, `%`, `fr`, `em`, etc.).
+
+In the above example, the grid container will have three columns with widths of 100 pixels, 200 pixels, and 100 pixels respectively.
+
+<HTMLCSSJSPlayground folderPath={"CSS/Layout/Grid/GridContainer"} />
+
+
+#### The fractional unit (`fr`)
+The `fr` unit is a flexible length unit that represents a fraction of the available space in the grid container. It is an easy way to divide space among grid columns or rows.
+
+<HTMLCSSJSPlayground folderPath={"CSS/Layout/Grid/GridContainer/TheFractionalUnit"} />
+
+As you can see in the example above, the grid container has three columns.
+
+In total the grid container is divided into 4 equal parts (1fr + 2fr + 1fr = 4fr). The first and third columns each take up 1/4 of the available space, while the second column takes up 2/4 (or 1/2) of the available space.
+
+It may help to think about the `fr` unit as equivalent to percentages.
+
+The grid-template-columns property in the example above could also be written like this using percentages:
+
+```css
+grid-template-columns: 25% 50% 25%;
+```
+
+### Defining columns and rows using content name (`grid-template-areas`)
+
+You can also define the structure of your grid using named areas with the `grid-template-areas` property. 
+
+This allows you to create a more descriptive layout by assigning names to different sections of your grid.
+
+`grid-template-areas` expects string values with each string representing a row in the grid. 
+
+Within each string, you can use names to define areas, and use a period (`.`) to represent empty cells.
+
+To create a new row , simply add another string. After all rows are defined, you end the value with a semicolon just like any other CSS property.
+
+<Callout type="warning">
+    `grid-template-areas` does not define the size of the columns or rows. You still need to use `grid-template-columns` and `grid-template-rows` to set the sizes!
+</Callout>
+
+On each item you use the `grid-area` property (<Link href="/CSS/CSSProperties/LayoutProperties/Grid/TheGridItems#grid-area-grid-area" style={{color: "var(--x-color-primary-600)", textDecorationLine: "underline"}}>read more about `grid-area` on the next page</Link>) to assign it to one of the named areas defined in the `grid-template-areas` property.
+
+<Callout type="warning">
+    When using the `grid-area` property on a grid item, make sure that the value is not wrapped in quotes!
+</Callout>
+
+<HTMLCSSJSPlayground folderPath={"CSS/Layout/Grid/WhenToUseGrid/TwoDimensionalPageLayout"} />
+
+### Setting Gaps Between Rows and Columns (`gap`, `row-gap`, `column-gap`)
+You can set gaps between rows and columns in your grid using the `gap`, `row-gap`, and `column-gap` properties.
+
+<HTMLCSSJSPlayground folderPath={"CSS/Layout/Grid/GridContainer/Gap"} />
+
+
+
+
+

@@ -1,0 +1,75 @@
+import HTMLTag from '../../../assets/vectors/HTMLTag.svg';
+import HTMLSelfClosingTag from '../../../assets/vectors/HTMLSelfClosingTag.svg';
+import { Callout } from 'nextra/components';
+
+# What are HTML Elements?
+
+HTML Elements are the building blocks of HTML documents. They define the structure and content of a webpage by using tags to represent different types of content, such as headings, paragraphs, links, images, and more.
+
+
+## HTML Element Structure
+
+HTML Elements consist of opening and closing tags, attributes, and content. Understanding the structure of HTML elements is crucial for creating web pages.
+
+<HTMLTag alt="HTML Tag Structure" className="w-full h-auto object-contain"  style={{margin: '2em 0'}}/>
+
+### Opening and Closing Tags
+Every HTML element has an **opening tag** and a **closing tag**.
+
+The **opening tag** contains the type/name of element. 
+
+The **closing tag** is the same as the opening tag but with a forward slash (`/`) before the element's name.
+
+The `<` and `>` symbols are used to mark the start and end of an opening or closing tag. These `<>` symbols are called **angle brackets**.
+
+##### Self-Closing Elements
+Some HTML elements are self-closing, meaning they do not need a closing tag. 
+
+These elements include `<img>`, `<br>`, and `<input>`. For these elements, the opening and closing tags are combined into a single tag. 
+
+The tag is ended with a slash before the closing angle bracket.
+
+<HTMLSelfClosingTag alt="Self-Closing HTML Tag Structure" className="w-full h-auto object-contain" style={{margin: '2em 0'}}/>
+
+###  Attributes
+You may have noticed that the examples above include some other information inside the opening tags (like `href`, `src`, and `alt`) other than the element name.
+
+These additional pieces of information are called **attributes**.
+
+They are always specified in the opening tag and come in name/value pairs like this: `name="value"`.
+
+Most attributes are specific to certain types of HTML elements. 
+
+For example:
+-  the `href` attribute is used with `<a>` (anchor) elements to specify the URL of the link
+- the `src` and `alt` attributes are used with `<img>` (image) elements to specify the image source and the descriptive text, respectively.
+
+Attributes common to all types of HTML elements include the below:
+
+- **id**: A unique identifier for the element.
+- **class**: Specifies one or more class names for the element.
+
+```html
+<a href="https://www.example.com" target="_blank" id="example-link" class="example-class">Visit Example</a>
+```
+
+<Callout type="warning" title="Note">
+    Attribute values should always be enclosed in quotation marks (`""`)!
+</Callout>
+
+### Content
+Content is the information or elements within a pair of opening and closing tags. It can include text or other HTML elements.
+```html
+<body>
+    <h1>Main Title</h1>
+    <div>
+        <img src="image.jpg" alt="An example image">
+    </div>
+</body>
+```
+
+Here, "Main Title" is the content of the `<h1>` element.
+
+The `<img>` element is the content of the `<div>` element. 
+
+The `<body>` element contains both the `<h1>` and `<div>` elements as its content.
