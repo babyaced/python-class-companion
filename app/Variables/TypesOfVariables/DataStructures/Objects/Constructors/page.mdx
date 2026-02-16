@@ -1,0 +1,53 @@
+# Constructors
+
+## What is a Constructor?
+A **constructor** is a special function that is called when an object is created from a class.
+
+We often use a constructor to initialize the unique properties of an object.
+
+To create properties that are unique to each object we use **instance variables**.
+
+For a dog, properties we might use **instance variables** for could be its `name` and `age`.
+
+To set up these unique properties, we use something called a **constructor**.
+
+## Defining a Constructor
+In Python, we have to define the constructor function by defining the `__init__` method.
+
+Here's an example of how to use a constructor to create a `Dog` class with unique `name` and `age` properties:
+
+```python
+class Dog:
+    species = "Canis familiaris"
+    number_of_legs = 4
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+```
+
+In this example, we created a constructor by defining the `__init__` method that takes two parameters: `name` and `age`.
+
+The `self` parameter is a reference to the current **instance** of the class and is used to access variables that belong to the class.
+
+Now we can create multiple dog objects with different names and ages:
+
+```python
+dog1 = Dog("Buddy", 3)
+dog2 = Dog("Max", 5)
+```
+
+To use the constructor, we simply write the class name followed by parentheses, passing in the required **arguments**, just like any other function call.
+
+In this case, we created two dog objects: `dog1` with the name "Buddy" and age 3, and `dog2` with the name "Max" and age 5.
+Each dog object has its own unique `name` and `age` **instance variables**, while still sharing the same `species` and `number_of_legs` **class variables**.
+
+
+### More on `self`
+The concept of `self` can be a bit tricky to understand at first.
+So let's break down what is happening in the constructor.
+
+When we create a new dog object using `Dog("Buddy", 3)`, 
+the `__init__` method is called with `self` referring to the new dog object being created aka its "self".
+
+The `name` of this new Dog object is set to "Buddy", and `age` set to 3.
