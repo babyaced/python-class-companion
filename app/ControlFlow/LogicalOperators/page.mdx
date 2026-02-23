@@ -1,0 +1,73 @@
+import {Callout} from 'nextra/components';
+
+# Logical Operators
+
+Logical operators are used to combine multiple conditions in a single expression. They allow you to create more complex conditions by using the following operators:
+- `and`: Returns `True` if both conditions are true.
+- `or`: Returns `True` if at least one of the conditions is true.
+- `not`: Returns `True` if the condition is false
+
+## `and` Operator
+
+The `and` operator is used to check if multiple conditions are all true.
+Here's an example:
+
+```python
+age = 20
+has_id = True
+if age >= 18 and has_id:
+    print("You can enter the club!")
+else:
+    print("Sorry, you cannot enter the club.")
+```
+
+In this example, the person can only enter the club if they are 18 or older and have an ID. Both conditions must be true for the message "You can enter the club!" to be printed.
+
+## `or` Operator
+The `or` operator is used to check if at least one of multiple conditions is true.
+Here's an example:
+
+```python
+day = "Saturday"
+if day == "Saturday" or day == "Sunday":
+    print("It's the weekend!")
+else:
+    print("It's a weekday.")
+```
+In this example, the message "It's the weekend!" will be printed if the day is either Saturday or Sunday. Only one of the conditions needs to be true for the message to be printed.
+
+## `not` Operator
+The `not` operator is used to reverse the truth value of a condition.
+Here's an example:
+```python
+is_raining = False
+if not is_raining:
+    print("It's a nice day outside!")
+else:
+    print("Don't forget your umbrella!")
+```
+In this example, the message "It's a nice day outside!" will be printed because `not is_raining` evaluates to `True` since `is_raining` is `False`. If `is_raining` were `True`, the message "Don't forget your umbrella!" would be printed instead.
+
+
+## Combining Logical Operators
+You can also combine multiple logical operators in a single expression to create more complex conditions.
+Here's an example:
+```python
+age = 25
+has_id = True
+is_member = False
+if (age >= 18 and has_id) or is_member:
+    print("You can enter the club!")
+else:
+    print("Sorry, you cannot enter the club.")
+```
+In this example, the person can enter the club if they are 18 or older and have an ID, or if they are a member. The `or` operator allows for either condition to be true for the message "You can enter the club!" to be printed.
+
+<Callout type="info">
+Logical operators are evaluated in the following order: `not`, `and`, `or`. Notice how we used parentheses in the example above to emphasize the order of evaluation and make our code more readable.
+</Callout>
+
+
+
+
+
