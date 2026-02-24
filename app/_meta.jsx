@@ -5,5 +5,6 @@ export default{
     Functions: 'Functions',
     InputAndOutput: 'Input and Output',
     ControlFlow: 'Control Flow',
-    ProjectGuides: 'Project Guides'
+    ProjectGuides: 'Project Guides',
+    Glossary: 'Glossary'
 }

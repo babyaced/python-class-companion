@@ -1,0 +1,99 @@
+# Comments
+
+Throughout the code examples in this course, you may have noticed lines that start with the `#` symbol. These are called **comments**.
+
+```python
+# This is a comment in Python
+print("Hello, World!")
+```
+
+Comments are used to add explanations or notes to your code. They are ignored by the Python interpreter, which means they do not affect how the program runs.
+
+Comments are included in these code examples for instructional purposes. However, in general, you should not get in the habit of writing comments in your code. There are a couple of reasons for this.
+
+## Why You Should Avoid Writing Comments in Your Code
+
+**1. If your code is well-written and self-explanatory, you shouldn't need comments to understand what it does. In fact, comments can sometimes make code harder to read if they are not used properly.**
+
+This an example of code that is not self-explanatory and would require comments to understand:
+```python
+# p is the price of the item
+p = 20
+
+# r is the sales tax rate (7%)
+r = 0.07
+
+# t is the amount of tax
+t = p * r
+
+# f is the final total price
+f = p + t
+
+# print the final total
+print(f)
+```
+
+This is that same code but written in a more self-explanatory way that does not require comments:
+```python
+price = 20
+sales_tax_rate = 0.07
+tax_amount = price * sales_tax_rate
+final_total = price + tax_amount
+print(final_total)
+```
+
+See how the second version is actually more concise and easier to understand without needing comments to explain what each variable represents?
+
+Usually creating clear and self-explanatory code is simply a matter of choosing good variable and function names, and organizing your code in a logical way. This is a much better approach than relying on comments to explain your code.
+
+**2. Comments can become outdated or incorrect if you change your code but forget to update the comments. This can lead to confusion for anyone reading your code later on.**
+
+Imagine that code now is supposed to calculate the final total price after applying a discount, but you forget to update the comments:
+
+```python
+# p is the price of the item
+p = 20
+
+# r is the sales tax rate (7%)
+r = 0.20
+
+# t is the amount of tax
+t = p * r
+
+# f is the final total price
+f = p - t
+
+# print the final total
+print(f)
+```
+
+Now the comments are misleading and incorrect, which can cause confusion for anyone reading the code later on. They might think that the code is either:
+- supposed to calculate the final total price after applying sales tax, but there is a bug in the code where it is actually applying a discount instead
+- supposed to calculate the final total price after applying a discount, but there is a bug in the code where it is actually applying sales tax instead
+
+## When Comments Can Be Useful
+
+However, there are a few edge cases where comments can be helpful:
+
+**1. To explain why you are doing something in a certain way or making a specific decision, especially if it's not immediately obvious from the code itself.**
+
+```python
+age = 16
+
+# Add 1 because the form asks for the age the student will turn this year
+age = age + 1
+
+print(age)
+```
+
+Here we are using a comment to explain a choice that seems a bit odd (adding 1 to the age) that might not be immediately obvious to someone reading the code. This can help prevent confusion and make it clear why we are doing something in a certain way.
+
+**2. To temporarily disable a line of code while testing or debugging (this is called "commenting out" code). However this should be done only for short-term testing and should not be left in your final code.**
+
+```python
+# This line of code is commented out and will not run
+# print("This line is commented out and will not be executed")
+print("This line will be executed")
+```
+
+If you do need to use comments, make sure you have a plan to keep them up to date and ensure they add value to your code rather than just cluttering it.

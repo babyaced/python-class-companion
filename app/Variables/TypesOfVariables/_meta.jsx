@@ -1,6 +1,6 @@
 export default{
-    Strings: 'Strings',
     NumericTypes: 'Numeric Types',
+    Strings: 'Strings',
     Booleans: 'Booleans',
-    DataStructures: 'Data Structures',
+    DataStructures: 'What are Data Structures?',
 }
