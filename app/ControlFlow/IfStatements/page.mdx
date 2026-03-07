@@ -2,70 +2,68 @@ import { GlossaryTerm } from '../../../components/GlossaryTerm'
 
 # `if` Statements
 
-The `if` statement is the most basic method for controlling the flow of a program. It allows you to execute a block of code only *if* a certain condition is true.
+In this section you'll learn how to run a block of code only when a **condition** is true. You do that with `if`, and optionally `else` and `elif`. The condition is an expression that's either true or false (e.g. `age >= 13`); you'll see more ways to write conditions on the Comparison Operators and Logical Operators pages.
 
-For example, for a movie recommendation program, we might want to suggest different movies based on the user's age.
+## Running code when a condition is true
 
-**If** the user is under 13 years old, we would recommend family-friendly movies.
-**If** the user is 13 years or older, we could recommend a wider range of movies, including those with more mature themes.
+Sometimes you want the program to do one set of steps in one situation and a different set in another. For example: in a movie app, recommend family-friendly movies when the user is under 13, and a wider range when they're 13 or older.
 
-To implement something like this in Python, we can actually use that same word "if"
+In Python you use the keyword `if`, then a condition, then a colon. The code that runs when the condition is true is indented underneath.
 
 ```python
 age = 15
 
 if age < 13:
-    #recommend family-friendly movies
+    # recommend family-friendly movies
 if age >= 13:
-    #recommend a wider range of movies
+    # recommend a wider range of movies
 ```
 
-In this example, the program checks the value of the `age` <GlossaryTerm>variable</GlossaryTerm> and executes different blocks of code based on the conditions specified in the `if` statements.
+The program checks the value of the `age` <GlossaryTerm>variable</GlossaryTerm>. If `age < 13` is true, it runs the first block. If `age >= 13` is true, it runs the second block. Here, age is 15, so the first block is skipped and the second runs.
 
-Because the age is 15, the program would skip the first block and execute the second block to recommend a wider range of movies.
+We can make this clearer and avoid checking the same idea twice by using `else`.
 
-This is a simple example, but we can actually make it simpler using another control flow statement called `else`.
+## `else`: when the condition is false
 
-## If-Else statements
+`else` means "do this when the `if` condition was false." You don't write a new condition after `else`—you're just saying "otherwise, run this block."
 
-An "if-else" statement allows us to specify an alternative block of code to execute when the condition in the `if` statement is not met.
-This means we don't have to write if statements for every possible condition if we don't need to.
-
-In this movie recommendation example, we don't really need to check if the age is 13 or older, because if the first condition is false (the user is not under 13), we already know the user must be 13 or older!
-
-So we can simplify our code like this:
+In the movie example, if the user is not under 13, they must be 13 or older. So we only need to check once:
 
 ```python
 age = 15
 if age < 13:
-    #recommend family-friendly movies
+    # recommend family-friendly movies
 else:
-    #recommend a wider range of movies
+    # recommend a wider range of movies
 ```
 
-In this example, if the user is under 13, the program will recommend family-friendly movies.
-**Else**, it will recommend a wider range of movies.
+If `age < 13` is true, we run the first block. Otherwise we run the `else` block. One check, two outcomes.
 
-If you had more than two conditions to check, say you wanted to recommend different movies for users under 13, users between 13 and 17, and users 18 and older, you could use `elif` statements.
+## `elif`: more than two cases
+
+When you have three or more cases, use `elif` (short for "else if"). Python checks the `if` first, then each `elif` in order, then `else` if nothing was true. As soon as one condition is true, it runs that block and skips the rest.
+
+Example: different recommendations for under 13, 13–17, and 18+:
 
 ```python
 age = 15
 if age < 13:
-    #recommend family-friendly movies
-elif age >= 13 and age < 18:
-    #recommend teen movies
+    # recommend family-friendly movies
+elif age < 18:
+    # recommend teen movies
 else:
-    #recommend adult movies
+    # recommend adult movies
 ```
 
-In this example, the program checks the age and recommends different types of movies based on the specified age ranges.
-The `elif` statement stands for "else if", meaning it only gets checked if the previous `if` condition was false.
+We check `age < 13` first. If that's false, we know the person is 13 or older, so `elif age < 18` correctly catches 13–17. Everyone else (18+) hits the `else`. The order of the conditions does the work.
 
-Be careful not to use `if` and `elif` statements interchangeably. 
-An `if` statement always checks its condition, regardless of whether previous conditions were true or false.
-An `elif` statement only checks its condition if all previous `if` and `elif` conditions were false.
+**Remember:** `elif` is only checked when the previous `if` (and any earlier `elif`) was false. So you're choosing exactly one branch.
 
-Consider this new example:
+## `if` vs `elif`: when to use which
+
+An `if` always runs its check. An `elif` only runs its check when all the conditions above it were false. So you can't always swap them.
+
+Example: we want to congratulate a student for perfect attendance **and** for being on the honor roll. If we use `elif` for the second message, only one message prints:
 
 ```python
 student_has_perfect_attendance = True
@@ -76,14 +74,11 @@ if student_has_perfect_attendance:
 elif student_on_honor_roll:
     print("Congrats on making the honor roll!")
 
-# Output:
-# Congrats on perfect attendance!
-# (Honor roll message is skipped because elif only runs if the first condition was False.)
+# Output: Congrats on perfect attendance!
+# (Honor roll message is skipped—elif only runs when the first condition was false.)
 ```
 
-In this example, even though the student is also on the honor roll, the program only prints the message for perfect attendance because the `elif` condition is not checked since the first `if` condition was true.
-
-To correct this we'd want to use two separate `if` statements instead:
+Because the first condition is true, Python runs that block and skips the `elif`. To print both messages when both are true, use two separate `if` statements:
 
 ```python
 student_has_perfect_attendance = True
@@ -99,11 +94,8 @@ if student_on_honor_roll:
 # Congrats on making the honor roll!
 ```
 
-Now the first if statement checks for perfect attendance and the second if statement checks for honor roll status independently, allowing both messages to be printed.
+Each `if` is checked on its own, so both blocks can run.
 
 ## Summary
 
-We learned that control flow allows us to control the order in which our code executes based on conditions.
-We covered `if`, `elif`, and `else` statements to create conditional logic in our programs.
-
-In the next lesson, we'll explore more advanced control flow concepts like loops, which allow us to control how many times a block of code runs!
+You use `if` to run code only when a condition is true. Use `else` for "otherwise," and `elif` when you have several cases and want to pick one. The condition is an expression that's true or false. On the **Comparison Operators** and **Logical Operators** pages you'll see all the ways to write and combine conditions. Later you'll use the same ideas in **loops**, which run a block of code multiple times.

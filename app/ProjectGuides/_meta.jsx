@@ -1,5 +1,9 @@
-export default{
+export default {
     EnvironmentalTracker: "Project 1: Environmental Tracker",
-    DataExplorer: "Project 2: Data Explorer",
+    GradeTracker: "Project 2: Grade Tracker",
+    DataExplorer: {
+        title: "Data Explorer",
+        display: "hidden"
+    },
     GenerativeArt: "Project 3: Generative Art"
 }
