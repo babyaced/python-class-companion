@@ -1,4 +1,16 @@
 /* globals.css */
+
+/* GlossaryTerm tooltip */
+.glossary-tooltip {
+  background-color: var(--x-color-neutral-50, #fafafa);
+  border: 1px solid var(--x-color-neutral-200, #e5e5e5);
+  color: var(--x-color-neutral-900, #111111);
+}
+html.dark .glossary-tooltip {
+  background-color: var(--x-color-neutral-800, #1a1a1a);
+  border: 1px solid var(--x-color-neutral-700, #333333);
+  color: var(--x-color-neutral-50, #fafafa);
+}
 :root {  /* light */
     --nextra-primary-hue: 240 !important; 
     --nextra-primary-saturation: 42% !important; 

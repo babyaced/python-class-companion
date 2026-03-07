@@ -1,34 +1,33 @@
-import {Callout} from 'nextra/components'
+import { Callout } from 'nextra/components'
+import { GlossaryTerm } from '../../../components/GlossaryTerm'
 
-# loops
+# Loops
 
-In the previous lesson, we learned about conditional statements using `if`, `elif`, and `else` to control whether certain blocks of code run at all.
+In this section you'll learn about **loops**—how to run a block of code multiple times. You'll use two types: `while` loops (run while a condition is true) and `for` loops (run once for each item in a sequence).
 
-Another aspect of control flow is controlling *how many times* a block of code runs. This is where **loops** come in!
+In the previous lesson we used `if`, `elif`, and `else` to control *whether* a block of code runs. Loops control *how many times* it runs.
 
 ## What are loops?
 
-Loops are used to repeat a block of code multiple times until a certain condition is met.
-
-There are two main types of loops in Python: `while` loops and `for` loops.
+A loop repeats a block of code. Sometimes you repeat until a condition becomes false; sometimes you repeat once for each item in a list or range. Python has two main kinds of loops: `while` and `for`.
 
 ## While loops
 
-A `while` loop repeats a block of code as long as a certain condition is true.
+A `while` loop runs its block of code over and over **as long as** a condition is true. When the condition is false, the loop stops and the program continues after it.
 
-Here's an example of a `while` loop that prints numbers from 1 to 5:
+Here's a `while` loop that prints the numbers 1 through 5:
 
 ```python
-number_of_iterations = 1
-while number_of_iterations <= 5:
-    print(number_of_iterations)
-    number_of_iterations += 1  # Increment number_of_iterations by 1
+count = 1
+while count <= 5:
+    print(count)
+    count += 1  # Add 1 to count so we eventually reach 6 and stop
 ```
 
-In this example, the loop continues to run as long as `number_of_iterations` is less than or equal to 5. Inside the loop, we print the value of `i` and then increment `i` by 1.
+The loop runs as long as `count` is less than or equal to 5. Each time through, we print the current value of the <GlossaryTerm>variable</GlossaryTerm> `count`, then add 1 to it. When `count` becomes 6, the condition is false and the loop ends.
 
-<Callout type="note" title="Vocab - Iteration">
-    In programming, each time a loop runs through its block of code is called an **iteration**.
+<Callout type="note" title="Vocab — iteration">
+Each time a loop runs through its block of code is called one **iteration**. So this loop does 5 iterations.
 </Callout>
 
 When you run this code, it will output:
@@ -43,18 +42,18 @@ When you run this code, it will output:
 
 ## For loops
 
-A `for` loop lets you repeat a block of code for each item in a sequence (like a list or a range of numbers).
+A `for` loop runs a block of code **once for each item** in a sequence—for example, each number in a range or each item in a list. You don't have to manage a counter or check a condition yourself; the loop does that for you.
 
-Here's an example of a `for` loop that prints the numbers from 1 to 5:
+Here's a `for` loop that prints the numbers 1 through 5 using the `range()` <GlossaryTerm term="function">function</GlossaryTerm>:
 
 ```python
-for number_of_iterations in range(1, 6):
-    print(number_of_iterations) # Code you want to repeat
+for i in range(1, 6):
+    print(i)
 ```
 
-The range() function generates a sequence of numbers from 1 to 5 and the loop **iterates** over each number, assigning it to the variable `i` and executing the indented block of code (printing `i`) for each number.
+The `range(1, 6)` function gives you a sequence of numbers from 1 up to (but not including) 6, so 1, 2, 3, 4, 5. The loop **iterates** over that sequence: each time through, it assigns the next number to the variable `i` and runs the indented code. So we get the same output as the `while` example, but without writing a condition or incrementing a counter—the `for` loop handles it.
 
-When you run this code, it will output:
+When you run this code, the output is:
 
 ```
 1
@@ -64,9 +63,7 @@ When you run this code, it will output:
 5
 ```
 
-Notice how we got the same output as the `while` loop example, but we never needed to manually increment `number_of_iterations` or check the condition ourselves. The `for` loop handles that for us!
-
-In other programming languages, `for` loops often use a different **syntax** that demonstrates this more clearly, but in Python, the `for` loop is designed to be simple and easy to read.
+You'll use `for` loops a lot when you have a list (or any sequence) and want to do something with each item. In Python, the `for` loop is designed to be simple and readable; other languages often use different <GlossaryTerm>syntax</GlossaryTerm> for the same idea.
 
 
 

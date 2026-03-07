@@ -1,17 +1,19 @@
+import { GlossaryTerm } from '../../../components/GlossaryTerm'
+
 # Handling Files in Python
 
 When creating Python programs, you may want to read from or write to files on your computer. Python provides built-in functions to handle file operations easily.
 
 ## Opening a File
 
-To work with a file, you first need to open it using the `open()` function. 
+To work with a file, you first need to open it using the `open()` <GlossaryTerm>function</GlossaryTerm>. 
 This function takes two arguments: the file name (or path) and the mode in which you want to open the file (e.g., read, write, append).
 
 ```python
 my_file = open("example.txt", "r")  # Opens the file in read mode
 ```
 
-In this example, we opened a file named `example.txt` and stored a representation of it in the variable `my_file`. 
+In this example, we opened a file named `example.txt` and stored a representation of it in the <GlossaryTerm>variable</GlossaryTerm> `my_file`. 
 The file is opened in read mode (`"r"`).
 
 Let's talk a little bit more about the different modes you can use when opening a file:
@@ -45,7 +47,7 @@ for line in lines:
 ```
 
 ## Writing to a File
-To write to a file, you need to open it in write (`"w"`) or append (`"a"`) mode. You can use the `write()` method to add content to the file.
+To write to a file, you need to open it in write (`"w"`) or append (`"a"`) mode. You can use the `write()` <GlossaryTerm>method</GlossaryTerm> to add content to the file.
 
 ```python
 my_file = open("example.txt", "w")  # Opens the file in write mode

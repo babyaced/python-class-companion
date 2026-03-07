@@ -1,3 +1,5 @@
+import { GlossaryTerm } from '../../../components/GlossaryTerm'
+
 # `if` Statements
 
 The `if` statement is the most basic method for controlling the flow of a program. It allows you to execute a block of code only *if* a certain condition is true.
@@ -18,7 +20,7 @@ if age >= 13:
     #recommend a wider range of movies
 ```
 
-In this example, the program checks the value of the `age` variable and executes different blocks of code based on the conditions specified in the `if` statements.
+In this example, the program checks the value of the `age` <GlossaryTerm>variable</GlossaryTerm> and executes different blocks of code based on the conditions specified in the `if` statements.
 
 Because the age is 15, the program would skip the first block and execute the second block to recommend a wider range of movies.
 
@@ -59,7 +61,7 @@ else:
 In this example, the program checks the age and recommends different types of movies based on the specified age ranges.
 The `elif` statement stands for "else if", meaning it only gets checked if the previous `if` condition was false.
 
-Be careful not to use `if` and `elif` statements interchangably. 
+Be careful not to use `if` and `elif` statements interchangeably. 
 An `if` statement always checks its condition, regardless of whether previous conditions were true or false.
 An `elif` statement only checks its condition if all previous `if` and `elif` conditions were false.
 

@@ -1,73 +1,79 @@
-import {Callout} from 'nextra/components';
+import { Callout } from 'nextra/components'
+import { GlossaryTerm } from '../../../components/GlossaryTerm'
 
 # Logical Operators
 
-Logical operators are used to combine multiple conditions in a single expression. They allow you to create more complex conditions by using the following operators:
-- `and`: Returns `True` if both conditions are true.
-- `or`: Returns `True` if at least one of the conditions is true.
-- `not`: Returns `True` if the condition is false
+In this section you'll learn **logical operators**—they let you combine two or more conditions into one. You've already used comparison operators to build a single condition (e.g. `age >= 18`). Logical operators are how you say "this condition **and** that condition" or "this condition **or** that condition" or "**not** this condition."
 
-## `and` Operator
+The three logical operators in Python:
 
-The `and` operator is used to check if multiple conditions are all true.
-Here's an example:
+- **`and`** — True only when both conditions are true.
+- **`or`** — True when at least one condition is true.
+- **`not`** — Flips the result: true becomes false, false becomes true.
+
+## The `and` operator
+
+Use `and` when you need **both** conditions to be true. If either one is false, the whole expression is false.
 
 ```python
 age = 20
 has_id = True
+
 if age >= 18 and has_id:
     print("You can enter the club!")
 else:
     print("Sorry, you cannot enter the club.")
 ```
 
-In this example, the person can only enter the club if they are 18 or older and have an ID. Both conditions must be true for the message "You can enter the club!" to be printed.
+The person can enter only if they are 18 or older **and** they have an ID. Both must be true.
 
-## `or` Operator
-The `or` operator is used to check if at least one of multiple conditions is true.
-Here's an example:
+## The `or` operator
+
+Use `or` when **at least one** of the conditions can be true. If either one is true, the whole expression is true.
 
 ```python
 day = "Saturday"
+
 if day == "Saturday" or day == "Sunday":
     print("It's the weekend!")
 else:
     print("It's a weekday.")
 ```
-In this example, the message "It's the weekend!" will be printed if the day is either Saturday or Sunday. Only one of the conditions needs to be true for the message to be printed.
 
-## `not` Operator
-The `not` operator is used to reverse the truth value of a condition.
-Here's an example:
+If the day is Saturday or Sunday, we print the weekend message. Only one of the conditions has to be true.
+
+## The `not` operator
+
+Use `not` to flip a condition: if it was true, `not` makes it false, and vice versa.
+
 ```python
 is_raining = False
+
 if not is_raining:
     print("It's a nice day outside!")
 else:
     print("Don't forget your umbrella!")
 ```
-In this example, the message "It's a nice day outside!" will be printed because `not is_raining` evaluates to `True` since `is_raining` is `False`. If `is_raining` were `True`, the message "Don't forget your umbrella!" would be printed instead.
 
+Here, `is_raining` is `False`. So `not is_raining` is `True`, and we print "It's a nice day outside!" If `is_raining` were `True`, we'd print the umbrella message instead.
 
-## Combining Logical Operators
-You can also combine multiple logical operators in a single expression to create more complex conditions.
-Here's an example:
+## Combining logical operators
+
+You can use more than one logical operator in a single condition. Parentheses help make the order clear.
+
 ```python
 age = 25
 has_id = True
 is_member = False
+
 if (age >= 18 and has_id) or is_member:
     print("You can enter the club!")
 else:
     print("Sorry, you cannot enter the club.")
 ```
-In this example, the person can enter the club if they are 18 or older and have an ID, or if they are a member. The `or` operator allows for either condition to be true for the message "You can enter the club!" to be printed.
 
-<Callout type="info">
-Logical operators are evaluated in the following order: `not`, `and`, `or`. Notice how we used parentheses in the example above to emphasize the order of evaluation and make our code more readable.
+You can enter if (you're 18+ and have an ID) **or** if you're a member. The parentheses show that we check "18+ and has ID" first, then we allow members with the `or`.
+
+<Callout type="info" title="Order of evaluation">
+Python evaluates logical operators in this order: `not` first, then `and`, then `or`. Using parentheses (as in the example above) makes your intent clear and helps you avoid mistakes.
 </Callout>
-
-
-
-
-

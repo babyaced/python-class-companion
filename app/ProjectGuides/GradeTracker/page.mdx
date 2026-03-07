@@ -1,0 +1,93 @@
+# Project 2: Grade Tracker
+
+You'll build a program that stores grades in a list, computes stats (average, highest, lowest), and later saves and loads grades from a file. The project is split into three phases that match the topics you learn each day.
+
+**Data shape:** One list of numbers—e.g. `grades = [85, 92, 78, 88]`. No 2D lists, no parallel lists. You already know variables, `input()`, `print()`, integers, and floats; this project focuses on **lists**, **loops**, **conditionals**, and **file I/O**.
+
+---
+
+## Phase 1 (Day 1): Lists and Loops
+
+**Learning focus:** Create a list, loop through the list to display and to compute a sum. No conditionals or `while` loops yet—just a **for** loop over a list.
+
+**Tasks:**
+
+1. **Create a list of grades**  
+   Start with a **static list**—a few grades you write directly in code, e.g. `grades = [85, 92, 78, 88]`. This is your list to work with for the rest of the tasks.
+
+2. **Display all grades**  
+   Write a **for** loop that prints each grade in the list (one per line or on one line).
+
+3. **Calculate the sum**  
+   Use a **for** loop to add up all the grades into a variable. Print the sum.
+
+4. **Calculate the average**  
+   Average = sum ÷ number of grades. Use the sum from the previous step and `len(grades)` to compute and print the average.
+
+**Topics covered:** [Lists](../../Variables/TypesOfVariables/DataStructures/Lists), [Loops](../../ControlFlow/Loops)
+
+**End of Day 1:** You have a program with a list of grades that prints them and shows the sum and average. No file yet, no conditionals.
+
+**Challenge (optional):** Instead of a static list, add grades using a loop. For example: use a **for** loop that runs 5 times and asks for a grade with `input()` each time, appending the result to the list (convert to float). Or, if you've seen **while** loops: keep asking for grades until the user enters `-1` or `"done"`, then append each one to the list.
+
+---
+
+## Phase 2 (Day 2): Conditionals
+
+**Learning focus:** Use `if` / `elif` / `else` to make decisions based on the grades.
+
+**Tasks:**
+
+1. **Find the highest grade**  
+   Loop through the list and keep track of the largest grade so far. Use a variable (e.g. `highest`) and an `if` inside the loop: if the current grade is greater than `highest`, update `highest`. Print the result.
+
+2. **Find the lowest grade**  
+   Same idea as highest, but track the smallest grade. Print the result.
+
+3. **Message based on average**  
+   After computing the average, use conditionals to print a message, for example:
+   - If average ≥ 90: "Great job!"
+   - Else if average ≥ 70: "You're on track."
+   - Else: "Let's work on bringing this up."
+
+4. **Optional: List grades below a threshold**  
+   Loop through the list and print only the grades that are below 70 (or another number you choose). This practices "filtering" with an `if` inside a loop.
+
+**Topics covered:** [If statements](../../ControlFlow/IfStatements), [Loops](../../ControlFlow/Loops)
+
+**End of Day 2:** Your program shows highest, lowest, a message from the average, and optionally which grades need work. Still no file.
+
+---
+
+## Phase 3 (Day 3): File I/O
+
+**Learning focus:** Save the grades list to a file and load it back so data persists between runs.
+
+**Before you start:** Create a file named `grades.txt` in the same folder as your program. You can leave it empty, or put a few grades in it (one number per line). That way the file exists when your program runs—no error handling needed for this project.
+
+**Tasks:**
+
+1. **Save grades to a file**  
+   Write a function (or a block of code) that opens a file for writing and writes each grade on its own line. After writing, close the file. Use a simple filename (e.g. `grades.txt`).
+
+2. **Load grades from a file**  
+   Write a function (or a block of code) that opens the file, reads each line, converts each line to a float, and appends it to a list. Return or use that list as your grades list.
+
+3. **Wire it into your program**  
+   When the program starts, load grades from the file. At the end of the program—after you've displayed the stats—save the current list to the file. Now your grade tracker keeps data between runs. (If you did the Phase 1 challenge and have an interactive loop where the user adds grades, you can instead save when the user chooses to quit.)
+
+**Topics covered:** [Handling files](../../InputAndOutput/HandlingFiles)
+
+**End of Day 3:** You have a full grade tracker: load grades from the file, see stats (sum, average, highest, lowest, messages), and save the list back to the file so it persists next time.
+
+---
+
+## Summary
+
+| Day  | Focus           | What you build |
+|------|-----------------|----------------|
+| 1    | Lists + Loops   | List of grades, add/display, sum, average |
+| 2    | Conditionals    | Highest, lowest, message from average, optional filter |
+| 3    | File I/O        | Save and load grades so they persist |
+
+You can add small refinements (e.g. a simple menu: "1) Add grades 2) Show stats 3) Save 4) Quit") if there's time, but the core is lists, loops, conditionals, and file I/O in three digestible phases.

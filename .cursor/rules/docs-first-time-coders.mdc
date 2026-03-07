@@ -1,0 +1,50 @@
+---
+description: Documentation tone and wording for first-time coders (ages 14–17)
+globs: app/**/*.mdx,**/*.mdx
+alwaysApply: false
+---
+
+# Documentation for First-Time Coders (14–17)
+
+When writing or suggesting documentation text, use wording that is clear, encouraging, and appropriate for teens learning to code for the first time.
+
+## Tone and voice
+
+- **Friendly and direct**: Use "you" and "we." Avoid stiff or corporate language.
+- **Encouraging**: It’s okay to say things like "you’ll get the hang of it" or "this is a common pattern."
+- **Concrete**: Prefer short sentences and one idea per sentence. Avoid long, dense paragraphs.
+- **Age-appropriate**: No baby talk; no overly formal or academic jargon. Write like a supportive teacher or mentor.
+
+## Vocabulary
+
+- Prefer **simple, common words** over fancy synonyms (e.g. "use" not "utilize," "get" not "retrieve" when it’s clear).
+- **Define terms** the first time they appear (e.g. "A *variable* is a name that holds a value").
+- **Avoid unexplained jargon**; when you need a technical term, briefly explain it in the same sentence or the next.
+- Use **everyday examples** when possible (e.g. a list of favorite songs, a score in a game).
+- **Reinforce key terms subtly**: When the accurate word is a glossary term (e.g. function, variable, parameter, argument, method), use that word in context instead of a vaguer synonym. Example: say "functions you can call" rather than "actions you can call" when describing methods, so learners see "function" and build the link that methods are functions on an object. Don’t overdo it—use the term where it fits naturally.
+- **Avoid overusing "things"**: Prefer specific words—e.g. "items," "values," "a task," "an object," "code"—instead of "things" or "something" when you can without sounding stiff.
+
+## Structure and clarity
+
+- Start sections with **what** the learner will do or learn, then **why** it matters, then **how**.
+- Use **bullets and short lists** to break up steps or options.
+- Prefer **active voice** ("Python runs your code" instead of "Your code is run by Python").
+- Keep **paragraphs short** (2–4 sentences). Use headings to break up longer pages.
+
+## Examples
+
+**Avoid:** "Utilize the assignment operator to bind a value to an identifier."  
+**Prefer:** "Use the `=` sign to give a variable its value."
+
+**Avoid:** "This construct facilitates iteration over the sequence."  
+**Prefer:** "A loop lets you go through each item in a list one by one."
+
+**Avoid:** "Invoke the function with the appropriate arguments."  
+**Prefer:** "Call the function and pass in the values it needs."
+
+## What to avoid
+
+- Slang that might date quickly or confuse (unless you’re intentionally teaching a term).
+- Talking down ("As you might guess…") or sounding impatient.
+- Long blocks of text without examples or headings.
+- Assuming prior programming knowledge; explain enough context for a true beginner.
