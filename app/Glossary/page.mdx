@@ -1,18 +1,73 @@
-*Keyword*: A word reserved by a programming language that has a special meaning and cannot be used as an identifier (ie. variable name, function name, etc.). Examples include `if`, `else`, `while`, `for`, `def`, `class`, etc.
+Use this page to look up terms you see in the lessons. If something sounds unfamiliar, check here for a quick definition.
 
-*Identifier*: A name used to identify a variable, function, class, or other user-defined item in a programming language. Identifiers must follow specific rules (such as starting with a letter or underscore and not containing spaces) and cannot be the same as keywords.
+## Keyword
 
-*Variable*: A named storage location in a program that holds a value. Variables can be assigned different values throughout the execution of a program.
+A word that Python reserves for its own use. You can't use it as a variable name, function name, or the like. Examples: `if`, `else`, `while`, `for`, `def`, `class`.
 
-*Function*: A reusable block of code that performs a specific task. Functions can take input parameters and return output values.
+## Identifier
 
-*Class*: A blueprint for creating objects in object-oriented programming. A class defines the properties (attributes) and behaviors (methods) that the objects created from the class will have.
+The name you give to something in your code—a variable, function, or class. It has to follow rules (e.g. start with a letter or underscore, no spaces) and can't be the same as a keyword.
 
-*Object*: An instance of a class that contains data and can perform actions defined by the class's methods. "Object" is a more general term that can refer to any entity in programming.
+## Variable
 
-*Instance*: A specific object created from a class. Each instance can have its own unique values for the properties defined in the class. We usually use the term "instance" to refer to an object when we want to emphasize that it is a specific occurrence of a class. 
+A name that holds a value. You can change that value as your program runs. For example, `score = 0` creates a variable called `score` and gives it the value `0`.
 
-*Attribute*: A variable that belongs to an object or class. Attributes hold data that describes the object or class.
+## Function
 
-*Method*[#]: A function that belongs to an object or class.
+A reusable block of code that performs a specific task. Functions can take input <GlossaryTerm>parameters</GlossaryTerm> and <GlossaryTerm>return</GlossaryTerm> output values.
 
+## Class
+
+A blueprint for building objects. It describes what data those objects hold (attributes) and what they can do (methods). You'll use classes when you get into more advanced Python.
+
+## Object
+
+A value in your program that has data and can perform actions (methods). Often an object is created from a class; "object" is the general word for one of those.
+
+## Instance
+
+A specific object created from a class. Each instance can have its own unique values for the properties defined in the class. We usually use the term "instance" to refer to an object when we want to emphasize that it is a specific occurrence of a class.
+
+## Attribute
+
+A variable that belongs to an object or class. Attributes hold data that describes the object or class.
+
+## Method
+
+A function that belongs to an object or class.
+
+## Mutable
+
+Something you can change after you create it. In Python, lists and dictionaries are mutable—you can add, remove, or change items.
+
+## Immutable
+
+Something that can't be changed after you create it. In Python, strings and integers are immutable. If you "change" a string, you're really creating a new one.
+
+## Syntax
+
+The rules for how you write code so Python can read it. Miss a colon or a parenthesis? That's a syntax error.
+
+## Semantics
+
+What your code *does*—its meaning and behavior. If the syntax is correct but the program behaves the wrong way, that's a semantics (logic) issue.
+
+## Execute
+
+To run your code so it actually does what you wrote. When you run a Python program, the interpreter reads your code line by line and executes it.
+
+## Parameter
+A <GlossaryTerm>variable</GlossaryTerm> that is used in a <GlossaryTerm>function</GlossaryTerm> definition to represent the input that the function will receive when it is called. Parameters are placeholders for the actual values (<GlossaryTerm>arguments</GlossaryTerm>) that will be passed to the function.
+
+## Argument
+A value that is passed to a <GlossaryTerm>function</GlossaryTerm> when it is called. Arguments are the actual values that correspond to the parameters defined in the function. 
+
+
+## Return
+To give back a value from a <GlossaryTerm>function</GlossaryTerm> after it has completed its task. A function can use the `return` statement to specify the value that should be returned to the caller.
+
+## Return Value
+The value that a <GlossaryTerm>function</GlossaryTerm> gives back after it has completed its task. This value can be used in other parts of the program.
+
+## Pass
+To give a value to a <GlossaryTerm>parameter</GlossaryTerm> when a <GlossaryTerm>function</GlossaryTerm> is called. For example, when you call `greet_user("Alice")`, the argument `"Alice"` is *passed* to the `name` parameter.

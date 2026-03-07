@@ -1,14 +1,15 @@
-import {Callout} from 'nextra/components'
+import { Callout } from 'nextra/components'
+import { GlossaryTerm } from '../../../../../components/GlossaryTerm'
 
 # Lists
 
-Lists are ordered collections of items.
+A list is a way to store multiple items in order—like a playlist of songs, a to-do list, or a row of lockers. You can add, change, and remove items, and each item has a position (called an index).
 
-Items in a list can be of any data type, including numbers, strings, and even other data structures like lists.
+Items in a list can be numbers, strings, booleans, or even other lists. Most of the time you'll use one type (e.g. all strings), but Python allows a mix if you need it.
 
 ## Creating a List
 
-You can create a list by placing items inside square brackets `[]`, separated by commas.
+You create a list by putting items inside square brackets `[]`, with commas between them.
 
 ```python
 # Creating a list of integers
@@ -19,17 +20,25 @@ fruits = ["apple", "banana", "cherry"]
 mixed = [1, "apple", 3.14, True]
 ```
 
-In the example above, you may have noticed that the list stored in the variable `mixed` contained items of different data types. 
-Usually lists contain items of the same data type, but Python allows for mixed data types as well.
+The `mixed` list shows that you can mix types in one list. In practice, you'll usually keep a list to one type (all strings, or all numbers) so your code is easier to work with.
+
+### Creating an Empty List
+
+You can create an empty list by using square brackets `[]` without any items inside.
+
+```python
+empty_list = []
+```
+
+This is useful when you don't know what items you'll need to store in the list yet, or when you want to create a list that you'll fill later.
 
 ## Accessing List Items
 
-You can access items in a list by using the index of the item you want to access.
+You get an item from a list by using its position, or **index**. Use the list name followed by square brackets and the index: `list_name[index]`.
 
-<Callout type="info">
-Be aware that the first item in a list has an index of `0`, the second item has an index of `1`, and so on.
+<Callout type="info" title="Indexing starts at 0">
+The first item has index `0`, the second has index `1`, and so on. That can feel odd at first—you'll get used to it!
 </Callout>
-To access an item in a list, you can use square brackets `[]` with the index of the item you want to access inside the brackets.
 
 ```python
 fruits = ["apple", "banana", "cherry"]
@@ -38,7 +47,7 @@ print(fruits[1])  # Output: banana
 print(fruits[2])  # Output: cherry
 ```
 
-You can also use negative indexing to access items from the end of the list. The last item has an index of `-1`, the second last item has an index of `-2`, and so on.
+You can also use **negative indexes** to count from the end: `-1` is the last item, `-2` is the second-to-last, and so on.
 
 ```python
 fruits = ["apple", "banana", "cherry"]
@@ -48,7 +57,7 @@ print(fruits[-3])  # Output: apple
 ```
 ## Modifying List Items
 
-You can modify items in a list by accessing them using their index and assigning a new value like you would with a variable.
+You can change an item in a list by picking it with its index and giving it a new value—same idea as assigning to a <GlossaryTerm>variable</GlossaryTerm>.
 
 ```python
 fruits = ["apple", "banana", "cherry"]
@@ -58,49 +67,54 @@ print(fruits)  # Output: ['apple', 'blueberry', 'cherry']
 
 ## List Methods
 
-Lists come with several built-in **methods** that allow you to manipulate and work with them easily. Here are some commonly used list methods:
+Lists come with built-in **methods**—functions you can call to add, remove, or rearrange items. Here are the ones you'll use most:
 
-- `append()`: Adds an item to the end of the list.
-  
+- **`append()`** — Adds an item to the end of the list.
+
   ```python
   fruits = ["apple", "banana"]
   fruits.append("cherry")
   print(fruits)  # Output: ['apple', 'banana', 'cherry']
   ```
 
-- `remove()`: Removes the first occurrence of a specified item from the list.
-  
-  ```python
-    fruits = ["apple", "banana", "cherry"]
-    fruits.remove("banana")
-    print(fruits)  # Output: ['apple', 'cherry']
-    ```
-- `pop()`: Removes and returns the item at the specified index. If no index is specified, it removes and returns the last item.
-    ```python
-    fruits = ["apple", "banana", "cherry"]
-    last_fruit = fruits.pop()
-    print(last_fruit)  # Output: cherry
-    print(fruits)      # Output: ['apple', 'banana']
-    ```
+- **`remove()`** — Removes the first occurrence of that value from the list.
 
-- `insert()`: Inserts an item at a specified index.
-    ```python
-    fruits = ["apple", "banana"]
-    fruits.insert(1, "cherry")  # Inserting "cherry" at index 1
-    print(fruits)  # Output: ['apple', 'cherry', 'banana']
-    ```
-<Callout type="info" title="Note about insert()">
-Notice how the `insert()` method shifts the item currently at that position (if there is one) and any subsequent items to the right.
+  ```python
+  fruits = ["apple", "banana", "cherry"]
+  fruits.remove("banana")
+  print(fruits)  # Output: ['apple', 'cherry']
+  ```
+
+- **`pop()`** — Removes an item and gives it back to you. With no argument, it removes and returns the last item.
+
+  ```python
+  fruits = ["apple", "banana", "cherry"]
+  last_fruit = fruits.pop()
+  print(last_fruit)  # Output: cherry
+  print(fruits)      # Output: ['apple', 'banana']
+  ```
+
+- **`insert()`** — Puts an item at a specific index. Whatever was at that spot (and everything after it) shifts to the right.
+
+  ```python
+  fruits = ["apple", "banana"]
+  fruits.insert(1, "cherry")  # "cherry" goes at index 1
+  print(fruits)  # Output: ['apple', 'cherry', 'banana']
+  ```
+
+<Callout type="info" title="About insert()">
+When you insert at an index, the item that was there (and all items after it) move right to make room.
 </Callout>
 
-- `sort()`: Sorts the items in the list in ascending order.
-    ```python
-    numbers = [3, 1, 4, 2]
-    numbers.sort()
-    print(numbers)  # Output: [1, 2, 3, 4]
-    ```
+- **`sort()`** — Sorts the list in ascending order (smallest to largest, or A to Z for strings).
 
-You can sort by descending order by passing the <u>argument</u> `reverse=True` to the `sort()` method.
+  ```python
+  numbers = [3, 1, 4, 2]
+  numbers.sort()
+  print(numbers)  # Output: [1, 2, 3, 4]
+  ```
+
+To sort in reverse order, pass the <GlossaryTerm term="argument">argument</GlossaryTerm> `reverse=True` to `sort()`.
 
 ```python
 numbers = [3, 1, 4, 2]
@@ -108,13 +122,14 @@ numbers.sort(reverse=True)
 print(numbers)  # Output: [4, 3, 2, 1]
 ```
 
-- `len()`: Returns the number of items in the list.
-    ```python
-    fruits = ["apple", "banana", "cherry"]
-    print(len(fruits))  # Output: 3
-    ```
+- **`len()`** — A built-in function (not a list method) that returns how many items are in the list.
 
-These are just a few of the many methods available for lists in Python. You can explore more methods in the [official Python documentation](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists).
+  ```python
+  fruits = ["apple", "banana", "cherry"]
+  print(len(fruits))  # Output: 3
+  ```
+
+These are the list tools you'll use most often. For more, see the [official Python documentation on lists](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists).
 
 
 

@@ -1,9 +1,13 @@
 # Project 2: Data Explorer
 
+You'll build a program that loads movie data from a file, analyzes it (average rating, highest-rated, filter by genre), and saves the results. This project uses **lists**, **loops**, **functions**, and **file handling** only. You do **not** need dicts, classes, or objects for this project (those are covered later).
+
+**Representing movie data with lists:** Use a list of lists—each movie is a list with a fixed order, e.g. `[title, rating, genre]`. So `movies` might look like: `[["Inception", 8.8, "Sci-Fi"], ["Comedy Movie", 7.5, "Comedy"], ...]`. You'll use index `0` for title, `1` for rating, `2` for genre (e.g. `movie[1]` for the rating).
+
 ## Stage 1: Lists
     - Learning Objective: Get comfortable with creating lists and list elements and accessing and modifying list elements.
     - Tasks:
-        - Create a list of movie titles, ratings, and genres
+        - Create a list of movies, where each movie is a list of [title, rating, genre]
         - Create a function to access and modify elements in the list
         - Create a function to add new movies to the list
     - Topics Covered:
@@ -33,4 +37,4 @@
         - [Handling Files](../../InputAndOutput/HandlingFiles)
         - [Functions](../../Functions)
 
-The final application should load a movie dataset from a file, analyze it using hte functions (calculate average rating, find the highest-rated movie, etc.) and save the results to a new file
+The final application should load a movie dataset from a file, analyze it using the functions (calculate average rating, find the highest-rated movie, etc.) and save the results to a new file

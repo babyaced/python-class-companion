@@ -1,12 +1,13 @@
 import { Callout } from 'nextra/components';
+import { GlossaryTerm } from '../../../../../components/GlossaryTerm'
 
 # Classes and Objects
 
 Objects are a fundamental data structure in Python and programming in general. 
-An object is a collection of related data and functionality.
+An <GlossaryTerm>object</GlossaryTerm> is a collection of related data and functionality.
 In Python, everything is an object, including numbers, strings, lists, and even functions.
 
-Objects are are created using **classes**. You can think of a class as a blueprint for creating objects.
+Objects are are created using **classes**. You can think of a <GlossaryTerm>class</GlossaryTerm> as a blueprint for creating objects.
 A class defines the properties and behaviors that the objects created from it will have.
 
 ## Creating Classes
@@ -27,7 +28,7 @@ You have now defined a class named `Dog` with two **class variables**: `species`
 
 Notice that the dog properties defined in the previous section ,`species` and `number_of_legs`, are the same for all dogs.
 
-They make good candidates to be **class variables** because **class variables** are shared across all instances of a class.
+They make good candidates to be **class variables** because **class variables** are shared across all <GlossaryTerm term="instance">instances</GlossaryTerm> of a class.
 
 AKA every dog will all have the same `species` and `number_of_legs`.
 
@@ -39,13 +40,13 @@ Basically, you can create a new "Dog" with the species ("Canis familiaris") and 
 my_dog = Dog()
 ```
 
-The my_dog variable now represents a specific dog object with the species "Canis familiaris" and number of legs 4.
+The my_dog <GlossaryTerm>variable</GlossaryTerm> now represents a specific dog object with the species "Canis familiaris" and number of legs 4.
 
 We can create as many objects as we want to using this class. 
 
 ## Object Methods
 
-You can define functions (methods) inside a class to represent behaviors of the object.
+You can define functions (<GlossaryTerm term="method">methods</GlossaryTerm>) inside a class to represent behaviors of the object.
 **Methods** are defined just like regular functions, but they are indented inside the class definition.
 
 Here's an example of adding a method to the `Dog` class:
