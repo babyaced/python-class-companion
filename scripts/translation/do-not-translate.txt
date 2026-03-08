@@ -1,0 +1,28 @@
+# Do-not-translate list for EN → ZH (Chinese)
+# Use with DeepL glossary: same term in source and target = keep as-is in output.
+# One term per line; lines starting with # are comments.
+
+# Brands & products
+CodeSandbox
+Mission Bit
+Python
+CheckiO
+Codingame
+PyBites
+Real Python
+HAMY LABS
+Pillow
+
+# People
+Guido van Rossum
+
+# File names & identifiers (keep in code form)
+main.py
+
+# Technical terms often kept in English in Chinese tech docs
+IDE
+f-string
+__init__
+
+# Sites / services
+pythontutor
