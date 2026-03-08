@@ -1,0 +1,28 @@
+# Deploy to Oracle Cloud VM on push to main.
+# Required secrets: DEPLOY_HOST, DEPLOY_USER, SSH_PRIVATE_KEY (and optionally DEPLOY_PATH).
+
+name: Deploy to OCI
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            set -e
+            cd ${{ secrets.DEPLOY_PATH || '/home/ubuntu/python-class-companion' }}
+            git fetch origin && git reset --hard origin/main
+            npm ci
+            npm run build
+            pm2 restart python-class-companion || pm2 start npm --name python-class-companion -- start
+            pm2 save
