@@ -1,0 +1,20 @@
+# What is Input Validation?
+
+Input validation is the process of ensuring that the data entered by the user meets certain criteria before it is processed by the program. 
+This is important to prevent errors and ensure that the program behaves as expected.
+
+## Input Validation Techniques
+There are many ways to validate user input in Python, but one common technique is to use a `while` loop to repeatedly ask the user for input until they provide valid data. 
+
+Here's an example of how to validate that the user enters a positive integer:
+
+```python
+while True: # create an infinite loop
+    user_input = input("Please enter a positive integer: ") # ask the user for input and store it in the variable user_input
+    if user_input.isdigit() and int(user_input) > 0:   # check if the input is a digit and greater than 0
+        print("Thank you for entering a valid positive integer!")
+        break # exit the loop if the input is valid
+    else:
+        print("Invalid input. Please try again.") # tell the user their input was invalid and ask them to try again
+```
+
