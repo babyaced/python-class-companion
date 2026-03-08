@@ -1,5 +1,5 @@
 export default{
+    page: 'What are Variables?',
     TypesOfVariables: 'Types of Variables',
-    TypeConversions: 'Type Conversions',
     VariableScope: 'Variable Scope',
 }

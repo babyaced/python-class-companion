@@ -1,6 +1,7 @@
 export default{
-    NumericTypes: 'Numeric Types',
-    Strings: 'Strings',
-    Booleans: 'Booleans',
-    DataStructures: 'What are Data Structures?',
+    page: 'Variable Types in Python',
+    PrimitiveTypes: 'Primitive/Basic Types',
+    TypeConversions: 'Type Conversions',
+    TypeImportance: 'Why are Variable Types important?',
+    DataStructures: 'Data Structures',
 }
