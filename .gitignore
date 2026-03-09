@@ -1,3 +1,6 @@
 _pagefind
 .next
 node_modules
+
+# Local slide deck (you can remove this line if you want to commit it later)
+slide-deck.md
