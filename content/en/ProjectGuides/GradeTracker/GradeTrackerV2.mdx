@@ -1,0 +1,93 @@
+# Project 2 (v2): Grade Tracker — By Subject
+
+You'll build a **continuation** of the Grade Tracker that stores grades **by subject** in a **list of lists**. Each inner list holds the subject name and that subject's grades. You'll still use lists, loops, conditionals, and file I/O—same topics as the original Grade Tracker, with a 2D data structure.
+
+**Data shape:** One list; each item is a list of the form `[subject, grade1, grade2, ...]`. For example: `[["Math", 85, 92, 78], ["Science", 88, 91], ["English", 76, 82, 90]]`. Index `0` of each inner list is the subject (a string); the rest are that subject's grades (numbers).
+
+---
+
+## Phase 1 (Day 1): Lists and Loops
+
+**Learning focus:** Create a list of lists, loop through the outer list and each inner list to display grades and compute sums.
+
+**Tasks:**
+
+1. **Create a list of subjects and grades**  
+   Start with a **static** list of lists, e.g. `grades_by_subject = [["Math", 85, 92, 78], ["Science", 88, 91], ["English", 76, 82]]`. This is your data for the rest of the tasks.
+
+2. **Display all grades by subject**  
+   Use a **for** loop over the outer list. For each inner list, the first element (index `0`) is the subject; the rest (e.g. slice `[1:]`) are grades. Print the subject, then print each grade (or print them on one line).
+
+3. **Calculate the sum for each subject**  
+   Loop over the outer list. For each subject's list, loop over the grades (indices `1` to the end) and add them up. Print each subject and its sum.
+
+4. **Calculate the average for each subject**  
+   For each subject, average = sum of grades ÷ number of grades. Use the sum from the previous step and the length of that subject's grade list (e.g. `len(row) - 1` if row is `[subject, g1, g2, ...]`). Print each subject and its average.
+
+**Topics covered:** [Lists](../../Variables/TypesOfVariables/DataStructures/Lists), [Loops](../../ControlFlow/Loops)
+
+**End of Day 1:** You have a program with a list of lists (subjects and grades) that prints each subject's grades, sum, and average.
+
+**Challenge (optional):** Add a new subject and its grades to the list (e.g. prompt for subject name and a few grades with `input()`), or use a loop to add several grades to one subject.
+
+---
+
+## Phase 2 (Day 2): Conditionals
+
+**Learning focus:** Use `if` / `elif` / `else` to make decisions based on each subject's grades.
+
+**Tasks:**
+
+1. **Find the highest grade in each subject**  
+   For each subject's list, loop through the grades and keep track of the largest. Print the subject and its highest grade.
+
+2. **Find the lowest grade in each subject**  
+   Same idea: for each subject, track the smallest grade and print it.
+
+3. **Message based on each subject's average**  
+   After computing each subject's average, use conditionals to print a message, for example:
+   - If average ≥ 90: "Great job in [subject]!"
+   - Else if average ≥ 70: "[Subject]: on track."
+   - Else: "[Subject]: let's bring this up."
+
+4. **Optional: List grades below a threshold per subject**  
+   For each subject, loop through its grades and print only those below 70 (or a number you choose). Label them by subject so you can see which subject each low grade belongs to.
+
+**Topics covered:** [If statements](../../ControlFlow/IfStatements), [Comparison operators](../../ControlFlow/ComparisonOperators), [Loops](../../ControlFlow/Loops)
+
+**End of Day 2:** Your program shows each subject's highest, lowest, average, and a message; optionally it lists which grades need work, per subject.
+
+---
+
+## Phase 3 (Day 3): File I/O
+
+**Learning focus:** Save the list of lists (subjects and grades) to a file and load it back so data persists between runs.
+
+**Before you start:** Decide a simple file format. One option: each line is one subject, with subject name and grades separated by commas, e.g. `Math,85,92,78` then `Science,88,91`. Create a file (e.g. `grades.txt`) in the same folder as your program; you can leave it empty or put a few lines in that format so the file exists when your program runs.
+
+**Tasks:**
+
+1. **Save grades to a file**  
+   Write a function (or a block of code) that opens a file for writing. Loop over your list of lists; for each inner list, write one line (e.g. subject and all grades joined by commas). Close the file when done.
+
+2. **Load grades from a file**  
+   Write a function (or a block of code) that opens the file, reads each line, and splits the line (e.g. by comma). The first part is the subject; the rest are grades (convert to float). Build a list of lists in the same shape as before and return or use it as your main data.
+
+3. **Wire it into your program**  
+   When the program starts, load the list of lists from the file. At the end—after displaying all stats—save the current list of lists back to the file so your grade tracker by subject persists between runs.
+
+**Topics covered:** [Handling files](../../InputAndOutput/HandlingFiles), [Lists](../../Variables/TypesOfVariables/DataStructures/Lists), [Loops](../../ControlFlow/Loops)
+
+**End of Day 3:** You have a full grade tracker by subject: load from file, show each subject's stats (sum, average, highest, lowest, messages), and save back so data persists.
+
+---
+
+## Summary
+
+| Day  | Focus           | What you build |
+|------|-----------------|----------------|
+| 1    | Lists + Loops   | List of lists (subject + grades), display and sum/average per subject |
+| 2    | Conditionals   | Highest, lowest, message per subject; optional filter per subject |
+| 3    | File I/O        | Save and load the list of lists so it persists |
+
+Same topics as the original Grade Tracker—lists, loops, conditionals, file I/O—with a 2D structure so you practice nested loops and indexing into lists of lists.
