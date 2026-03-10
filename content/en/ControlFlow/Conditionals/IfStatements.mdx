@@ -2,7 +2,7 @@ import { GlossaryTerm } from '@/components/GlossaryTerm'
 
 # `if` Statements
 
-In this section you'll learn how to run a block of code only when a **condition** is true. You do that with `if`, and optionally `else` and `elif`. The condition is an expression that's either true or false (e.g. `age >= 13`); you'll see more ways to write conditions on the Comparison Operators and Logical Operators pages.
+You'll learn how to run a block of code only when a **condition** is true. You do that with `if`, and optionally `else` and `elif`. The condition is an expression that's either true or false (e.g. `age >= 13`). You'll see more ways to write conditions on the Comparison Operators and Logical Operators pages.
 
 ## Running code when a condition is true
 
@@ -19,7 +19,7 @@ if age >= 13:
     # recommend a wider range of movies
 ```
 
-The program checks the value of the `age` <GlossaryTerm term="variable">variable</GlossaryTerm>. If `age < 13` is true, it runs the first block. If `age >= 13` is true, it runs the second block. Here, age is 15, so the first block is skipped and the second runs.
+The program checks the value of the `age` <GlossaryTerm term="variable">variable</GlossaryTerm>. If `age < 13` is true, it runs the first block. If `age >= 13` is true, it runs the second block. Here `age` is 15, so the first block is skipped and the second runs.
 
 We can make this clearer and avoid checking the same idea twice by using `else`.
 
@@ -55,7 +55,7 @@ else:
     # recommend adult movies
 ```
 
-We check `age < 13` first. If that's false, we know the person is 13 or older, so `elif age < 18` correctly catches 13–17. Everyone else (18+) hits the `else`. The order of the conditions does the work.
+Python checks `age < 13` first. If that's false, the person is 13 or older, so `elif age < 18` correctly catches 13–17. Everyone else (18+) hits the `else`. The order of the conditions does the work.
 
 **Remember:** `elif` is only checked when the previous `if` (and any earlier `elif`) was false. So you're choosing exactly one branch.
 
@@ -98,4 +98,6 @@ Each `if` is checked on its own, so both blocks can run.
 
 ## Summary
 
-You use `if` to run code only when a condition is true. Use `else` for "otherwise," and `elif` when you have several cases and want to pick one. The condition is an expression that's true or false. On the **Comparison Operators** and **Logical Operators** pages you'll see all the ways to write and combine conditions. Later you'll use the same ideas in **loops**, which run a block of code multiple times.
+- Use `if` to run code only when a condition is true.
+- Use `else` for "otherwise" and `elif` when you have several cases and want to pick one.
+- The condition is an expression that's true or false. On the **Comparison Operators** and **Logical Operators** pages you'll see how to write and combine conditions. You'll use the same ideas in **loops**, which run a block of code multiple times.

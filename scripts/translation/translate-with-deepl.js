@@ -33,6 +33,24 @@ function getAuthKey() {
   return key
 }
 
+const GLOSSARY_NAME = 'python-companion-en-zh'
+
+/**
+ * List all glossaries. Returns array of { glossary_id, name, ... }.
+ */
+async function listGlossaries(authKey) {
+  const res = await fetch(`${DEEPL_BASE}/v2/glossaries`, {
+    method: 'GET',
+    headers: { Authorization: `DeepL-Auth-Key ${authKey}` },
+  })
+  if (!res.ok) {
+    const err = await res.text()
+    throw new Error(`DeepL list glossaries failed (${res.status}): ${err}`)
+  }
+  const data = await res.json()
+  return data.glossaries || []
+}
+
 /**
  * Create a glossary from the CSV (do-not-translate list). Returns glossary_id.
  */
@@ -42,7 +60,7 @@ async function createGlossary(authKey) {
   const entriesStr = lines.join('\n')
 
   const body = new URLSearchParams({
-    name: 'python-companion-en-zh',
+    name: GLOSSARY_NAME,
     source_lang: 'EN',
     target_lang: 'ZH',
     entries: entriesStr,
@@ -65,6 +83,20 @@ async function createGlossary(authKey) {
 
   const data = await res.json()
   return data.glossary_id
+}
+
+/**
+ * Get existing glossary ID by name, or create one. Reuses existing to avoid "Too many glossaries".
+ */
+async function getOrCreateGlossary(authKey) {
+  const glossaries = await listGlossaries(authKey)
+  const existing = glossaries.find((g) => g.name === GLOSSARY_NAME)
+  if (existing) {
+    console.log('Using existing glossary:', existing.glossary_id)
+    return existing.glossary_id
+  }
+  console.log('Creating new glossary...')
+  return await createGlossary(authKey)
 }
 
 /**
@@ -123,7 +155,39 @@ function splitMdx(content) {
 }
 
 /**
+ * Split prose into leading import/export lines (kept as-is) and the rest (sent to DeepL).
+ * Prevents translation of "import ... from ..." and "export ..." at the top of MDX.
+ */
+function extractLeadingCode(content) {
+  const lines = content.split('\n')
+  let i = 0
+  while (i < lines.length) {
+    const line = lines[i]
+    const trimmed = line.trim()
+    if (trimmed === '' || /^\s*(import|export)\s+/.test(line)) {
+      i++
+      continue
+    }
+    break
+  }
+  const head = lines.slice(0, i).join('\n')
+  const tail = lines.slice(i).join('\n').trimStart()
+  return { head, tail }
+}
+
+/**
+ * Fix common JSX issues in translated MDX (DeepL sometimes drops the ">" on closing tags).
+ */
+function fixTranslatedMdxJsx(content) {
+  return content.replace(
+    /<\/(Callout|GlossaryTerm)(?=[\s\n]|$)/g,
+    '</$1>'
+  )
+}
+
+/**
  * Translate an MDX file: only prose segments go to DeepL; code blocks unchanged.
+ * Leading import/export lines in each prose block are kept as-is (not sent to DeepL).
  */
 async function translateMdxFile(authKey, enPath, glossaryId) {
   const raw = readFileSync(enPath, 'utf-8')
@@ -131,18 +195,25 @@ async function translateMdxFile(authKey, enPath, glossaryId) {
   const proseSegments = segments.filter((s) => s.type === 'prose')
   if (proseSegments.length === 0) return raw
 
-  const proseTexts = proseSegments.map((s) => s.content)
-  const translated = await translateText(authKey, proseTexts, glossaryId)
+  const extracted = proseSegments.map((s) => extractLeadingCode(s.content))
+  const proseTextsToTranslate = extracted.map(({ head, tail }) =>
+    tail === '' ? ' ' : tail
+  )
+  const translated = await translateText(authKey, proseTextsToTranslate, glossaryId)
   const translatedArray = Array.isArray(translated) ? translated : [translated]
 
   let i = 0
-  const result = segments
+  let result = segments
     .map((s) => {
       if (s.type === 'code') return s.content
-      return translatedArray[i++]
+      const { head, tail } = extracted[i]
+      const trans = translatedArray[i++]
+      if (tail === '') return head || (trans === ' ' ? '' : trans)
+      return head ? `${head}\n\n${trans}` : trans
     })
     .join('\n\n')
 
+  result = fixTranslatedMdxJsx(result)
   return result
 }
 
@@ -153,9 +224,9 @@ async function main() {
   const fileArg = args[0]
 
   if (!fileArg) {
-    // Test run: create glossary and translate a sample
-    console.log('Creating glossary from', GLOSSARY_CSV_PATH, '...')
-    const glossaryId = await createGlossary(authKey)
+    // Test run: get or create glossary and translate a sample
+    console.log('Glossary from', GLOSSARY_CSV_PATH, '...')
+    const glossaryId = await getOrCreateGlossary(authKey)
     console.log('Glossary ID:', glossaryId)
 
     const sample = 'In this class, we will be using an online code editor called CodeSandbox.'
@@ -171,8 +242,7 @@ async function main() {
     process.exit(1)
   }
 
-  console.log('Creating glossary...')
-  const glossaryId = await createGlossary(authKey)
+  const glossaryId = await getOrCreateGlossary(authKey)
   console.log('Translating (prose only, code unchanged):', enPath)
   const translated = await translateMdxFile(authKey, enPath, glossaryId)
   const outPath = enPath.replace(/content[/\\]en[/\\]/, 'content/zh/')
