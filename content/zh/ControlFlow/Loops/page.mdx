@@ -1,21 +1,23 @@
 import { Callout } from 'nextra/components'
 import { GlossaryTerm } from '@/components/GlossaryTerm'
 
-# Loops
 
-In this section you'll learn about **loops**—how to run a block of code multiple times. You'll use two types: `while` loops (run while a condition is true) and `for` loops (run once for each item in a sequence).
+# 循环
 
-In the previous lesson we used `if`, `elif`, and `else` to control *whether* a block of code runs. Loops control *how many times* it runs.
+在本节中，您将学习**循环**--如何多次运行一个代码块。您将使用两种类型：while "循环（当条件为真时运行）和 "for "循环（对序列中的每个项目运行一次）。
 
-## What are loops?
+在上一课中，我们使用了 `if`、`elif` 和 `else` 来控制代码块是否运行。循环控制运行的*次数*。
 
-A loop repeats a block of code. Sometimes you repeat until a condition becomes false; sometimes you repeat once for each item in a list or range. Python has two main kinds of loops: `while` and `for`.
+## 循环是什么？
 
-## While loops
+循环重复代码块。有时重复运行直到某个条件变为 false；有时对列表或范围中的每个项目重复运行一次。Python 有两种主要的循环：`while` 和 `for`。
 
-A `while` loop runs its block of code over and over **as long as** a condition is true. When the condition is false, the loop stops and the program continues after it.
+## While 循环
 
-Here's a `while` loop that prints the numbers 1 through 5:
+只要**条件为真，`while`循环就会重复运行代码块。当条件为假时，循环停止，程序继续运行。
+
+下面是一个打印数字 1 到 5 的 `while` 循环：
+
 
 ```python
 count = 1
@@ -24,13 +26,14 @@ while count <= 5:
     count += 1  # Add 1 to count so we eventually reach 6 and stop
 ```
 
-The loop runs as long as `count` is less than or equal to 5. Each time through, we print the current value of the <GlossaryTerm>variable</GlossaryTerm> `count`, then add 1 to it. When `count` becomes 6, the condition is false and the loop ends.
+只要 `count` 小于或等于 5，循环就一直运行。每次运行时，我们都会打印 <GlossaryTerm> 变量 </GlossaryTerm>"count "的当前值，然后加 1。当 `count` 变为 6 时，条件为假，循环结束。
 
-<Callout type="note" title="Vocab — iteration">
-Each time a loop runs through its block of code is called one **iteration**. So this loop does 5 iterations.
+<Callout type="note" title="Vocab - iteration">
+循环每运行一次其代码块就称为一次 **迭代**。因此，这个循环进行了 5 次迭代。
 </Callout>
 
-When you run this code, it will output:
+运行这段代码时，将输出
+
 
 ```
 1
@@ -42,18 +45,20 @@ When you run this code, it will output:
 
 ## For loops
 
-A `for` loop runs a block of code **once for each item** in a sequence—for example, each number in a range or each item in a list. You don't have to manage a counter or check a condition yourself; the loop does that for you.
+For 循环针对序列中的每个项目**运行一次代码块，例如，范围中的每个数字或列表中的每个项目。你不必自己管理计数器或检查条件，循环会为你完成这些工作。
 
-Here's a `for` loop that prints the numbers 1 through 5 using the `range()` <GlossaryTerm term="function">function</GlossaryTerm>:
+下面是一个使用 `range()` <GlossaryTerm term="function">函数</GlossaryTerm>打印数字 1 到 5 的 `for` 循环：
+
 
 ```python
 for i in range(1, 6):
     print(i)
 ```
 
-The `range(1, 6)` function gives you a sequence of numbers from 1 up to (but not including) 6, so 1, 2, 3, 4, 5. The loop **iterates** over that sequence: each time through, it assigns the next number to the variable `i` and runs the indented code. So we get the same output as the `while` example, but without writing a condition or incrementing a counter—the `for` loop handles it.
+range(1,6) "函数给出了一个从 1 到（但不包括）6 的数字序列，即 1、2、3、4、5。循环**遍历该序列：每次遍历都会将下一个数字赋值给变量 `i` 并运行缩进代码。因此，我们得到了与 `while` 示例相同的输出，但不需要编写条件或递增计数器--`for` 循环会处理它。
 
-When you run this code, the output is:
+运行这段代码时，输出结果是
+
 
 ```
 1
@@ -63,11 +68,4 @@ When you run this code, the output is:
 5
 ```
 
-You'll use `for` loops a lot when you have a list (or any sequence) and want to do something with each item. In Python, the `for` loop is designed to be simple and readable; other languages often use different <GlossaryTerm>syntax</GlossaryTerm> for the same idea.
-
-
-
-
-
-
-
+当您有一个 list (或任何序列) 并想对每个条目进行操作时，您会经常使用 `for` 循环。在 Python 中，`for` 循环被设计得简单易读；其他语言通常使用不同的 <GlossaryTerm> 语法</GlossaryTerm> 来表达相同的意思。

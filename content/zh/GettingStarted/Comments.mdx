@@ -1,21 +1,23 @@
-# Comments
+# 评论
 
-Throughout the code examples in this course, you may have noticed lines that start with the `#` symbol. These are called **comments**.
+在本课程的代码示例中，您可能会注意到以 `#` 符号开头的行。这些称为**注释**。
+
 
 ```python
 # This is a comment in Python
 print("Hello, World!")
 ```
 
-Comments are used to add explanations or notes to your code. They are ignored by the Python interpreter, which means they do not affect how the program runs.
+注释用于在代码中添加解释或注解。Python 解释器会忽略它们，这意味着它们不会影响程序的运行。
 
-Comments are included in these code examples for instructional purposes. However, in general, you should not get in the habit of writing comments in your code. There are a couple of reasons for this.
+在这些代码示例中包含注释是为了说明问题。然而，一般来说，您不应该养成在代码中写注释的习惯。这有几个原因。
 
-## Why You Should Avoid Writing Comments in Your Code
+## 为什么要避免在代码中编写注释
 
-**1. If your code is well-written and self-explanatory, you shouldn't need comments to understand what it does. In fact, comments can sometimes make code harder to read if they are not used properly.**
+**1.如果你的代码写得很好，不言自明，你就不需要通过注释来理解它的作用。事实上，如果使用不当，注释有时会让代码更难读**。
 
-This an example of code that is not self-explanatory and would require comments to understand:
+这是一个不言自明、需要注释才能理解的代码示例：
+
 ```python
 # p is the price of the item
 p = 20
@@ -33,7 +35,8 @@ f = p + t
 print(f)
 ```
 
-This is that same code but written in a more self-explanatory way that does not require comments:
+这是相同的代码，但编写方式更简单明了，不需要注释：
+
 ```python
 price = 20
 sales_tax_rate = 0.07
@@ -42,13 +45,14 @@ final_total = price + tax_amount
 print(final_total)
 ```
 
-See how the second version is actually more concise and easier to understand without needing comments to explain what each variable represents?
+你看，第二个版本其实更简洁易懂，不需要注释来解释每个变量代表什么？
 
-Usually creating clear and self-explanatory code is simply a matter of choosing good variable and function names, and organizing your code in a logical way. This is a much better approach than relying on comments to explain your code.
+通常，创建清晰且不言自明的代码只需选择好的变量名和函数名，并以合理的方式组织代码即可。这种方法比依靠注释来解释代码要好得多。
 
-**2. Comments can become outdated or incorrect if you change your code but forget to update the comments. This can lead to confusion for anyone reading your code later on.**
+**2.如果您修改了代码却忘记更新注释，注释就会过时或不正确。这可能会给日后阅读您代码的人带来困惑**。
 
-Imagine that code now is supposed to calculate the final total price after applying a discount, but you forget to update the comments:
+试想一下，现在的代码应该在应用折扣后计算最终总价，但您却忘记更新注释：
+
 
 ```python
 # p is the price of the item
@@ -67,15 +71,16 @@ f = p - t
 print(f)
 ```
 
-Now the comments are misleading and incorrect, which can cause confusion for anyone reading the code later on. They might think that the code is either:
-- supposed to calculate the final total price after applying sales tax, but there is a bug in the code where it is actually applying a discount instead
-- supposed to calculate the final total price after applying a discount, but there is a bug in the code where it is actually applying sales tax instead
+现在的注释具有误导性且不正确，可能会给以后阅读代码的人造成困惑。他们可能会认为代码
+- 本应在应用销售税后计算最终总价，但代码中存在一个错误，实际上是应用了折扣
+- 本应在应用折扣后计算最终总价，但代码中存在一个错误，实际应用的是销售税
 
-## When Comments Can Be Useful
+##当注释有用时
 
-However, there are a few edge cases where comments can be helpful:
+不过，在一些边缘情况下，注释也会有所帮助：
 
-**1. To explain why you are doing something in a certain way or making a specific decision, especially if it's not immediately obvious from the code itself.**
+**1.解释为什么要以某种方式做某事或做出某个特定决定，尤其是在代码本身并不明显的情况下**。
+
 
 ```python
 age = 16
@@ -86,9 +91,10 @@ age = age + 1
 print(age)
 ```
 
-Here we are using a comment to explain a choice that seems a bit odd (adding 1 to the age) that might not be immediately obvious to someone reading the code. This can help prevent confusion and make it clear why we are doing something in a certain way.
+在这里，我们使用注释来解释一个看似有点奇怪的选择（在年龄上加 1），这对于阅读代码的人来说可能不是很明显。这有助于防止混淆，并清楚地说明我们为什么要以某种方式做某些事情。
 
-**2. To temporarily disable a line of code while testing or debugging (this is called "commenting out" code). However this should be done only for short-term testing and should not be left in your final code.**
+**2.在测试或调试时暂时禁用一行代码（称为 "注释 "代码）。不过，这只能用于短期测试，不应留在最终代码中**。
+
 
 ```python
 # This line of code is commented out and will not run
@@ -96,4 +102,4 @@ Here we are using a comment to explain a choice that seems a bit odd (adding 1 t
 print("This line will be executed")
 ```
 
-If you do need to use comments, make sure you have a plan to keep them up to date and ensure they add value to your code rather than just cluttering it.
+如果您确实需要使用注释，请确保您有计划不断更新它们，并确保它们能为您的代码增加价值，而不仅仅是使代码变得杂乱无章。

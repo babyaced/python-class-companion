@@ -2,7 +2,7 @@ import { GlossaryTerm } from '@/components/GlossaryTerm'
 
 # Handling Files in Python
 
-In this section you'll learn how to read from and write to files. You'll open a file, read or write its contents, and close it when you're done.
+You'll learn how to read from and write to files. You open a file, read or write its contents, and close it when you're done.
 
 ## Opening a file
 
@@ -24,7 +24,7 @@ Here we open `example.txt` in read mode and store the result in a <GlossaryTerm>
 
 After opening in read mode, you can get the contents in a few ways.
 
-**Loop over the file line by line** — The simplest pattern for reading: loop directly over the file. Each time through the loop you get the next line (as a string). Good when you want to process one line at a time (e.g. a list of numbers or names, one per line).
+**Loop over the file line by line** — The simplest way to read: loop directly over the file. Each time through the loop you get the next line (as a string). Use this when you want to process one line at a time (e.g. a list of numbers or names, one per line).
 
 ```python
 my_file = open("example.txt", "r")
@@ -59,7 +59,7 @@ When you read a line, it usually includes the newline at the end. Use `.strip()`
 
 ## Writing to a file
 
-Open the file in write (`"w"`) or append (`"a"`) mode. Use the `write()` <GlossaryTerm term="method">method</GlossaryTerm> to add text. Write doesn't add a newline for you—add `\n` at the end of a string if you want a new line.
+Open the file in write (`"w"`) or append (`"a"`) mode. Use the `write()` <GlossaryTerm term="method">method</GlossaryTerm> to add text. `write()` doesn't add a newline for you—add `\n` at the end of a string if you want a new line.
 
 ```python
 my_file = open("example.txt", "w")
@@ -102,4 +102,6 @@ Once the block under `with` finishes, the file is closed. You can use this for r
 
 ## Summary
 
-You open a file with `open(filename, mode)`, then read (e.g. loop over the file, or use `read()` / `readlines()`) or write (use `write()`). Close the file with `close()` when you're done, or use a `with` block so it closes automatically. When your file has one value per line, open it and loop with `for line in file:`.
+- Open a file with `open(filename, mode)`, then read (e.g. loop over the file, or use `read()` / `readlines()`) or write (use `write()`).
+- Close the file with `close()` when you're done, or use a `with` block so it closes automatically.
+- When your file has one value per line (e.g. one grade per line), open it and loop with `for line in file:`.

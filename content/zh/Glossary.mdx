@@ -1,75 +1,76 @@
 import { GlossaryTerm } from '@/components/GlossaryTerm'
 
-Use this page to look up terms you see in the lessons. If something sounds unfamiliar, check here for a quick definition.
 
-## Keyword
+使用本页查找您在课程中看到的术语。如果有些术语听起来很陌生，请在这里查看快速定义。
 
-A word that Python reserves for its own use. You can't use it as a variable name, function name, or the like. Examples: `if`, `else`, `while`, `for`, `def`, `class`.
+## 关键词
 
-## Identifier
+Python 保留给自己使用的词。不能用作变量名、函数名等。例如`if`, `else`, `while`, `for`, `def`, `class`。
 
-The name you give to something in your code—a variable, function, or class. It has to follow rules (e.g. start with a letter or underscore, no spaces) and can't be the same as a keyword.
+## 标识符
 
-## Variable
+您在代码中为变量、函数或类赋予的名称。它必须遵守规则（例如，以字母或下划线开头，不能有空格），并且不能与关键字相同。
 
-A name that holds a value. You can change that value as your program runs. For example, `score = 0` creates a variable called `score` and gives it the value `0`.
+## 变量
 
-## Function
+表示一个值的名称。您可以在程序运行时更改该值。例如，"score = 0 "创建了一个名为 "score "的变量，并赋予其值 "0"。
 
-A reusable block of code that performs a specific task. Functions can take input <GlossaryTerm>parameters</GlossaryTerm> and <GlossaryTerm>return</GlossaryTerm> output values.
+## 函数
 
-## Class
+执行特定任务的可重用代码块。函数可以接收输入<GlossaryTerm>参数</GlossaryTerm>和<GlossaryTerm>返回</GlossaryTerm>输出值。
 
-A blueprint for building objects. It describes what data those objects hold (attributes) and what they can do (methods). You'll use classes when you get into more advanced Python.
+### 类
 
-## Object
+构建对象的蓝图。它描述了这些对象所持有的数据（属性）以及它们能做的事情（方法）。当您学习更高级的 Python 时，就会用到类。
 
-A value in your program that has data and can perform actions (methods). Often an object is created from a class; "object" is the general word for one of those.
+## 对象
 
-## Instance
+程序中拥有数据并能执行操作（方法）的值。对象通常由类创建；"object "是其中一个类的统称。
 
-A specific object created from a class. Each instance can have its own unique values for the properties defined in the class. We usually use the term "instance" to refer to an object when we want to emphasize that it is a specific occurrence of a class.
+### 实例
 
-## Attribute
+由类创建的特定对象。对于类中定义的属性，每个实例都可以有自己独特的值。我们通常使用 "实例 "一词来指代一个对象，以强调它是一个类的具体实例。
 
-A variable that belongs to an object or class. Attributes hold data that describes the object or class.
+### 属性
 
-## Method
+属于对象或类的变量。属性包含描述对象或类的数据。
 
-A function that belongs to an object or class.
+### 方法
 
-## Mutable
+属于对象或类的函数。
 
-Something you can change after you create it. In Python, lists and dictionaries are mutable—you can add, remove, or change items.
+## 可变
 
-## Immutable
+创建后可以更改的东西。在 Python 中，列表和字典是可变的--您可以添加、删除或更改项。
 
-Something that can't be changed after you create it. In Python, strings and integers are immutable. If you "change" a string, you're really creating a new one.
+## 不可变的
 
-## Syntax
+创建后无法更改的东西。在 Python 中，字符串和整数是不可变的。如果您 "更改 "了一个字符串，您实际上是创建了一个新的字符串。
 
-The rules for how you write code so Python can read it. Miss a colon or a parenthesis? That's a syntax error.
+### 语法
 
-## Semantics
+如何写代码才能让 Python 读懂的规则。漏掉了冒号或括号？这就是语法错误。
 
-What your code *does*—its meaning and behavior. If the syntax is correct but the program behaves the wrong way, that's a semantics (logic) issue.
+## 语义
 
-## Execute
+你的代码*做了什么*--它的含义和行为。如果语法正确，但程序行为错误，那就是语义（逻辑）问题。
 
-To run your code so it actually does what you wrote. When you run a Python program, the interpreter reads your code line by line and executes it.
+## 执行
 
-## Parameter
-A <GlossaryTerm>variable</GlossaryTerm> that is used in a <GlossaryTerm>function</GlossaryTerm> definition to represent the input that the function will receive when it is called. Parameters are placeholders for the actual values (<GlossaryTerm>arguments</GlossaryTerm>) that will be passed to the function.
+运行您的代码，使其真正执行您所写的内容。运行 Python 程序时，解释器会逐行读取并执行您的代码。
 
-## Argument
-A value that is passed to a <GlossaryTerm>function</GlossaryTerm> when it is called. Arguments are the actual values that correspond to the parameters defined in the function. 
+## 参数
+<GlossaryTerm> 变量</GlossaryTerm>，用于 <GlossaryTerm> 函数</GlossaryTerm> 定义中，表示函数在被调用时将收到的输入。参数是将传递给函数的实际值（<GlossaryTerm>参数</GlossaryTerm>）的占位符。
+
+## 参数
+调用 <GlossaryTerm>函数</GlossaryTerm>时传递给该函数的值。参数是与函数中定义的参数相对应的实际值。
 
 
-## Return
-To give back a value from a <GlossaryTerm>function</GlossaryTerm> after it has completed its task. A function can use the `return` statement to specify the value that should be returned to the caller.
+## 返回值
+用于在 <GlossaryTerm> 函数</GlossaryTerm>完成任务后返回一个值。函数可以使用 `return` 语句指定返回给调用者的值。
 
-## Return Value
-The value that a <GlossaryTerm>function</GlossaryTerm> gives back after it has completed its task. This value can be used in other parts of the program.
+### 返回值
+<GlossaryTerm> 函数</GlossaryTerm>完成任务后返回的值。该值可用于程序的其他部分。
 
-## Pass
-To give a value to a <GlossaryTerm>parameter</GlossaryTerm> when a <GlossaryTerm>function</GlossaryTerm> is called. For example, when you call `greet_user("Alice")`, the argument `"Alice"` is *passed* to the `name` parameter.
+## 通过
+当调用 <GlossaryTerm>函数</GlossaryTerm>时，为 <GlossaryTerm>参数</GlossaryTerm>赋值。例如，当调用 `greet_user("Alice")` 时，参数 `"Alice"` 被*传给了参数 `name`。

@@ -1,14 +1,16 @@
 import { GlossaryTerm } from '@/components/GlossaryTerm'
 
-# Control Flow Within Loops
 
-In this section you'll learn how to use `if`, `break`, and `continue` **inside** a loop. Putting conditionals inside a loop lets you do different work on different iterations—for example, print only even numbers or stop as soon as you find a value. You'll also see two statements that only make sense inside loops: `break` (exit the loop now) and `continue` (skip to the next iteration).
+# 循环内的控制流
 
-## Using `if` inside a loop
+本节将学习如何在循环内部使用 `if`、`break` 和`continue`。在循环内部设置条件语句可以让你在不同的迭代中执行不同的工作--例如，只打印偶数或在找到一个值后立即停止。你还会看到两条只有在循环内部才有意义的语句：break"（立即退出循环）和 "continue"（跳到下一次迭代）。
 
-You can use `if` (and `elif`, `else`) inside a loop. The condition is checked on every iteration, so you can react differently to each item.
+## 在循环中使用 `if
 
-Example: print only the even numbers from 1 to 10. We loop over the numbers and print only when the number is even (divisible by 2 with no remainder):
+你可以在循环内部使用 `if`（以及 `elif` 和 `else`）。每次迭代都会对条件进行检查，因此可以对每个项目做出不同的反应。
+
+示例：只打印从 1 到 10 的偶数。我们对数字进行循环，只有当数字是偶数（能被 2 整除且没有余数）时才打印：
+
 
 ```python
 for number in range(1, 11):
@@ -16,15 +18,16 @@ for number in range(1, 11):
         print(number)
 ```
 
-Each time through the loop, we check the condition. When it's true, we print. When it's false, we do nothing and move to the next number. Output: 2, 4, 6, 8, 10.
+每次循环时，我们都要检查条件。为真时，我们打印。如果为假，我们就什么也不做，然后转到下一个数字。输出：2, 4, 6, 8, 10.
 
-In general, you can use any control flow you've learned inside a loop—`if`, `elif`, `else`. Loops and conditionals work together to express "for each item, do this only when that's true."
+一般来说，你可以在循环中使用你所学过的任何控制流--"if"、"elif"、"else"。循环和条件式共同表达 "对于每个项目，只有当该条件为真时，才执行该操作"。
 
-## The `break` statement
+## `break` 语句
 
-`break` exits the loop immediately. No more iterations run. We usually use it when we've found what we're looking for or when a condition says "stop."
+`break` 语句立即退出循环。不再迭代运行。我们通常在找到我们要找的东西或某个条件说 "停止 "时使用它。
 
-Example: search for the number 7 and stop as soon as we find it:
+例如：搜索数字 7，找到后立即停止：
+
 
 ```python
 number_we_are_looking_for = 7
@@ -37,13 +40,14 @@ while current_number <= 10:
     current_number += 1
 ```
 
-When `current_number` is 7, we print the message and hit `break`. The loop ends right there; we don't check 8, 9, or 10. Without `break`, the loop would keep going to 10.
+当 `current_number` 为 7 时，我们打印信息并点击 `break`。循环就此结束；我们不会检查 8、9 或 10。如果没有`break`，循环会一直进行到 10。
 
-## The `continue` statement
+## `continue` 语句
 
-`continue` skips the rest of the current iteration and jumps to the next one. The loop keeps running; we just skip one pass. We use it when we want to ignore certain items but keep processing the rest.
+`continue` 跳过当前迭代的剩余部分，跳到下一个迭代。循环继续运行，我们只是跳过一次。当我们想忽略某些项目但继续处理其余项目时，就会用到它。
 
-Example: print only even numbers by skipping odd ones with `continue`:
+例如：使用 `continue` 跳过奇数，只打印偶数：
+
 
 ```python
 for number in range(1, 11):
@@ -52,10 +56,10 @@ for number in range(1, 11):
     print(number)
 ```
 
-When the number is odd, we hit `continue` and skip the `print`. When it's even, we don't hit `continue`, so we run the `print`. Result: 2, 4, 6, 8, 10. Same output as the first example, but this time we used `continue` to skip the odd numbers instead of an `if` around the print.
+当数字是奇数时，我们点击 "继续"，跳过 "打印"。当数字是偶数时，我们不点击 "继续"，因此运行 "打印"。结果：2、4、6、8、10。输出结果与第一个示例相同，但这次我们使用了 `continue` 来跳过奇数，而不是在打印周围使用 `if`。
 
-**In short:** `break` means "exit the loop." `continue` means "skip the rest of this iteration and go to the next."
+**简而言之：** `break` 表示 "退出循环"。`continue` 表示 "跳过本次迭代，进入下一次迭代"。
 
-## Summary
+## 摘要
 
-You can use `if`, `elif`, and `else` inside a loop to run code only when a condition is true on that iteration. `break` exits the loop early; `continue` skips to the next iteration. Together they let you build loops that react to conditions and stop or skip when you need to.
+你可以在循环中使用 `if`、`elif` 和 `else` 来运行代码，只有当条件在该迭代中为真时才运行代码。`break` 提前退出循环；`continue` 跳到下一次迭代。通过它们的组合，您可以构建对条件做出反应的循环，并在需要时停止或跳转。

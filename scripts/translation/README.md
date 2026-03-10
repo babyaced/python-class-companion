@@ -25,6 +25,11 @@ A Node.js script that uses the DeepL API and the do-not-translate glossary to tr
    node scripts/translation/translate-with-deepl.js content/en/GettingStarted/page.mdx
    ```
 
+4. **Retranslate all Grade Tracker topic pages** (after revising the EN versions):
+   ```bash
+   bash scripts/translation/retranslate-grade-tracker-topics.sh
+   ```
+
 Uses the free API by default (`api-free.deepl.com`). For Pro, set `DEEPL_BASE=https://api.deepl.com`.
 
 ## Using the glossary with the DeepL API directly

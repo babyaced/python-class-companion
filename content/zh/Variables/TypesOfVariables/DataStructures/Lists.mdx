@@ -1,15 +1,16 @@
 import { Callout } from 'nextra/components'
 import { GlossaryTerm } from '@/components/GlossaryTerm'
 
-# Lists
+# 列表
 
-A list is a way to store multiple items in order—like a playlist of songs, a to-do list, or a row of lockers. You can add, change, and remove items, and each item has a position (called an index).
+列表是一种按顺序存储多个项目的方式，就像歌曲播放列表、待办事项列表或一排储物柜。你可以添加、更改和删除项目，每个项目都有一个位置（称为索引）。
 
-Items in a list can be numbers, strings, booleans, or even other lists. Most of the time you'll use one type (e.g. all strings), but Python allows a mix if you need it.
+列表中的项目可以是数字、字符串、布尔值，甚至是其他列表。大多数情况下，您会使用一种类型（例如所有字符串），但如果您需要，Python 允许混合使用。
 
-## Creating a List
+## 创建列表
 
-You create a list by putting items inside square brackets `[]`, with commas between them.
+创建列表的方法是将项目放在方括号 `[]`中，中间用逗号隔开。
+
 
 ```python
 # Creating a list of integers
@@ -20,25 +21,27 @@ fruits = ["apple", "banana", "cherry"]
 mixed = [1, "apple", 3.14, True]
 ```
 
-The `mixed` list shows that you can mix types in one list. In practice, you'll usually keep a list to one type (all strings, or all numbers) so your code is easier to work with.
+混合 "列表表明您可以在一个列表中混合使用多种类型。在实践中，您通常会将列表保持为一种类型（所有字符串或所有数字），这样您的代码会更容易处理。
 
-### Creating an Empty List
+### 创建空列表
 
-You can create an empty list by using square brackets `[]` without any items inside.
+使用方括号"[]"可以创建一个空列表，其中不包含任何项目。
+
 
 ```python
 empty_list = []
 ```
 
-This is useful when you don't know what items you'll need to store in the list yet, or when you want to create a list that you'll fill later.
+当你还不知道需要在列表中存储哪些项目时，或者当你想创建一个稍后再填充的列表时，这个功能非常有用。
 
-## Accessing List Items
+## 访问列表项目
 
-You get an item from a list by using its position, or **index**. Use the list name followed by square brackets and the index: `list_name[index]`.
+你可以通过列表的位置或 **index** 从列表中获取项目。使用列表名称后的方括号和索引：list_name[index]`。
 
-<Callout type="info" title="Indexing starts at 0">
-The first item has index `0`, the second has index `1`, and so on. That can feel odd at first—you'll get used to it!
+<Callout type="info" title="索引从 0 开始">
+第一个项目的索引为 "0"，第二个项目的索引为 "1"，以此类推。一开始可能会觉得奇怪，但慢慢就会习惯！
 </Callout>
+
 
 ```python
 fruits = ["apple", "banana", "cherry"]
@@ -47,7 +50,8 @@ print(fruits[1])  # Output: banana
 print(fruits[2])  # Output: cherry
 ```
 
-You can also use **negative indexes** to count from the end: `-1` is the last item, `-2` is the second-to-last, and so on.
+您还可以使用**负索引**从末尾开始计数：1 "是最后一项，"-2 "是倒数第二项，以此类推。
+
 
 ```python
 fruits = ["apple", "banana", "cherry"]
@@ -55,9 +59,11 @@ print(fruits[-1])  # Output: cherry
 print(fruits[-2])  # Output: banana
 print(fruits[-3])  # Output: apple
 ```
-## Modifying List Items
 
-You can change an item in a list by picking it with its index and giving it a new value—same idea as assigning to a <GlossaryTerm>variable</GlossaryTerm>.
+## 修改列表项目
+
+您可以通过索引选取列表中的项目并赋予其新值来更改它--这与赋值给 <GlossaryTerm> 变量</GlossaryTerm> 的想法相同。
+
 
 ```python
 fruits = ["apple", "banana", "cherry"]
@@ -65,11 +71,12 @@ fruits[1] = "blueberry"  # Changing "banana" to "blueberry"
 print(fruits)  # Output: ['apple', 'blueberry', 'cherry']
 ```
 
-## List Methods
+## 列表方法
 
-Lists come with built-in **methods**—functions you can call to add, remove, or rearrange items. Here are the ones you'll use most:
+列表内置了**方法**--你可以调用它来添加、删除或重新排列项目。以下是你最常用的方法：
 
-- **`append()`** — Adds an item to the end of the list.
+- **`append()`** - 在列表末尾添加一个项目。
+
 
   ```python
   fruits = ["apple", "banana"]
@@ -77,7 +84,8 @@ Lists come with built-in **methods**—functions you can call to add, remove, or
   print(fruits)  # Output: ['apple', 'banana', 'cherry']
   ```
 
-- **`remove()`** — Removes the first occurrence of that value from the list.
+- **`remove()`** - 从列表中删除第一个出现的值。
+
 
   ```python
   fruits = ["apple", "banana", "cherry"]
@@ -85,7 +93,8 @@ Lists come with built-in **methods**—functions you can call to add, remove, or
   print(fruits)  # Output: ['apple', 'cherry']
   ```
 
-- **`pop()`** — Removes an item and gives it back to you. With no argument, it removes and returns the last item.
+- **`pop()`** - 删除一个项目并返回给您。如果没有参数，它会删除并返回最后一个项目。
+
 
   ```python
   fruits = ["apple", "banana", "cherry"]
@@ -94,7 +103,8 @@ Lists come with built-in **methods**—functions you can call to add, remove, or
   print(fruits)      # Output: ['apple', 'banana']
   ```
 
-- **`insert()`** — Puts an item at a specific index. Whatever was at that spot (and everything after it) shifts to the right.
+- **`insert()`** - 在特定索引处放入一个项目。该位置上的内容（以及其后的内容）都会向右移动。
+
 
   ```python
   fruits = ["apple", "banana"]
@@ -102,11 +112,12 @@ Lists come with built-in **methods**—functions you can call to add, remove, or
   print(fruits)  # Output: ['apple', 'cherry', 'banana']
   ```
 
-<Callout type="info" title="About insert()">
-When you insert at an index, the item that was there (and all items after it) move right to make room.
+<Callout type="info" title="关于 insert()">
+当您在索引处插入时，原来的项目（以及其后的所有项目）都会向右移动以腾出空间。
 </Callout>
 
-- **`sort()`** — Sorts the list in ascending order (smallest to largest, or A to Z for strings).
+- **`sort()`** - 按升序（从小到大，或字符串从 A 到 Z）对列表排序。
+
 
   ```python
   numbers = [3, 1, 4, 2]
@@ -114,7 +125,8 @@ When you insert at an index, the item that was there (and all items after it) mo
   print(numbers)  # Output: [1, 2, 3, 4]
   ```
 
-To sort in reverse order, pass the <GlossaryTerm term="argument">argument</GlossaryTerm> `reverse=True` to `sort()`.
+要按相反顺序排序，请将 <GlossaryTerm term="argument">参数</GlossaryTerm> `reverse=True` 传递给 `sort()`。
+
 
 ```python
 numbers = [3, 1, 4, 2]
@@ -122,14 +134,16 @@ numbers.sort(reverse=True)
 print(numbers)  # Output: [4, 3, 2, 1]
 ```
 
-- **`len()`** — A built-in function (not a list method) that returns how many items are in the list.
+- **`len()`** - 一个内置函数（不是列表方法），返回列表中有多少个项目。
+
 
   ```python
   fruits = ["apple", "banana", "cherry"]
   print(len(fruits))  # Output: 3
   ```
 
-These are the list tools you'll use most often. For more, see the [official Python documentation on lists](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists).
+<Callout type="warning" title="关于 len()">
+len() 函数不是一个列表方法，而是一个内置函数。这意味着调用它时不能使用点符号。可以这样调用len(list_name)`。
+</Callout>
 
-
-
+这些是您最常用的 list 工具。更多信息，请参阅 [Python 关于 list 的官方文档](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)。
