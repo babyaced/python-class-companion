@@ -2,11 +2,9 @@
 # Required secrets: DEPLOY_HOST, DEPLOY_USER, SSH_PRIVATE_KEY (and optionally DEPLOY_PATH).
 
 name: Deploy to OCI
-
 on:
   push:
     branches: [main]
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -20,9 +18,10 @@ jobs:
           port: 22
           script: |
             set -e
-            cd ${{ secrets.DEPLOY_PATH || '/home/ubuntu/python-class-companion' }}
+            cd /var/www/python.kaidan.dev
             git fetch origin && git reset --hard origin/main
             npm ci
             npm run build
-            pm2 restart python-class-companion || pm2 start npm --name python-class-companion -- start
+            pm2 restart python-kaidan || pm2 start npm --name python-kaidan -- start
             pm2 save
+            sudo systemctl reload nginx
