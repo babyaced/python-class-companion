@@ -1,11 +1,11 @@
-export default{
-    page: 'What is Python?',
-    GettingStarted: 'Getting Started',
-    Variables: 'Variables',
-    Functions: 'Functions',
-    InputAndOutput: 'Input and Output',
-    ControlFlow: 'Control Flow',
-    ProjectGuides: 'Project Guides',
-    Glossary: 'Glossary',
-    AdditionalResources: 'Additional Resources',
+export default {
+    Overview: { display: 'hidden' },
+    Learn: {
+        title: 'Learn',
+        type: 'page'
+    },
+    Reference: {
+        title: 'Reference',
+        type: 'page'
+    }
 }

@@ -8,8 +8,17 @@ export async function generateMetadata(props: PageProps) {
   const params = await props.params
   // Nextra maps content/<lang>/page.mdx to route "page", not ""
   const mdxPath = params.mdxPath?.length ? params.mdxPath : ['page']
-  const { metadata } = await importPage(mdxPath, params.lang)
-  return metadata
+  try {
+    const { metadata } = await importPage(mdxPath, params.lang)
+    return metadata
+  } catch {
+    try {
+      const { metadata } = await importPage([...mdxPath, 'page'], params.lang)
+      return metadata
+    } catch {
+      return {}
+    }
+  }
 }
 
 type PageProps = Readonly<{
@@ -24,8 +33,14 @@ const Wrapper = getMDXComponents().wrapper
 const Page: FC<PageProps> = async props => {
   const params = await props.params
   // Nextra maps content/<lang>/page.mdx to route "page", not ""
-  const mdxPath = params.mdxPath?.length ? params.mdxPath : ['page']
-  const result = await importPage(mdxPath, params.lang)
+  // For folder index pages (e.g. /Learn), fall back to /Learn/page
+  let mdxPath = params.mdxPath?.length ? params.mdxPath : ['page']
+  let result
+  try {
+    result = await importPage(mdxPath, params.lang)
+  } catch {
+    result = await importPage([...mdxPath, 'page'], params.lang)
+  }
   const { default: MDXContent, toc, metadata, sourceCode } = result
   return (
     <Wrapper toc={toc} metadata={metadata} sourceCode={sourceCode}>
