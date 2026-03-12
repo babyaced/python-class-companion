@@ -1,5 +1,11 @@
 /* globals.css */
 
+/* Logo theme switching */
+.logo-dark { display: none; }
+.logo-light { display: block; }
+html.dark .logo-dark { display: block; }
+html.dark .logo-light { display: none; }
+
 /* GlossaryTerm tooltip */
 .glossary-tooltip {
   background-color: var(--x-color-neutral-50, #fafafa);
@@ -12,12 +18,12 @@ html.dark .glossary-tooltip {
   color: var(--x-color-neutral-50, #fafafa);
 }
 :root {  /* light */
-    --nextra-primary-hue: 240 !important; 
-    --nextra-primary-saturation: 42% !important; 
-    --nextra-primary-lightness: 50% !important; 
-}           
-html.dark  {
-  :root { --nextra-primary-hue: 240 !important; --nextra-primary-saturation: 42% !important; --nextra-primary-lightness: 50% !important; }          /* dark */
+    --nextra-primary-hue: 210 !important;
+    --nextra-primary-saturation: 53% !important;
+    --nextra-primary-lightness: 44% !important;
+}
+html.dark {
+  :root { --nextra-primary-hue: 210 !important; --nextra-primary-saturation: 53% !important; --nextra-primary-lightness: 55% !important; }  /* dark — slightly lighter for contrast */
 }
 
 

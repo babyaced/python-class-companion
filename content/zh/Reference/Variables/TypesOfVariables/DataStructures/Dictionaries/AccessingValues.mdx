@@ -1,0 +1,33 @@
+import { Callout } from 'nextra/components'
+import { GlossaryTerm } from '@/components/GlossaryTerm'
+
+# Accessing Values
+
+## Using square brackets
+
+To get a value, write the dictionary name followed by the key in square brackets:
+
+```python
+person = {
+    "name": "Alice",
+    "age": 30,
+    "city": "New York"
+}
+print(person["age"])   # Output: 30
+print(person["name"])  # Output: Alice
+```
+
+## Using get()
+
+The `get()` <GlossaryTerm term="method">method</GlossaryTerm> does the same thing, but lets you provide a fallback value if the key doesn't exist:
+
+```python
+print(person.get("age"))                        # Output: 30
+print(person.get("occupation", "Not specified")) # Output: Not specified
+```
+
+If you use square brackets with a key that doesn't exist, Python raises an error. `get()` returns `None` (or your fallback) instead — which is safer when you're not sure if a key is there.
+
+<Callout type="info" title="When to use get()">
+Use `get()` when a key might not be in the dictionary. Use square brackets when you're sure the key exists and want Python to raise an error if it doesn't.
+</Callout>

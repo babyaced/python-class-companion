@@ -1,0 +1,75 @@
+import { Callout } from 'nextra/components'
+import { GlossaryTerm } from '@/components/GlossaryTerm'
+
+# While Loops
+
+A `while` loop runs a block of code **as long as a condition is true**. Unlike a `for` loop, you don't iterate over a sequence — you keep going until something changes.
+
+## Basic syntax
+
+```python
+while condition:
+    # code to run while condition is true
+```
+
+The condition is checked before each iteration. When it's `False`, the loop stops and the program continues after it.
+
+## Basic example
+
+```python
+count = 1
+while count <= 5:
+    print(count)
+    count += 1
+# Output: 1 2 3 4 5
+```
+
+Each iteration:
+1. Check: is `count <= 5`?
+2. If yes, print `count` and add 1
+3. When `count` reaches 6, the condition is false — loop ends
+
+<Callout type="warning" title="Always update your condition">
+If nothing inside the loop changes the condition, it will never become `False` and your program will run forever. Make sure something inside the loop moves toward ending it.
+</Callout>
+
+## Infinite loops
+
+A loop that never stops is called an **infinite loop**. This usually happens by accident:
+
+```python
+# Infinite loop — count never changes!
+count = 1
+while count <= 5:
+    print(count)
+```
+
+If your program freezes, an infinite loop is often why. Press `Ctrl + C` in the terminal to stop it.
+
+Sometimes infinite loops are intentional — a game loop or a program waiting for input — but you should always have a way to break out of them.
+
+## Validating user input
+
+`while` loops are great for repeating a prompt until the user gives a valid answer:
+
+```python
+age = int(input("Enter your age: "))
+while age < 0:
+    print("Age can't be negative.")
+    age = int(input("Enter your age: "))
+
+print(f"Your age is {age}.")
+```
+
+The loop keeps asking until `age` is 0 or greater.
+
+## When to use a `while` loop
+
+Use a `while` loop when you **don't know in advance how many iterations you need** — you just know the condition that should keep things going. If you're stepping through a list or a fixed range, a `for` loop is usually cleaner.
+
+| Situation | Loop to use |
+|-----------|-------------|
+| Loop a fixed number of times | `for` with `range()` |
+| Loop over every item in a list | `for` |
+| Loop until a condition changes | `while` |
+| Keep asking until valid input | `while` |

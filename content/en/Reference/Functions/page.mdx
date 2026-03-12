@@ -34,52 +34,6 @@ greet()  # Output: Hello, welcome to Python!
 
 When you call a function, the code inside it is <GlossaryTerm>executed</GlossaryTerm>. So calling `greet()` runs that code and prints `Hello, welcome to Python!` to the console.
 
-## Function parameters
-
-Functions can take inputs so they can work with different data each time you call them. Those inputs are called <GlossaryTerm term="parameter">parameters</GlossaryTerm> in the function definition. Here's a function that takes one parameter:
-
-```python
-def greet_user(name):
-    print(f"Hello, {name}! Welcome to Python!")
-```
-
-The `greet_user` function has one parameter, `name`. When you call the function, you pass in a value—that value is called an <GlossaryTerm term="argument">argument</GlossaryTerm>. So in this call, `"Alice"` is the argument:
-
-```python
-greet_user("Alice")  # Output: Hello, Alice! Welcome to Python!
-```
-
-When we call `greet_user("Alice")`, the argument `"Alice"` is used for the `name` parameter, and the function prints a personalized greeting.
-
-## Return values
-
-Functions can send a value back to the code that called them. That's called <GlossaryTerm term="return">returning</GlossaryTerm> a value. You use the `return` statement inside the function; the value you return is the <GlossaryTerm term="return value">return value</GlossaryTerm>.
-
-Here's a function that adds two numbers and returns the result:
-
-```python
-def add_numbers(a, b):
-    return a + b
-```
-
-You call the function and store the return value in a <GlossaryTerm>variable</GlossaryTerm>:
-
-```python
-result = add_numbers(3, 5)
-print(result)  # Output: 8
-```
-
-The `add_numbers` function has two parameters, `a` and `b`. When we call `add_numbers(3, 5)`, the arguments are `3` and `5`. The function returns `3 + 5`, which is `8`. That return value is stored in the variable `result`, and we print it on the next line.
-
-Why return a value instead of just printing inside the function? So you can use the result elsewhere—in other calculations or in other parts of your code. For example, to add two numbers and then multiply the result by another number:
-
-```python
-sum_result = add_numbers(3, 5)  # sum_result will be 8
-final_result = sum_result * 2    # final_result will be 16
-print(final_result)               # Output: 16
-```
-
-Keeping each function focused on one task (add, then multiply) makes your code easier to read and reuse. It's good practice to write functions that do one task and return a value—you'll see how useful that is as you build bigger programs.
 
 
 

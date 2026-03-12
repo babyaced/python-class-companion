@@ -1,71 +1,16 @@
 import { Callout } from 'nextra/components'
-import { GlossaryTerm } from '@/components/GlossaryTerm'
-
 
 # 循环
 
-在本节中，您将学习**循环**--如何多次运行一个代码块。您将使用两种类型：while "循环（当条件为真时运行）和 "for "循环（对序列中的每个项目运行一次）。
+**循环**重复代码块。与其把同样的代码复制粘贴多遍，不如写一次，告诉 Python 运行多少次。
 
-在上一课中，我们使用了 `if`、`elif` 和 `else` 来控制代码块是否运行。循环控制运行的*次数*。
+Python 有两种循环：
 
-## 循环是什么？
+- **`for` 循环** — 对序列中的每个项目运行一次（列表、数字范围等）
+- **`while` 循环** — 只要条件为真就继续运行
 
-循环重复代码块。有时重复运行直到某个条件变为 false；有时对列表或范围中的每个项目重复运行一次。Python 有两种主要的循环：`while` 和 `for`。
-
-## While 循环
-
-只要**条件为真，`while`循环就会重复运行代码块。当条件为假时，循环停止，程序继续运行。
-
-下面是一个打印数字 1 到 5 的 `while` 循环：
-
-
-```python
-count = 1
-while count <= 5:
-    print(count)
-    count += 1  # Add 1 to count so we eventually reach 6 and stop
-```
-
-只要 `count` 小于或等于 5，循环就一直运行。每次运行时，我们都会打印 <GlossaryTerm> 变量 </GlossaryTerm>"count "的当前值，然后加 1。当 `count` 变为 6 时，条件为假，循环结束。
-
-<Callout type="note" title="Vocab - iteration">
-循环每运行一次其代码块就称为一次 **迭代**。因此，这个循环进行了 5 次迭代。
+<Callout type="info" title="词汇 — 迭代">
+循环每运行一次其代码块就称为一次**迭代**。
 </Callout>
 
-运行这段代码时，将输出
-
-
-```
-1
-2
-3
-4
-5
-```
-
-## For loops
-
-For 循环针对序列中的每个项目**运行一次代码块，例如，范围中的每个数字或列表中的每个项目。你不必自己管理计数器或检查条件，循环会为你完成这些工作。
-
-下面是一个使用 `range()` <GlossaryTerm term="function">函数</GlossaryTerm>打印数字 1 到 5 的 `for` 循环：
-
-
-```python
-for i in range(1, 6):
-    print(i)
-```
-
-range(1,6) "函数给出了一个从 1 到（但不包括）6 的数字序列，即 1、2、3、4、5。循环**遍历该序列：每次遍历都会将下一个数字赋值给变量 `i` 并运行缩进代码。因此，我们得到了与 `while` 示例相同的输出，但不需要编写条件或递增计数器--`for` 循环会处理它。
-
-运行这段代码时，输出结果是
-
-
-```
-1
-2
-3
-4
-5
-```
-
-当您有一个 list (或任何序列) 并想对每个条目进行操作时，您会经常使用 `for` 循环。在 Python 中，`for` 循环被设计得简单易读；其他语言通常使用不同的 <GlossaryTerm> 语法</GlossaryTerm> 来表达相同的意思。
+使用下面的链接了解每种循环的用法。

@@ -37,7 +37,7 @@ export function GlossaryTerm({ children, term }: { children: string; term?: stri
   return (
     <span style={{ position: 'relative', display: 'inline' }} onMouseEnter={show} onMouseLeave={hide}>
       <a
-        href={`/Glossary#${id}`}
+        href={`/en/Reference/Glossary#${id}`}
         style={{
           color: 'inherit',
           textDecoration: 'underline dotted',

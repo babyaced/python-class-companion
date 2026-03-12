@@ -1,0 +1,37 @@
+import { Callout } from 'nextra/components'
+import { GlossaryTerm } from '@/components/GlossaryTerm'
+
+# Accessing & Modifying
+
+## Accessing items
+
+You get an item from a list using its position, called an **index**. Write the list name followed by the index in square brackets:
+
+```python
+fruits = ["apple", "banana", "cherry"]
+print(fruits[0])  # Output: apple
+print(fruits[1])  # Output: banana
+print(fruits[2])  # Output: cherry
+```
+
+<Callout type="info" title="Indexes start at 0">
+The first item is at index `0`, not `1`. So a list with 3 items has indexes `0`, `1`, and `2`. You'll get used to it!
+</Callout>
+
+You can also count from the end using **negative indexes** — `-1` is the last item, `-2` is second-to-last, and so on:
+
+```python
+fruits = ["apple", "banana", "cherry"]
+print(fruits[-1])  # Output: cherry
+print(fruits[-2])  # Output: banana
+```
+
+## Modifying items
+
+To change an item, use its index and assign a new value — same idea as updating a <GlossaryTerm>variable</GlossaryTerm>:
+
+```python
+fruits = ["apple", "banana", "cherry"]
+fruits[1] = "blueberry"
+print(fruits)  # Output: ['apple', 'blueberry', 'cherry']
+```
