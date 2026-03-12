@@ -1,4 +1,5 @@
 import { generateStaticParamsFor, importPage } from 'nextra/pages'
+import { notFound } from 'next/navigation'
 import type { FC } from 'react'
 import { useMDXComponents as getMDXComponents } from '../../../mdx-components'
 
@@ -39,7 +40,11 @@ const Page: FC<PageProps> = async props => {
   try {
     result = await importPage(mdxPath, params.lang)
   } catch {
-    result = await importPage([...mdxPath, 'page'], params.lang)
+    try {
+      result = await importPage([...mdxPath, 'page'], params.lang)
+    } catch {
+      return notFound()
+    }
   }
   const { default: MDXContent, toc, metadata, sourceCode } = result
   return (

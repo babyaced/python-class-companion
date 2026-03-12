@@ -1,107 +1,95 @@
 import { GlossaryTerm } from '@/components/GlossaryTerm'
+import { Callout } from 'nextra/components'
 
-# Handling Files in Python
+# Handling Files
 
-You'll learn how to read from and write to files. You open a file, read or write its contents, and close it when you're done.
+Sometimes you want your program to remember data even after it closes — like a list of scores or entries a user has added. That's where files come in. Python makes it easy to read data from a file and write data to one.
 
 ## Opening a file
 
-To work with a file, you open it with the `open()` <GlossaryTerm term="function">function</GlossaryTerm>. You pass the filename (and optionally the path) and a **mode**: read, write, or append.
+Use the `open()` <GlossaryTerm term="function">function</GlossaryTerm> to open a file. You pass it the filename and a **mode** that tells Python what you want to do with it:
+
+| Mode | What it does |
+|------|-------------|
+| `"r"` | Read — open an existing file to read from it |
+| `"w"` | Write — create or overwrite a file |
+| `"a"` | Append — add to the end of an existing file (or create it) |
 
 ```python
-my_file = open("example.txt", "r")
+my_file = open("scores.txt", "r")
 ```
 
-Here we open `example.txt` in read mode and store the result in a <GlossaryTerm>variable</GlossaryTerm>. You'll use that variable to read from or write to the file.
-
-**Modes:**
-
-- **`"r"`** (read) — Open for reading. The file must already exist. You can't write in this mode.
-- **`"w"`** (write) — Open for writing. If the file exists, its contents are replaced. If it doesn't exist, a new file is created.
-- **`"a"`** (append) — Open for adding to the end. New content is written after what's already there. Creates the file if it doesn't exist.
+This opens `scores.txt` in read mode and stores the result in a <GlossaryTerm>variable</GlossaryTerm>. You'll use that variable to read or write.
 
 ## Reading from a file
 
-After opening in read mode, you can get the contents in a few ways.
-
-**Loop over the file line by line** — The simplest way to read: loop directly over the file. Each time through the loop you get the next line (as a string). Use this when you want to process one line at a time (e.g. a list of numbers or names, one per line).
+The most common way to read is to loop over the file line by line:
 
 ```python
-my_file = open("example.txt", "r")
+my_file = open("scores.txt", "r")
 for line in my_file:
     print(line.strip())
 my_file.close()
 ```
 
-**`read()`** — Reads the entire file as one string.
+Each pass through the loop gives you the next line as a string. `.strip()` removes the newline character at the end — you'll almost always want that.
+
+If you need the whole file at once as a single string, use `read()`:
 
 ```python
+my_file = open("scores.txt", "r")
 content = my_file.read()
 print(content)
+my_file.close()
 ```
 
-**`readline()`** — Reads one line at a time. Each call gives you the next line.
+If you want all the lines as a list, use `readlines()`:
 
 ```python
-line = my_file.readline()
-print(line)
+my_file = open("scores.txt", "r")
+lines = my_file.readlines()  # returns ["line 1\n", "line 2\n", ...]
+my_file.close()
 ```
 
-**`readlines()`** — Reads all lines and returns them as a list of strings. You can then loop over that list.
-
-```python
-lines = my_file.readlines()
-for line in lines:
-    print(line)
-```
-
-When you read a line, it usually includes the newline at the end. Use `.strip()` to remove it if you don't want it (e.g. `line.strip()` before converting to a number).
+For most projects, the `for line in file` loop is all you need.
 
 ## Writing to a file
 
-Open the file in write (`"w"`) or append (`"a"`) mode. Use the `write()` <GlossaryTerm term="method">method</GlossaryTerm> to add text. `write()` doesn't add a newline for you—add `\n` at the end of a string if you want a new line.
+Open in write mode and use the `write()` <GlossaryTerm term="method">method</GlossaryTerm>:
 
 ```python
-my_file = open("example.txt", "w")
-my_file.write("Hello, World!\n")
-my_file.write("This is a new line.\n")
+my_file = open("scores.txt", "w")
+my_file.write("Alice: 95\n")
+my_file.write("Bob: 88\n")
 my_file.close()
 ```
 
-That creates or overwrites `example.txt` with two lines. To add more lines without wiping the file, open in append mode:
+<Callout type="warning" title="Write mode replaces the file">
+Opening a file with `"w"` wipes out anything already in it. If you want to add to the end without deleting what's there, use `"a"` (append) instead.
+</Callout>
 
 ```python
-my_file = open("example.txt", "a")
-my_file.write("This line is appended.\n")
+my_file = open("scores.txt", "a")
+my_file.write("Carol: 92\n")
 my_file.close()
 ```
-
-Now the file has the two original lines plus the new one at the end.
 
 ## Closing a file
 
-When you're done, close the file with `close()`. That frees resources and makes sure everything is written to disk. Think of it like saving and closing a document.
+Always close the file when you're done with `close()`. This saves everything to disk and frees up resources — think of it like saving and closing a document.
 
 ```python
 my_file.close()
 ```
 
-If you forget to close, Python may close it when the program ends, but it's good practice to close when you're finished.
+## Using `with` (recommended)
 
-## Using `with` (optional)
-
-A common pattern is to use `with` so the file is closed automatically when the block ends—even if something goes wrong. You don't have to call `close()` yourself.
+A cleaner way to work with files is the `with` block. It closes the file automatically when the block ends, even if something goes wrong:
 
 ```python
-with open("example.txt", "r") as my_file:
-    content = my_file.read()
-    print(content)
+with open("scores.txt", "r") as my_file:
+    for line in my_file:
+        print(line.strip())
 ```
 
-Once the block under `with` finishes, the file is closed. You can use this for reading or writing. If you're comfortable with open/close, you can try `with` next.
-
-## Summary
-
-- Open a file with `open(filename, mode)`, then read (e.g. loop over the file, or use `read()` / `readlines()`) or write (use `write()`).
-- Close the file with `close()` when you're done, or use a `with` block so it closes automatically.
-- When your file has one value per line (e.g. one grade per line), open it and loop with `for line in file:`.
+You don't need to call `close()` yourself. Once the indented block finishes, Python handles it. This is the pattern you'll see most often in real code.

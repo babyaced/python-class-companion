@@ -1,0 +1,79 @@
+import { Callout } from 'nextra/components'
+import { GlossaryTerm } from '@/components/GlossaryTerm'
+
+# List Methods
+
+Lists come with built-in **methods** — actions you can run on a list. You call them by writing the list name, a dot, then the method name: `my_list.method()`.
+
+Here are the ones you'll use most:
+
+## append()
+
+Adds an item to the end of the list:
+
+```python
+fruits = ["apple", "banana"]
+fruits.append("cherry")
+print(fruits)  # Output: ['apple', 'banana', 'cherry']
+```
+
+## remove()
+
+Removes the first item in the list that matches the value you pass in:
+
+```python
+fruits = ["apple", "banana", "cherry"]
+fruits.remove("banana")
+print(fruits)  # Output: ['apple', 'cherry']
+```
+
+## pop()
+
+Removes an item and gives it back to you. With no argument, it removes the last item:
+
+```python
+fruits = ["apple", "banana", "cherry"]
+last = fruits.pop()
+print(last)    # Output: cherry
+print(fruits)  # Output: ['apple', 'banana']
+```
+
+## insert()
+
+Puts an item at a specific index. Everything at that position and after shifts right to make room:
+
+```python
+fruits = ["apple", "banana"]
+fruits.insert(1, "cherry")
+print(fruits)  # Output: ['apple', 'cherry', 'banana']
+```
+
+## sort()
+
+Sorts the list in ascending order (smallest to largest, or A to Z):
+
+```python
+numbers = [3, 1, 4, 2]
+numbers.sort()
+print(numbers)  # Output: [1, 2, 3, 4]
+```
+
+To sort in reverse, pass `reverse=True`:
+
+```python
+numbers.sort(reverse=True)
+print(numbers)  # Output: [4, 3, 2, 1]
+```
+
+## len()
+
+Returns how many items are in the list. Note that `len()` is a built-in function, not a list method — so you don't use dot notation:
+
+```python
+fruits = ["apple", "banana", "cherry"]
+print(len(fruits))  # Output: 3
+```
+
+<Callout type="info">
+For a full list of what you can do with lists, check out the [Python documentation on lists](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists).
+</Callout>

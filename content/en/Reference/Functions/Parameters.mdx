@@ -1,0 +1,60 @@
+import { GlossaryTerm } from '@/components/GlossaryTerm'
+import { Callout } from 'nextra/components'
+
+# Parameters
+
+Right now, the `greet` function always prints the same message. What if you want it to greet different people? That's what **parameters** are for — they let you pass data into a function so it can work with different values each time.
+
+## Adding a parameter
+
+You add a parameter by putting a name inside the parentheses when you define the function:
+
+```python
+def greet_user(name):
+    print(f"Hello, {name}! Welcome to Python!")
+```
+
+`name` is a <GlossaryTerm term="parameter">parameter</GlossaryTerm> — a placeholder for the value you'll pass in when you call the function.
+
+## Passing an argument
+
+When you call the function, the value you pass in is called an <GlossaryTerm term="argument">argument</GlossaryTerm>:
+
+```python
+greet_user("Alice")  # Output: Hello, Alice! Welcome to Python!
+greet_user("Bob")    # Output: Hello, Bob! Welcome to Python!
+```
+
+Each time you call `greet_user`, you pass in a different argument, and the function uses it for `name`. Same function, different results.
+
+<Callout type="info" title="Parameter vs. argument">
+These two words are easy to mix up. A **parameter** is the name in the function definition (`name`). An **argument** is the actual value you pass when you call the function (`"Alice"`). Same slot, different moments.
+</Callout>
+
+## Multiple parameters
+
+A function can have more than one parameter — just separate them with commas:
+
+```python
+def describe_pet(name, animal):
+    print(f"{name} is a {animal}.")
+
+describe_pet("Rex", "dog")   # Output: Rex is a dog.
+describe_pet("Nemo", "fish") # Output: Nemo is a fish.
+```
+
+Arguments are matched to parameters in order — the first argument goes to the first parameter, the second to the second, and so on.
+
+## Default values
+
+You can give a parameter a default value. If the caller doesn't pass that argument, Python uses the default:
+
+```python
+def greet_user(name, greeting="Hello"):
+    print(f"{greeting}, {name}!")
+
+greet_user("Alice")        # Output: Hello, Alice!
+greet_user("Alice", "Hi")  # Output: Hi, Alice!
+```
+
+Parameters with defaults must come **after** parameters without defaults.

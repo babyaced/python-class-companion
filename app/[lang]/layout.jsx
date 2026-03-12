@@ -1,7 +1,10 @@
 import { Footer, Layout, LocaleSwitch, Navbar } from 'nextra-theme-docs'
 import { Banner, Head } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
+import Image from 'next/image'
 import themeConfig from '../../theme.config'
+import logoDark from '../../assets/logo/kaidan-logo-spring-2026.svg'
+import logoLight from '../../assets/logo/kaidan-logo-spring-2026-light.svg'
 
 export function generateStaticParams() {
   return [{ lang: 'en' }, { lang: 'zh' }]
@@ -9,7 +12,12 @@ export function generateStaticParams() {
 
 const banner = <Banner storageKey="some-key">Nextra 4.0 is released 🎉</Banner>
 const navbar = (
-  <Navbar logo={<b>Nextra</b>}>
+  <Navbar logo={
+    <>
+      <Image src={logoDark} alt="logo" height={28} className="logo-light" />
+      <Image src={logoLight} alt="logo" height={28} className="logo-dark" />
+    </>
+  }>
     <LocaleSwitch />
   </Navbar>
 )

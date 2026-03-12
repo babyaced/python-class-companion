@@ -1,0 +1,49 @@
+import { GlossaryTerm } from '@/components/GlossaryTerm'
+import { Callout } from 'nextra/components'
+
+# Return Values
+
+So far, functions have printed output directly. But what if you want to use the result of a function in the rest of your code — like passing it to another function, or storing it in a variable? That's where `return` comes in.
+
+## Sending a value back
+
+Use the `return` statement to send a value back to whoever called the function:
+
+```python
+def add_numbers(a, b):
+    return a + b
+
+result = add_numbers(3, 5)
+print(result)  # Output: 8
+```
+
+When Python hits `return`, it exits the function and hands the value back. Here, `add_numbers(3, 5)` gives back `8`, which we store in `result`.
+
+## Why return instead of print?
+
+Printing inside a function shows output, but you can't do anything with it. Returning a value lets you use it:
+
+```python
+total = add_numbers(3, 5)   # total = 8
+doubled = total * 2          # doubled = 16
+print(doubled)               # Output: 16
+```
+
+You can pass the return value to another function, use it in a calculation, or store it for later. That's what makes functions reusable.
+
+## Return exits the function
+
+Once Python hits `return`, the function stops immediately. Any code after it won't run:
+
+```python
+def check_score(score):
+    if score < 0:
+        return "Invalid score"
+    return "Valid score"
+```
+
+If `score` is negative, the first `return` fires and the function ends. The second `return` is never reached.
+
+<Callout type="info" title="No return? You get None.">
+If a function doesn't have a `return` statement, Python automatically returns `None` — its way of saying "no value." You'll usually see this when a function just prints something instead of returning a result.
+</Callout>

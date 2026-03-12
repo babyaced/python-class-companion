@@ -1,0 +1,27 @@
+import { Callout } from 'nextra/components'
+import { GlossaryTerm } from '@/components/GlossaryTerm'
+
+# Lists
+
+A list lets you store multiple items in one place, in order — like a playlist of songs, a set of quiz scores, or a to-do list. You can add, change, and remove items, and each item has a position called an **index**.
+
+Items in a list can be numbers, strings, booleans, or even other lists. Most of the time you'll keep one type per list (all strings, or all numbers) so your code is easier to work with.
+
+## Creating a list
+
+Put your items inside square brackets `[]`, separated by commas:
+
+```python
+numbers = [1, 2, 3, 4, 5]
+fruits = ["apple", "banana", "cherry"]
+```
+
+### Empty lists
+
+You can create an empty list and fill it in later:
+
+```python
+scores = []
+```
+
+This is handy when you don't know the items yet — for example, if you're collecting user input in a loop and adding each entry as you go.
