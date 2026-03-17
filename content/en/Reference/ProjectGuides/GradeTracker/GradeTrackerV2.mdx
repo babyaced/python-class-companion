@@ -1,4 +1,6 @@
 import { Callout } from 'nextra/components'
+import { Checkbox } from '@/components/Checkbox'
+import { Checklist } from '@/components/Checklist'
 
 # Project 2 (v2): Grade Tracker — By Subject
 
@@ -15,77 +17,66 @@ This will be a separate project that you can work on each day if you finish the 
 
 ## Phase 1 (Day 1): Lists and Loops
 
-**Learning focus:** Create a list of lists, loop through the outer list and each inner list to display grades and compute sums.
+### Learning focus
+Create a list of lists, loop through the outer list and each inner list to display grades and compute sums.
 
-**Tasks:**
+### Tasks
 
-1. **Create a list of subjects and grades**  
-   Start with a **static** list of lists, e.g. `grades_by_subject = [["Math", 85, 92, 78], ["Science", 88, 91], ["English", 76, 82]]`. This is your data for the rest of the tasks.
-
-2. **Display all grades by subject**  
-   Use a **for** loop over the outer list. For each inner list, the first element (index `0`) is the subject; the rest (e.g. slice `[1:]`) are grades. Print the subject, then print each grade (or print them on one line).
-
-3. **Calculate the sum for each subject**  
-   Loop over the outer list. For each subject's list, loop over the grades (indices `1` to the end) and add them up. Print each subject and its sum.
-
-4. **Calculate the average for each subject**  
-   For each subject, average = sum of grades ÷ number of grades. Use the sum from the previous step and the length of that subject's grade list (e.g. `len(row) - 1` if row is `[subject, g1, g2, ...]`). Print each subject and its average.
+<Checklist>
+  <Checkbox id="proj2v2-phase1-task1" label="Start with a static list of lists, e.g. grades_by_subject = [['Math', 85, 92, 78], ['Science', 88, 91], ['English', 76, 82]]. This is your data for the rest of the tasks." />
+  <Checkbox id="proj2v2-phase1-task2" label="Use a for loop over the outer list. For each inner list, index 0 is the subject; the rest are grades. Print the subject, then print each grade." />
+  <Checkbox id="proj2v2-phase1-task3" label="For each subject's list, loop over the grades and add them up. Print each subject and its sum." />
+  <Checkbox id="proj2v2-phase1-task4" label="For each subject, compute average = sum ÷ number of grades. Print each subject and its average." />
+</Checklist>
 
 **Topics covered:** [Lists](../../Variables/TypesOfVariables/DataStructures/Lists), [Loops](../../ControlFlow/Loops)
 
-**End of Day 1:** You have a program with a list of lists (subjects and grades) that prints each subject's grades, sum, and average.
+**End of Day 1:** You have a program with a list of lists that prints each subject's grades, sum, and average.
 
-**Challenge (optional):** Add a new subject and its grades to the list (e.g. prompt for subject name and a few grades with `input()`), or use a loop to add several grades to one subject.
+### Challenge (optional)
+Add a new subject and its grades to the list (e.g. prompt for subject name and a few grades with `input()`), or use a loop to add several grades to one subject.
 
 ---
 
 ## Phase 2 (Day 2): Conditionals
 
-**Learning focus:** Use `if` / `elif` / `else` to make decisions based on each subject's grades.
+### Learning focus
+Use `if` / `elif` / `else` to make decisions based on each subject's grades.
 
-**Tasks:**
+### Tasks
 
-1. **Find the highest grade in each subject**  
-   For each subject's list, loop through the grades and keep track of the largest. Print the subject and its highest grade.
-
-2. **Find the lowest grade in each subject**  
-   Same idea: for each subject, track the smallest grade and print it.
-
-3. **Message based on each subject's average**  
-   After computing each subject's average, use conditionals to print a message, for example:
-   - If average ≥ 90: "Great job in [subject]!"
-   - Else if average ≥ 70: "[Subject]: on track."
-   - Else: "[Subject]: let's bring this up."
-
-4. **Optional: List grades below a threshold per subject**  
-   For each subject, loop through its grades and print only those below 70 (or a number you choose). Label them by subject so you can see which subject each low grade belongs to.
+<Checklist>
+  <Checkbox id="proj2v2-phase2-task1" label="For each subject's list, loop through the grades and keep track of the largest. Print the subject and its highest grade." />
+  <Checkbox id="proj2v2-phase2-task2" label="For each subject, track the smallest grade and print it." />
+  <Checkbox id="proj2v2-phase2-task3" label="After computing each subject's average, use conditionals to print a message — e.g. 90+: 'Great job!', 70–89: 'On track.', below 70: 'Let's bring this up.'" />
+  <Checkbox id="proj2v2-phase2-task4" label="(Optional) For each subject, loop through its grades and print only those below 70. Label them by subject." />
+</Checklist>
 
 **Topics covered:** [If statements](../../ControlFlow/Conditionals/IfStatements), [Comparison operators](../../ControlFlow/Conditionals/ComparisonOperators), [Loops](../../ControlFlow/Loops)
 
-**End of Day 2:** Your program shows each subject's highest, lowest, average, and a message; optionally it lists which grades need work, per subject.
+**End of Day 2:** Your program shows each subject's highest, lowest, average, and a message.
 
 ---
 
 ## Phase 3 (Day 3): File I/O
 
-**Learning focus:** Save the list of lists (subjects and grades) to a file and load it back so data persists between runs.
+### Learning focus
+Save the list of lists to a file and load it back so data persists between runs.
 
-**Before you start:** Decide a simple file format. One option: each line is one subject, with subject name and grades separated by commas, e.g. `Math,85,92,78` then `Science,88,91`. Create a file (e.g. `grades.txt`) in the same folder as your program; you can leave it empty or put a few lines in that format so the file exists when your program runs.
+### Before you start
+Decide a simple file format. One option: each line is one subject, with subject name and grades separated by commas, e.g. `Math,85,92,78` then `Science,88,91`. Create a file (e.g. `grades.txt`) in the same folder as your program.
 
-**Tasks:**
+### Tasks
 
-1. **Save grades to a file**  
-   Write a function (or a block of code) that opens a file for writing. Loop over your list of lists; for each inner list, write one line (e.g. subject and all grades joined by commas). Close the file when done.
-
-2. **Load grades from a file**  
-   Write a function (or a block of code) that opens the file, reads each line, and splits the line (e.g. by comma). The first part is the subject; the rest are grades (convert to float). Build a list of lists in the same shape as before and return or use it as your main data.
-
-3. **Wire it into your program**  
-   When the program starts, load the list of lists from the file. At the end—after displaying all stats—save the current list of lists back to the file so your grade tracker by subject persists between runs.
+<Checklist>
+  <Checkbox id="proj2v2-phase3-task1" label="Write a function that opens a file for writing. Loop over your list of lists; for each inner list, write one line with subject and grades joined by commas." />
+  <Checkbox id="proj2v2-phase3-task2" label="Write a function that opens the file, reads each line, and splits by comma. The first part is the subject; the rest are grades (convert to float). Return a list of lists." />
+  <Checkbox id="proj2v2-phase3-task3" label="When the program starts, load the list of lists from the file. At the end, save it back so data persists between runs." />
+</Checklist>
 
 **Topics covered:** [Handling files](../../InputAndOutput/HandlingFiles), [Lists](../../Variables/TypesOfVariables/DataStructures/Lists), [Loops](../../ControlFlow/Loops)
 
-**End of Day 3:** You have a full grade tracker by subject: load from file, show each subject's stats (sum, average, highest, lowest, messages), and save back so data persists.
+**End of Day 3:** You have a full grade tracker by subject: load from file, show each subject's stats, and save back so data persists.
 
 ---
 
@@ -94,7 +85,7 @@ This will be a separate project that you can work on each day if you finish the 
 | Day  | Focus           | What you build |
 |------|-----------------|----------------|
 | 1    | Lists + Loops   | List of lists (subject + grades), display and sum/average per subject |
-| 2    | Conditionals   | Highest, lowest, message per subject; optional filter per subject |
+| 2    | Conditionals    | Highest, lowest, message per subject; optional filter per subject |
 | 3    | File I/O        | Save and load the list of lists so it persists |
 
 Same topics as the original Grade Tracker—lists, loops, conditionals, file I/O—with a 2D structure so you practice nested loops and indexing into lists of lists.
