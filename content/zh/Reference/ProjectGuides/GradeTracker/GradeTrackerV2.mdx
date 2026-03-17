@@ -2,90 +2,92 @@ import { Callout } from 'nextra/components'
 import { Checkbox } from '@/components/Checkbox'
 import { Checklist } from '@/components/Checklist'
 
-# Project 2 (v2): Grade Tracker — By Subject
 
-You'll build a **continuation** of the Grade Tracker that stores grades **by subject** in a **list of lists**. Each inner list holds the subject name and that subject's grades. You'll still use lists, loops, conditionals, and file I/O—same topics as the original Grade Tracker, with a 2D data structure.
+# 项目 2 (v2)：年级跟踪 - 按科目
 
-<Callout type="warning" title="Before you start!">
-Keep the original Grade Tracker code in a separate file!
-This will be a separate project that you can work on each day if you finish the steps for each day of the original Grade Tracker.
+这是成绩跟踪器的延续。不再是一个大的成绩列表，而是按科目**组织成绩。每个科目都以一个列表的形式存储，列表以科目名称开头，后面跟着成绩--比如"["数学", 85, 92, 78]"。您的完整数据就是这些内部列表的列表。
+
+您将使用相同的主题（列表、循环、条件、文件 I/O），但使用的是二维结构，因此您可以练习嵌套循环和索引。
+
+<Callout type="warning" title="开始之前！">请将您的原始 Grade Tracker 代码保存在一个文件夹中。
+将你的原始 Grade Tracker 代码保存在一个单独的文件中。这是一个新项目--请在完成原始成绩跟踪器每天的步骤后再开始工作。
 </Callout>
 
-**Data shape:** One list; each item is a list of the form `[subject, grade1, grade2, ...]`. For example: `[["Math", 85, 92, 78], ["Science", 88, 91], ["English", 76, 82, 90]]`. Index `0` of each inner list is the subject (a string); the rest are that subject's grades (numbers).
+**您的数据将如下所示：** `[["数学", 85, 92, 78],["科学", 88, 91],["英语", 76, 82, 90]]`。每个内列表的索引`0`是科目名称。其余为该科目的成绩。
 
 ---
 
-## Phase 1 (Day 1): Lists and Loops
+## 第 1 阶段（第 1 天）：列表和循环
 
-### Learning focus
-Create a list of lists, loop through the outer list and each inner list to display grades and compute sums.
+### 你将学会
+如何创建一个列表，并在外层列表和每个内层列表中循环显示和计算成绩。
 
-### Tasks
+###任务
 
-<Checklist>
-  <Checkbox id="proj2v2-phase1-task1" label="Start with a static list of lists, e.g. grades_by_subject = [['Math', 85, 92, 78], ['Science', 88, 91], ['English', 76, 82]]. This is your data for the rest of the tasks." />
-  <Checkbox id="proj2v2-phase1-task2" label="Use a for loop over the outer list. For each inner list, index 0 is the subject; the rest are grades. Print the subject, then print each grade." />
-  <Checkbox id="proj2v2-phase1-task3" label="For each subject's list, loop over the grades and add them up. Print each subject and its sum." />
-  <Checkbox id="proj2v2-phase1-task4" label="For each subject, compute average = sum ÷ number of grades. Print each subject and its average." />
-</Checklist>
+<检查列表
+  <Checkbox id="proj2v2-phase1-task1" label="创建一个名为 grades_by_subject 的变量，并将其设置为一个静态列表，例如 [['Math', 85, 92, 78], ['Science', 88, 91], ['English', 76, 82]]。这就是您的起始数据"。/>
+  <Checkbox id="proj2v2-phase1-task2" label="循环外层列表。对于每个内层列表，索引 0 为科目名称，其余为成绩。打印科目，然后打印每个等级"。/>
+  <Checkbox id="proj2v2-phase1-task3" label="循环处理每个科目的成绩并将其相加。打印每个科目名称及其总分"。/>
+  <Checkbox id="proj2v2-phase1-task4" label="计算每个科目的平均分：总分÷成绩数。打印每个科目及其平均分"。/>
+</Checklist> 检查表
 
-**Topics covered:** [Lists](../../Variables/TypesOfVariables/DataStructures/Lists), [Loops](../../ControlFlow/Loops)
+**涉及主题：** [Lists](../../Variables/TypesOfVariables/DataStructures/Lists), [Loops](../../ControlFlow/Loops)
 
-**End of Day 1:** You have a program with a list of lists that prints each subject's grades, sum, and average.
+**第一天结束：** 你的程序将打印每个科目的成绩、总分和平均分。良好的开端！
 
-### Challenge (optional)
-Add a new subject and its grades to the list (e.g. prompt for subject name and a few grades with `input()`), or use a loop to add several grades to one subject.
-
----
-
-## Phase 2 (Day 2): Conditionals
-
-### Learning focus
-Use `if` / `elif` / `else` to make decisions based on each subject's grades.
-
-### Tasks
-
-<Checklist>
-  <Checkbox id="proj2v2-phase2-task1" label="For each subject's list, loop through the grades and keep track of the largest. Print the subject and its highest grade." />
-  <Checkbox id="proj2v2-phase2-task2" label="For each subject, track the smallest grade and print it." />
-  <Checkbox id="proj2v2-phase2-task3" label="After computing each subject's average, use conditionals to print a message — e.g. 90+: 'Great job!', 70–89: 'On track.', below 70: 'Let's bring this up.'" />
-  <Checkbox id="proj2v2-phase2-task4" label="(Optional) For each subject, loop through its grades and print only those below 70. Label them by subject." />
-</Checklist>
-
-**Topics covered:** [If statements](../../ControlFlow/Conditionals/IfStatements), [Comparison operators](../../ControlFlow/Conditionals/ComparisonOperators), [Loops](../../ControlFlow/Loops)
-
-**End of Day 2:** Your program shows each subject's highest, lowest, average, and a message.
+#### 挑战（可选）
+尝试使用 `input()` 添加一个新科目--询问科目名称，然后询问一些成绩。将新的内层列表追加到外层列表，并打印更新后的数据。
 
 ---
 
-## Phase 3 (Day 3): File I/O
+## 第 2 阶段（第 2 天）：条件
 
-### Learning focus
-Save the list of lists to a file and load it back so data persists between runs.
+### 你将学会
+如何使用 "if"/"elif"/"else"，根据各科成绩做出决定--比如标出需要努力的科目。
 
-### Before you start
-Decide a simple file format. One option: each line is one subject, with subject name and grades separated by commas, e.g. `Math,85,92,78` then `Science,88,91`. Create a file (e.g. `grades.txt`) in the same folder as your program.
+### 任务
 
-### Tasks
+<检查列表
+  <Checkbox id="proj2v2-phase2-task1" label="循环查看每个科目的成绩，并记录最高分。打印科目名称及其最高分"。/>
+  <Checkbox id="proj2v2-phase2-task2" label="对每个科目的最低成绩做同样处理"。/>
+  <Checkbox id="proj2v2-phase2-task3" label="计算出各科平均分后，根据分数打印一条信息--例如，90 分或以上：'干得漂亮！'，70-89 分：'步入正轨'，70 分以下：'让我们再接再厉'"。/>
+  <Checkbox id="proj2v2-phase2-task4" label="（可选）打印每个科目低于 70 分的成绩。用科目名称标注它们，以便您知道它们属于哪个科目。"/>
+</Checklist> 检查表
 
-<Checklist>
-  <Checkbox id="proj2v2-phase3-task1" label="Write a function that opens a file for writing. Loop over your list of lists; for each inner list, write one line with subject and grades joined by commas." />
-  <Checkbox id="proj2v2-phase3-task2" label="Write a function that opens the file, reads each line, and splits by comma. The first part is the subject; the rest are grades (convert to float). Return a list of lists." />
-  <Checkbox id="proj2v2-phase3-task3" label="When the program starts, load the list of lists from the file. At the end, save it back so data persists between runs." />
-</Checklist>
+**涉及主题：** [If 语句]（.../.../ControlFlow/Conditionals/IfStatements）、[比较运算符]（.../.../ControlFlow/Conditionals/ComparisonOperators）、[循环]（.../../ControlFlow/Loops）
 
-**Topics covered:** [Handling files](../../InputAndOutput/HandlingFiles), [Lists](../../Variables/TypesOfVariables/DataStructures/Lists), [Loops](../../ControlFlow/Loops)
-
-**End of Day 3:** You have a full grade tracker by subject: load from file, show each subject's stats, and save back so data persists.
+**第 2 天结束：** 您的程序将显示每个科目的最高分、最低分、平均分和状态信息。
 
 ---
 
-## Summary
+## 第 3 阶段（第 3 天）：文件输入/输出
 
-| Day  | Focus           | What you build |
-|------|-----------------|----------------|
-| 1    | Lists + Loops   | List of lists (subject + grades), display and sum/average per subject |
-| 2    | Conditionals    | Highest, lowest, message per subject; optional filter per subject |
-| 3    | File I/O        | Save and load the list of lists so it persists |
+### 你将学会
+如何将成绩数据保存到文件中并加载回来，这样数据就能在两次运行之间保持不变。
 
-Same topics as the original Grade Tracker—lists, loops, conditionals, file I/O—with a 2D structure so you practice nested loops and indexing into lists of lists.
+### 开始前
+选择一个简单的文件格式。一个不错的选择是：每个科目一行，数值用逗号分隔，如`数学,85,92,78`。在运行程序前，在同一文件夹下创建一个名为 `grades.txt` 的空文件。
+
+### 任务
+
+<检查列表
+  <Checkbox id="proj2v2-phase3-task1" label="编写一个打开文件的函数。在列表中循环，每个主题写一行，值用逗号连接"。/>
+  <Checkbox id="proj2v2-phase3-task2" label="编写一个函数，打开文件，读取每一行，并用逗号分割。第一个值是主题名称，其余的是等级--将它们转换为浮点数。返回重建后的列表"。/>
+  <Checkbox id="proj2v2-phase3-task3" label="在程序开始时，从文件中加载成绩。在程序结束时，将成绩保存回去。现在，您的数据将在运行之间持续存在"。/>
+</Checklist> 检查列表
+
+**涉及主题：** [Handling files]（.../.../InputAndOutput/HandlingFiles）、[Lists]（.../.../Variables/TypesOfVariables/DataStructures/Lists）、[Loops]（.../../ControlFlow/Loops）
+
+**第 3 天结束：** 您的科目成绩跟踪器已经完成--它可以加载、分析和保存各次运行的数据。
+
+---
+
+## 摘要
+
+| 日 | 重点 | 你建造了什么 | 日 | 重点 | 你建造了什么 | 日 | 重点 | 你建造了什么 | 日 | 重点
+|-----|---------------|----------------|
+| 1 | 列表 + 循环 | 每个科目成绩的列表；显示总分和平均分 | 2 | 条件 | 每个科目的最高分、最低分和状态信息
+| 2 | 条件 | 每个科目的最高分、最低分和状态信息 | 3 | 文件 I/O
+| 3 | 文件输入/输出 | 保存和加载数据，以便在运行期间持续保存。
+
+您使用的核心主题与最初的成绩跟踪器相同--列表、循环、条件、文件 I/O，但现在使用的是二维结构。嵌套循环需要一些练习，你会掌握窍门的。

@@ -1,30 +1,32 @@
 import { Callout } from 'nextra/components'
 import { GlossaryTerm } from '@/components/GlossaryTerm'
 
-# Comparison Operators
 
-In this section you'll learn the six **comparison operators**—they compare two values and give you `True` or `False`. You use them in **conditions** (like inside an `if` or a `while` loop) so your program can decide whether to run a block of code.
+# 比较运算符
 
-## The six comparison operators
+您将学习六个**比较运算符**--它们比较两个值，并给出 "真 "或 "假"。您可以在**条件**（如在`if`或`while`循环中）中使用它们，这样您的程序就可以决定是否运行某个代码块。
 
-Each operator goes between two values. The result is always `True` or `False` (a boolean).
+## 六个比较运算符
 
-| Operator | Meaning           | Example       | Result   |
+每个运算符在两个值之间进行比较。结果总是 `True` 或 `False`（布尔值）。
+
+| 操作符 | 含义 | 示例 | 结果
 |----------|-------------------|---------------|----------|
-| `==`     | equal to          | `5 == 5`      | `True`   |
-| `!=`     | not equal to      | `5 != 3`      | `True`   |
-| `<`      | less than         | `3 < 5`       | `True`   |
-| `>`      | greater than      | `5 > 3`       | `True`   |
-| `<=`     | less than or equal to | `3 <= 3` | `True`   |
-| `>=`     | greater than or equal to | `5 >= 5` | `True`   |
+| `==` | 等于 | `5 == 5` | `True` | `!
+| `!=` | 不等于 | `5 != 3` | `True` |
+| `<` | 小于 | `3 < 5` | `True` |
+| `>` | 大于 | `5 > 3` | `True` | `<=` | `5 > 3` | `True` |
+| `<=` | 小于或等于 | `3 <= 3` | `True` |
+| `>=` | 大于或等于 | `5 >= 5` | `True` |
 
-<Callout type="warning" title="Two equals for comparison">
-To check if two values are equal, use **two** equals signs: `==`. A single `=` assigns a value to a <GlossaryTerm term="variable">variable</GlossaryTerm>; it doesn't compare.
-</Callout>
+<Callout type="warning" title="用于比较的两个相等值">。
+要检查两个值是否相等，请使用 ** 两个**等号：`==`.单个 `=` 为 <GlossaryTerm term="variable"> 变量</GlossaryTerm>赋值；它不进行比较。
+</Callout> 呼出
 
-## Using comparison operators in conditions
+## 在条件中使用比较操作符
 
-You'll usually put a comparison inside an `if` (or `while`). The condition is either true or false, and Python runs the block only when it's true.
+您通常会在 `if`（或 `while`）中使用比较操作符。条件要么为真，要么为假，Python 只在条件为真时运行代码块。
+
 
 ```python
 age = 15
@@ -35,9 +37,10 @@ else:
     print("This movie is for older audiences.")
 ```
 
-Here, `age >= 13` is the condition. Python evaluates it to `True` or `False`, then chooses which block to run. You can compare numbers, strings (e.g. `name == "Alex"`), and other types—just use values that make sense to compare.
+这里，`年龄 >= 13` 是条件。Python 将其评估为 `True` 或 `False`，然后选择运行哪个代码块。您可以比较数字、字符串 (例如，`name == "Alex"`)，以及其他类型--只需使用有意义的值进行比较。
 
-## Quick examples
+## 快速示例
+
 
 ```python
 score = 85
@@ -49,4 +52,4 @@ print(grade_letter == "B")  # True
 print(grade_letter != "A")  # True
 ```
 
-Comparison operators always give you a boolean. Once you're comfortable with these, you can combine conditions using **logical operators** (`and`, `or`, `not`) on the next page.
+比较运算符总是给出布尔值。熟练掌握这些运算符后，就可以在下一页使用**逻辑运算符**（`and`、`or`、`not`）组合条件。

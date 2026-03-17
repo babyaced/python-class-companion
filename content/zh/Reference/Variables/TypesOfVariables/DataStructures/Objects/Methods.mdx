@@ -1,13 +1,15 @@
 import { Callout } from 'nextra/components'
 import { GlossaryTerm } from '@/components/GlossaryTerm'
 
-# Methods
 
-A <GlossaryTerm>method</GlossaryTerm> is a function that belongs to a class. Methods define what an object can **do**.
+# 方法
 
-## Defining a Method
+<GlossaryTerm>method</GlossaryTerm> 是属于一个类的函数。方法定义了对象可以***做的事情。
 
-Methods are defined inside a class, just like regular functions — but they always take `self` as the first parameter.
+## 定义方法
+
+方法是在类中定义的，就像普通函数一样，但它们总是将 `self` 作为第一个参数。
+
 
 ```python
 class Dog:
@@ -22,11 +24,12 @@ class Dog:
         print("Hi, I'm " + self.name)
 ```
 
-`self` gives the method access to the object's attributes. Without it, `introduce` wouldn't know which dog's name to print.
+self` 为方法提供了访问对象属性的权限。没有它，`introduce` 就不知道该打印哪只狗的名字。
 
-## Calling a Method
+## 调用方法
 
-Use dot notation to call a method on an object:
+使用点符号调用对象上的方法：
+
 
 ```python
 dog1 = Dog("Buddy", 3)
@@ -34,11 +37,12 @@ dog1.bark()       # Woof!
 dog1.introduce()  # Hi, I'm Buddy
 ```
 
-You don't pass `self` when calling — Python handles that automatically.
+调用时不需要传递 `self` - Python 会自动处理。
 
-## Methods with Parameters
+## 带参数的方法
 
-Methods can take extra parameters beyond `self`:
+除了 `self` 之外，方法还可以接受额外的参数：
+
 
 ```python
 class Dog:
@@ -50,18 +54,20 @@ class Dog:
         print(self.name + " is eating " + food)
 ```
 
+
 ```python
 dog1 = Dog("Buddy", 3)
 dog1.eat("kibble")  # Buddy is eating kibble
 ```
 
 <Callout type="info">
-  This is exactly how Pillow works — `draw.ellipse(...)` is calling the `ellipse` method on the `draw` object, passing in the bounding box and color as arguments.
-</Callout>
+  这正是 Pillow 的工作原理--`draw.ellipse(...)` 正在调用`draw`对象上的`ellipse`方法，并将边界框和颜色作为参数传入。
+</Callout>（注释
 
-## Methods Can Use Other Methods
+## 方法可以使用其他方法
 
-A method can call other methods on the same object using `self`:
+方法可以使用 `self` 在同一对象上调用其他方法：
+
 
 ```python
 class Dog:
@@ -75,6 +81,7 @@ class Dog:
         print("Hi, I'm " + self.name)
         self.bark()
 ```
+
 
 ```python
 dog1 = Dog("Buddy")

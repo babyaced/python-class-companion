@@ -1,25 +1,13 @@
 import { Callout } from 'nextra/components'
 import { GlossaryTerm } from '@/components/GlossaryTerm'
 
-# Dictionaries
 
-Think about a real dictionary — each word has a definition. In Python, a **dictionary** works the same way: it stores data as **key-value pairs**, where each key maps to a value.
+# 词典
 
-You'd use a dictionary when your data has labels. Instead of a list where you track things by position, a dictionary lets you look things up by name.
+想想真正的字典--每个词都有一个定义。在 Python 中，** 字典** 以同样的方式工作：它将数据存储为**键值对**，其中每个键映射到一个值。
 
-```python
-person = {
-    "name": "Alice",
-    "age": 30,
-    "city": "New York"
-}
-```
+当您的数据有标签时，您就会使用字典。字典可以让你按名称查找事物，而不是按位置追踪事物的列表。
 
-Here, `"name"`, `"age"`, and `"city"` are **keys**. `"Alice"`, `30`, and `"New York"` are their **values**.
-
-## Creating a dictionary
-
-Put key-value pairs inside curly braces `{}`. Separate each pair with a comma, and use a colon `:` between each key and value:
 
 ```python
 person = {
@@ -29,7 +17,14 @@ person = {
 }
 ```
 
-Keys must be unique — if you use the same key twice, the second value overwrites the first:
+这里，`"姓名"、`"年龄 "和`"城市 "是**键**。Alice"、"30 "和 "纽约 "是它们的**值。
+
+## 创建字典
+
+将键值对放在大括号`{}`内。用逗号分隔每个键值对，并在每个键和值之间使用冒号 `:`。
+
+键值必须是唯一的，如果两次使用相同的键值，则第二个值会覆盖第一个值：
+
 
 ```python
 person = {
@@ -39,4 +34,4 @@ person = {
 print(person)  # Output: {'name': 'Aly'}
 ```
 
-Values can be any type — strings, numbers, booleans, lists, even other dictionaries.
+值可以是任何类型--字符串、数字、布尔值、列表，甚至其他字典。

@@ -1,55 +1,54 @@
 import { GlossaryTerm } from '@/components/GlossaryTerm'
 
-# Constructors
 
-## What is a Constructor?
-A **constructor** is a special function that is called when an <GlossaryTerm>object</GlossaryTerm> is created from a <GlossaryTerm>class</GlossaryTerm>.
+# 构造函数
 
-We often use a constructor to initialize the unique properties of an object.
+## 什么是构造函数？
+构造函数**是一个特殊函数，当从<GlossaryTerm>类</GlossaryTerm>中创建<GlossaryTerm>对象</GlossaryTerm>时调用该函数。
 
-To create properties that are unique to each object we use **instance variables**.
+我们经常使用构造函数来初始化对象的独特属性。
 
-For a dog, properties we might use **instance variables** for could be its `name` and `age`.
+为了创建每个对象独有的属性，我们使用**实例变量**。
 
-To set up these unique properties, we use something called a **constructor**.
+对于一只狗，我们可以使用**实例变量**来创建它的 "名字 "和 "年龄"。
 
-## Defining a Constructor
-In Python, we have to define the constructor function by defining the `__init__` <GlossaryTerm>method</GlossaryTerm>.
+要设置这些独特的属性，我们需要使用一种叫做**构造函数**的东西。
 
-Here's an example of how to use a constructor to create a `Dog` class with unique `name` and `age` properties:
+## 定义构造函数
+在 Python 中，我们必须通过定义 `__init__` <GlossaryTerm> 方法</GlossaryTerm>来定义构造函数。
+
+下面是一个如何使用构造函数创建具有唯一的 `name` 和 `age` 属性的 `Dog` 类的示例：
+
 
 ```python
 class Dog:
-    species = "Canis familiaris"
-    number_of_legs = 4
-
     def __init__(self, name, age):
         self.name = name
         self.age = age
 ```
 
-In this example, we created a constructor by defining the `__init__` method that takes two parameters: `name` and `age`.
+在本例中，我们通过定义 `__init__` 方法创建了一个构造函数，该方法需要两个参数：名称 "和 "年龄"。
 
-The `self` parameter is a reference to the current <GlossaryTerm>instance</GlossaryTerm> of the class and is used to access variables that belong to the class.
+`self` 参数是对类的当前 <GlossaryTerm> 实例</GlossaryTerm> 的引用，用于访问属于类的变量。
 
-Now we can create multiple dog objects with different names and ages:
+现在，我们可以创建多个具有不同名称和年龄的狗对象：
+
 
 ```python
 dog1 = Dog("Buddy", 3)
 dog2 = Dog("Max", 5)
 ```
 
-To use the constructor, we simply write the class name followed by parentheses, passing in the required **arguments**, just like any other function call.
+要使用构造函数，我们只需像调用其他函数一样，在类名后面写上括号，并传递所需的**参数**。
 
-In this case, we created two dog objects: `dog1` with the name "Buddy" and age 3, and `dog2` with the name "Max" and age 5.
-Each dog object has its own unique `name` and `age` **instance variables**, while still sharing the same `species` and `number_of_legs` **class variables**.
+dog1 "和 "dog2 "是两个独立的实例--每个实例都有自己的 "名称 "和 "年龄"。
 
 
-### More on `self`
-The concept of `self` can be a bit tricky to understand at first.
-So let's break down what is happening in the constructor.
+### 更多关于 `self` 的内容
+一开始，`self` 的概念可能有点难以理解。
+因此，让我们分解一下构造函数中发生的事情。
 
-When we create a new dog object using `Dog("Buddy", 3)`, 
-the `__init__` method is called with `self` referring to the new dog object being created aka its "self".
+当我们使用 `Dog("Buddy", 3)` 创建一个新的狗对象时、
+调用 `__init__` 方法时，"self "指的是正在创建的新的狗对象，也就是它的 "self"。
 
-The `name` of this new Dog object is set to "Buddy", and `age` set to 3.
+这个新 Dog 对象的 `name` 被设置为 "Buddy"，`age` 被设置为 3。

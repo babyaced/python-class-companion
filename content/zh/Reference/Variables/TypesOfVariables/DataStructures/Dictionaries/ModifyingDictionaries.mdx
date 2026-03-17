@@ -1,10 +1,12 @@
 import { GlossaryTerm } from '@/components/GlossaryTerm'
 
-# Modifying Dictionaries
 
-## Changing a value
+# 修改字典
 
-To update a value, use square brackets with the key and assign a new value:
+## 更改数值
+
+要更新一个值，请在键上使用方括号，并指定一个新值：
+
 
 ```python
 person = {"name": "Alice", "age": 30, "city": "New York"}
@@ -13,9 +15,10 @@ person["age"] = 31
 print(person)  # Output: {'name': 'Alice', 'age': 31, 'city': 'New York'}
 ```
 
-## Adding a new key-value pair
+## 添加新的键值对
 
-Adding a new key works exactly the same way — if the key doesn't exist yet, Python creates it:
+添加新键的方法完全相同--如果键还不存在，Python 就会创建它：
+
 
 ```python
 person["occupation"] = "Engineer"
@@ -23,18 +26,20 @@ print(person)
 # Output: {'name': 'Alice', 'age': 31, 'city': 'New York', 'occupation': 'Engineer'}
 ```
 
-## Removing a key-value pair
+## 删除键值对
 
-You have two options for removing a pair:
+删除键值对有两种方法：
 
-**`del`** — removes the key-value pair directly:
+**`del`** - 直接删除键值对：
+
 
 ```python
 del person["city"]
 print(person)  # Output: {'name': 'Alice', 'age': 31, 'occupation': 'Engineer'}
 ```
 
-**`pop()`** — removes the pair and gives back the value, so you can use it:
+**`pop()`** - 删除配对并返回值，以便使用：
+
 
 ```python
 occupation = person.pop("occupation")
@@ -42,4 +47,53 @@ print(occupation)  # Output: Engineer
 print(person)      # Output: {'name': 'Alice', 'age': 31}
 ```
 
-Use `del` when you just want to remove something. Use `pop()` when you need the value before it's gone.
+如果只想删除某些内容，请使用 `del`。当您需要在值消失前获得它时，请使用 `pop()`。
+
+## 循环字典
+
+使用 `.items()` 同时循环键和值：
+
+
+```python
+person = {"name": "Alice", "age": 31, "city": "New York"}
+
+for key, value in person.items():
+    print(key, "->", value)
+
+# Output:
+# name -> Alice
+# age -> 31
+# city -> New York
+```
+
+您也可以只循环键或值：
+
+
+```python
+for key in person:
+    print(key)          # name, age, city
+
+for value in person.values():
+    print(value)        # Alice, 31, New York
+```
+
+## 示例调色板
+
+字典非常适合用来存储已命名的颜色--这是你在 "生成艺术 "项目中要做的事情：
+
+
+```python
+palette = {
+    "background": (15, 15, 30),
+    "primary":    (255, 100, 80),
+    "secondary":  (80, 180, 255),
+    "accent":     (255, 220, 50),
+}
+
+# Access a color by name
+print(palette["primary"])   # (255, 100, 80)
+
+# Loop to print all colors
+for name, color in palette.items():
+    print(f"{name}: {color}")
+```

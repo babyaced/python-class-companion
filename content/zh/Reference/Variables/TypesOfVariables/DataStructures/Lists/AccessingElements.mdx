@@ -1,11 +1,13 @@
 import { Callout } from 'nextra/components'
 import { GlossaryTerm } from '@/components/GlossaryTerm'
 
-# Accessing & Modifying
 
-## Accessing items
+# 访问和修改
 
-You get an item from a list using its position, called an **index**. Write the list name followed by the index in square brackets:
+## 访问项目
+
+从列表中获取一个项目，需要使用其位置，即**索引**。在方括号中写入列表名称和索引：
+
 
 ```python
 fruits = ["apple", "banana", "cherry"]
@@ -14,11 +16,12 @@ print(fruits[1])  # Output: banana
 print(fruits[2])  # Output: cherry
 ```
 
-<Callout type="info" title="Indexes start at 0">
-The first item is at index `0`, not `1`. So a list with 3 items has indexes `0`, `1`, and `2`. You'll get used to it!
-</Callout>
+<Callout type="info" title="索引始于 0">
+第一个项目位于索引 `0`，而不是 `1`。因此，一个有 3 个项的列表的索引为 `0`、`1` 和 `2`。你会习惯的！
+</Callout> 呼出
 
-You can also count from the end using **negative indexes** — `-1` is the last item, `-2` is second-to-last, and so on:
+您还可以使用**负索引**从末尾开始计数--`1`是最后一项，`2`是倒数第二项，以此类推：
+
 
 ```python
 fruits = ["apple", "banana", "cherry"]
@@ -26,9 +29,10 @@ print(fruits[-1])  # Output: cherry
 print(fruits[-2])  # Output: banana
 ```
 
-## Modifying items
+## 修改项目
 
-To change an item, use its index and assign a new value — same idea as updating a <GlossaryTerm>variable</GlossaryTerm>:
+要修改一个项目，可使用其索引并分配一个新值--这与更新 <GlossaryTerm> 变量</GlossaryTerm> 的思路相同：
+
 
 ```python
 fruits = ["apple", "banana", "cherry"]

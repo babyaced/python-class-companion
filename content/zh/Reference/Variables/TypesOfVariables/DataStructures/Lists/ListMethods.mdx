@@ -1,15 +1,17 @@
 import { Callout } from 'nextra/components'
 import { GlossaryTerm } from '@/components/GlossaryTerm'
 
-# List Methods
 
-Lists come with built-in **methods** — actions you can run on a list. You call them by writing the list name, a dot, then the method name: `my_list.method()`.
+# 列表方法
 
-Here are the ones you'll use most:
+列表内置了**方法**--可以在列表上运行的操作。调用时，先写入列表名、点号，然后写入方法名：`my_list.method()`。
+
+下面是你最常用的方法：
 
 ## append()
 
-Adds an item to the end of the list:
+在列表末尾添加一个项目：
+
 
 ```python
 fruits = ["apple", "banana"]
@@ -19,7 +21,8 @@ print(fruits)  # Output: ['apple', 'banana', 'cherry']
 
 ## remove()
 
-Removes the first item in the list that matches the value you pass in:
+移除列表中与所传值匹配的第一个项目：
+
 
 ```python
 fruits = ["apple", "banana", "cherry"]
@@ -29,7 +32,8 @@ print(fruits)  # Output: ['apple', 'cherry']
 
 ## pop()
 
-Removes an item and gives it back to you. With no argument, it removes the last item:
+移除一个项目并将其还给你。如果没有参数，则会删除最后一个项目：
+
 
 ```python
 fruits = ["apple", "banana", "cherry"]
@@ -40,7 +44,8 @@ print(fruits)  # Output: ['apple', 'banana']
 
 ## insert()
 
-Puts an item at a specific index. Everything at that position and after shifts right to make room:
+在特定索引处插入一个项目。该位置及其后的所有内容都会右移以腾出空间：
+
 
 ```python
 fruits = ["apple", "banana"]
@@ -50,7 +55,8 @@ print(fruits)  # Output: ['apple', 'cherry', 'banana']
 
 ## sort()
 
-Sorts the list in ascending order (smallest to largest, or A to Z):
+按升序（从小到大，或从 A 到 Z）对列表排序：
+
 
 ```python
 numbers = [3, 1, 4, 2]
@@ -58,7 +64,8 @@ numbers.sort()
 print(numbers)  # Output: [1, 2, 3, 4]
 ```
 
-To sort in reverse, pass `reverse=True`:
+要反向排序，请输入 `reverse=True`：
+
 
 ```python
 numbers.sort(reverse=True)
@@ -67,7 +74,8 @@ print(numbers)  # Output: [4, 3, 2, 1]
 
 ## len()
 
-Returns how many items are in the list. Note that `len()` is a built-in function, not a list method — so you don't use dot notation:
+返回列表中有多少个项目。请注意，`len()` 是一个内置函数，而不是列表方法，因此不能使用点符号：
+
 
 ```python
 fruits = ["apple", "banana", "cherry"]
@@ -75,5 +83,5 @@ print(len(fruits))  # Output: 3
 ```
 
 <Callout type="info">
-For a full list of what you can do with lists, check out the [Python documentation on lists](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists).
+有关您能用列表做什么的完整列表，请查看 [Python 文档 on lists](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)。
 </Callout>

@@ -1,10 +1,12 @@
 import { Callout } from 'nextra/components'
 
-# Looping over a Dictionary
 
-When you loop through a dictionary, you only get the keys by default.
+# 循环字典
 
-## Looping over keys
+在字典中循环时，默认情况下只获取键值。
+
+## 在键上循环
+
 
 ```python
 person = {"name": "Alice", "age": 16, "city": "San Francisco"}
@@ -16,7 +18,8 @@ for key in person:
 # city
 ```
 
-You can use the key to access each value inside the loop:
+您可以使用键来访问循环中的每个值：
+
 
 ```python
 for key in person:
@@ -26,9 +29,10 @@ for key in person:
 # city : San Francisco
 ```
 
-## Looping over values
+## 循环数值
 
-Use `.values()` if you only need the values:
+如果只需要数值，请使用 `.values()`：
+
 
 ```python
 for value in person.values():
@@ -38,9 +42,10 @@ for value in person.values():
 # San Francisco
 ```
 
-## Looping over keys and values together
+## 对键和值一起循环
 
-Use `.items()` to get both at once. Each pair comes back as a tuple `(key, value)`:
+使用 `.items()` 一次获得两个值。每对数据都会返回一个元组 `(key,value)`：
+
 
 ```python
 for key, value in person.items():
@@ -51,5 +56,5 @@ for key, value in person.items():
 ```
 
 <Callout type="info">
-  `.items()` is the most common way to loop over a dictionary when you need both the key and the value.
+  当您需要键和值时，".items() "是循环字典的最常用方法。
 </Callout>
