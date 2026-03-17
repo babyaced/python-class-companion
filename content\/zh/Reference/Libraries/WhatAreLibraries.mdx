@@ -1,0 +1,35 @@
+# What are Libraries?
+
+Imagine you need to find the square root of a number. You *could* write the math yourself — but that would take a while. Instead, Python lets you use a **library**: a collection of pre-written code that you can plug into your program.
+
+Libraries save you from reinventing the wheel. Someone already wrote the hard part — you just import it.
+
+## Importing a Library
+
+To use a library, add an `import` statement at the top of your file:
+
+```python
+import math
+
+print(math.sqrt(25))  # 5.0
+```
+
+The `import math` line loads the library. After that, you access its functions using a dot: `math.sqrt()`, `math.floor()`, etc.
+
+## Importing Specific Things
+
+Sometimes you only need one function from a library. You can import just that piece:
+
+```python
+from random import randint
+
+print(randint(1, 10))
+```
+
+This lets you call `randint()` directly instead of `random.randint()`.
+
+## Two Types of Libraries
+
+**Standard libraries** come built into Python — no installation needed. There are over 200 of them. Examples: `math`, `random`, `csv`.
+
+**External libraries** are written by the Python community and need to be installed before you can use them. Examples: `Pillow` (image editing), `pandas` (data analysis).

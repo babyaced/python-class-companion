@@ -1,0 +1,79 @@
+# csv
+
+The `csv` library lets you read and write CSV files. CSV stands for **Comma-Separated Values** — it's a simple file format that spreadsheet apps like Excel and Google Sheets use.
+
+A CSV file looks like this:
+
+```
+name,grade,score
+Alice,10,92
+Bob,11,85
+Carol,10,78
+```
+
+Each row is a record, and commas separate the columns.
+
+```python
+import csv
+```
+
+## Reading a CSV File
+
+```python
+import csv
+
+with open("students.csv") as file:
+    reader = csv.reader(file)
+    for row in reader:
+        print(row)
+
+# ['name', 'grade', 'score']
+# ['Alice', '10', '92']
+# ['Bob', '11', '85']
+```
+
+Each `row` is a list of strings. The first row is usually the header.
+
+### Skipping the Header
+
+```python
+with open("students.csv") as file:
+    reader = csv.reader(file)
+    next(reader)  # skip the header row
+    for row in reader:
+        name, grade, score = row
+        print(f"{name} scored {score}")
+```
+
+## Reading as Dictionaries
+
+`csv.DictReader` gives you each row as a dictionary, using the header row as keys. This is usually easier to work with.
+
+```python
+with open("students.csv") as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        print(row["name"], row["score"])
+```
+
+## Writing a CSV File
+
+```python
+import csv
+
+with open("output.csv", "w", newline="") as file:
+    writer = csv.writer(file)
+    writer.writerow(["name", "score"])   # header
+    writer.writerow(["Alice", 92])
+    writer.writerow(["Bob", 85])
+```
+
+import { Callout } from 'nextra/components'
+
+<Callout type="info">
+  All values read from a CSV come back as **strings**, even numbers. Use `int()` or `float()` to convert them if you need to do math.
+
+  ```python
+  score = int(row["score"])   # convert "92" → 92
+  ```
+</Callout>

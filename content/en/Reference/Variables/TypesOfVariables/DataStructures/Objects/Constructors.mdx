@@ -20,9 +20,6 @@ Here's an example of how to use a constructor to create a `Dog` class with uniqu
 
 ```python
 class Dog:
-    species = "Canis familiaris"
-    number_of_legs = 4
-
     def __init__(self, name, age):
         self.name = name
         self.age = age
@@ -41,8 +38,7 @@ dog2 = Dog("Max", 5)
 
 To use the constructor, we simply write the class name followed by parentheses, passing in the required **arguments**, just like any other function call.
 
-In this case, we created two dog objects: `dog1` with the name "Buddy" and age 3, and `dog2` with the name "Max" and age 5.
-Each dog object has its own unique `name` and `age` **instance variables**, while still sharing the same `species` and `number_of_legs` **class variables**.
+`dog1` and `dog2` are two separate instances — each has its own `name` and `age`.
 
 
 ### More on `self`

@@ -1,0 +1,84 @@
+import { Callout } from 'nextra/components'
+import { GlossaryTerm } from '@/components/GlossaryTerm'
+
+# Methods
+
+A <GlossaryTerm>method</GlossaryTerm> is a function that belongs to a class. Methods define what an object can **do**.
+
+## Defining a Method
+
+Methods are defined inside a class, just like regular functions — but they always take `self` as the first parameter.
+
+```python
+class Dog:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def bark(self):
+        print("Woof!")
+
+    def introduce(self):
+        print("Hi, I'm " + self.name)
+```
+
+`self` gives the method access to the object's attributes. Without it, `introduce` wouldn't know which dog's name to print.
+
+## Calling a Method
+
+Use dot notation to call a method on an object:
+
+```python
+dog1 = Dog("Buddy", 3)
+dog1.bark()       # Woof!
+dog1.introduce()  # Hi, I'm Buddy
+```
+
+You don't pass `self` when calling — Python handles that automatically.
+
+## Methods with Parameters
+
+Methods can take extra parameters beyond `self`:
+
+```python
+class Dog:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def eat(self, food):
+        print(self.name + " is eating " + food)
+```
+
+```python
+dog1 = Dog("Buddy", 3)
+dog1.eat("kibble")  # Buddy is eating kibble
+```
+
+<Callout type="info">
+  This is exactly how Pillow works — `draw.ellipse(...)` is calling the `ellipse` method on the `draw` object, passing in the bounding box and color as arguments.
+</Callout>
+
+## Methods Can Use Other Methods
+
+A method can call other methods on the same object using `self`:
+
+```python
+class Dog:
+    def __init__(self, name):
+        self.name = name
+
+    def bark(self):
+        print("Woof!")
+
+    def greet(self):
+        print("Hi, I'm " + self.name)
+        self.bark()
+```
+
+```python
+dog1 = Dog("Buddy")
+dog1.greet()
+# Hi, I'm Buddy
+# Woof!
+```
