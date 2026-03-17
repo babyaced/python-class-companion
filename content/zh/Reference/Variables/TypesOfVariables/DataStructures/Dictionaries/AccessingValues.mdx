@@ -1,11 +1,13 @@
 import { Callout } from 'nextra/components'
 import { GlossaryTerm } from '@/components/GlossaryTerm'
 
-# Accessing Values
 
-## Using square brackets
+# 访问值
 
-To get a value, write the dictionary name followed by the key in square brackets:
+## 使用方括号
+
+要获取一个值，请在方括号中写入字典名和键：
+
 
 ```python
 person = {
@@ -17,17 +19,18 @@ print(person["age"])   # Output: 30
 print(person["name"])  # Output: Alice
 ```
 
-## Using get()
+## 使用 get()
 
-The `get()` <GlossaryTerm term="method">method</GlossaryTerm> does the same thing, but lets you provide a fallback value if the key doesn't exist:
+<get()` <GlossaryTerm term="method">方法</GlossaryTerm>做同样的事情，但如果键不存在，你可以提供一个后备值：
+
 
 ```python
 print(person.get("age"))                        # Output: 30
 print(person.get("occupation", "Not specified")) # Output: Not specified
 ```
 
-If you use square brackets with a key that doesn't exist, Python raises an error. `get()` returns `None` (or your fallback) instead — which is safer when you're not sure if a key is there.
+如果在不存在的键上使用方括号，Python 会引发错误。`get()` 返回 `None` (或您的后备函数) - 当您不确定键是否存在时，这样更安全。
 
-<Callout type="info" title="When to use get()">
-Use `get()` when a key might not be in the dictionary. Use square brackets when you're sure the key exists and want Python to raise an error if it doesn't.
-</Callout>
+<Callout type="info" title="何时使用 get()">
+当某个键可能不在字典中时，使用 `get()`。当您确定键存在，并希望 Python 在它不存在时引发错误时，使用方括号。
+</Callout> 呼出

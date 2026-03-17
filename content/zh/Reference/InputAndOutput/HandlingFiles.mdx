@@ -1,29 +1,32 @@
 import { GlossaryTerm } from '@/components/GlossaryTerm'
 import { Callout } from 'nextra/components'
 
-# Handling Files
 
-Sometimes you want your program to remember data even after it closes — like a list of scores or entries a user has added. That's where files come in. Python makes it easy to read data from a file and write data to one.
+# 处理文件
 
-## Opening a file
+有时，你希望程序在关闭后仍能记住数据，比如用户添加的分数或条目列表。这就是文件的作用。Python 使从文件读取数据和向文件写入数据变得很容易。
 
-Use the `open()` <GlossaryTerm term="function">function</GlossaryTerm> to open a file. You pass it the filename and a **mode** that tells Python what you want to do with it:
+## 打开文件
 
-| Mode | What it does |
+使用 `open()` <GlossaryTerm term="function"> 函数</GlossaryTerm> 打开文件。您可以向它传递文件名和一个 **mode** 来告诉 Python 您想对它做什么：
+
+| 模式 | 它的作用 | 文件名
 |------|-------------|
-| `"r"` | Read — open an existing file to read from it |
-| `"w"` | Write — create or overwrite a file |
-| `"a"` | Append — add to the end of an existing file (or create it) |
+| `"r"` | 读取 - 打开一个现有文件以读取其中的内容。
+| `"w"` | 写--创建或覆盖文件
+| `"a"` | 追加 - 添加到现有文件的末尾（或创建文件） | `"b"` | 添加到现有文件的末尾（或创建文件
+
 
 ```python
 my_file = open("scores.txt", "r")
 ```
 
-This opens `scores.txt` in read mode and stores the result in a <GlossaryTerm>variable</GlossaryTerm>. You'll use that variable to read or write.
+这会以读取模式打开 `scores.txt`，并将结果存储在 <GlossaryTerm> 变量</GlossaryTerm>中。您将使用该变量进行读取或写入。
 
-## Reading from a file
+## 从文件中读取
 
-The most common way to read is to loop over the file line by line:
+最常见的读取方式是逐行循环读取文件：
+
 
 ```python
 my_file = open("scores.txt", "r")
@@ -32,9 +35,10 @@ for line in my_file:
 my_file.close()
 ```
 
-Each pass through the loop gives you the next line as a string. `.strip()` removes the newline character at the end — you'll almost always want that.
+每通过一次循环，就会得到下一行字符串。.strip()`会去掉字符串末尾的换行符--你几乎总是需要它。
 
-If you need the whole file at once as a single string, use `read()`:
+如果你需要一次性将整个文件转换成一个字符串，可以使用 `read()`：
+
 
 ```python
 my_file = open("scores.txt", "r")
@@ -43,7 +47,8 @@ print(content)
 my_file.close()
 ```
 
-If you want all the lines as a list, use `readlines()`:
+如果想要以列表形式显示所有行，请使用 `readlines()`：
+
 
 ```python
 my_file = open("scores.txt", "r")
@@ -51,11 +56,12 @@ lines = my_file.readlines()  # returns ["line 1\n", "line 2\n", ...]
 my_file.close()
 ```
 
-For most projects, the `for line in file` loop is all you need.
+对于大多数项目来说，"for line in file "循环就足够了。
 
-## Writing to a file
+## 写入文件
 
-Open in write mode and use the `write()` <GlossaryTerm term="method">method</GlossaryTerm>:
+以写入模式打开并使用 `write()` <GlossaryTerm term="method">方法</GlossaryTerm>：
+
 
 ```python
 my_file = open("scores.txt", "w")
@@ -64,9 +70,10 @@ my_file.write("Bob: 88\n")
 my_file.close()
 ```
 
-<Callout type="warning" title="Write mode replaces the file">
-Opening a file with `"w"` wipes out anything already in it. If you want to add to the end without deleting what's there, use `"a"` (append) instead.
-</Callout>
+<Callout type="warning" title="写模式会替换文件">用 "w "打开文件时，会清除文件中的所有内容。
+使用 `"w"`打开文件时，会删除文件中已有的内容。如果想在文件末尾添加内容而不删除原有内容，请使用 `"a"` （追加）。
+</Callout> 呼出
+
 
 ```python
 my_file = open("scores.txt", "a")
@@ -74,17 +81,19 @@ my_file.write("Carol: 92\n")
 my_file.close()
 ```
 
-## Closing a file
+## 关闭文件
 
-Always close the file when you're done with `close()`. This saves everything to disk and frees up resources — think of it like saving and closing a document.
+使用 `close()`完成后，一定要关闭文件。这样可以将所有内容保存到磁盘，并释放资源--就像保存和关闭文档一样。
+
 
 ```python
 my_file.close()
 ```
 
-## Using `with` (recommended)
+## 使用 `with`（推荐）
 
-A cleaner way to work with files is the `with` block. It closes the file automatically when the block ends, even if something goes wrong:
+使用 `with` 代码块处理文件是一种更简洁的方法。它能在代码块结束时自动关闭文件，即使出了差错也是如此：
+
 
 ```python
 with open("scores.txt", "r") as my_file:
@@ -92,4 +101,4 @@ with open("scores.txt", "r") as my_file:
         print(line.strip())
 ```
 
-You don't need to call `close()` yourself. Once the indented block finishes, Python handles it. This is the pattern you'll see most often in real code.
+您不需要自己调用 `close()`。一旦缩进块结束，Python 就会处理它。这是实际代码中最常见的模式。

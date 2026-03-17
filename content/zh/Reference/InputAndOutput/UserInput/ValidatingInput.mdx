@@ -1,12 +1,13 @@
-# What is Input Validation?
+# 什么是输入验证？
 
-Input validation is the process of ensuring that the data entered by the user meets certain criteria before it is processed by the program. 
-This is important to prevent errors and ensure that the program behaves as expected.
+输入验证是指在程序处理之前，确保用户输入的数据符合特定标准的过程。
+这对防止错误和确保程序按预期运行非常重要。
 
-## Input Validation Techniques
-There are many ways to validate user input in Python, but one common technique is to use a `while` loop to repeatedly ask the user for input until they provide valid data. 
+### 输入验证技术
+在 Python 中验证用户输入的方法有很多，但一种常用的技术是使用一个 `while` 循环来重复询问用户输入，直到他们提供有效数据。
 
-Here's an example of how to validate that the user enters a positive integer:
+下面是一个验证用户输入正整数的例子：
+
 
 ```python
 while True: # create an infinite loop
@@ -17,4 +18,3 @@ while True: # create an infinite loop
     else:
         print("Invalid input. Please try again.") # tell the user their input was invalid and ask them to try again
 ```
-

@@ -1,19 +1,21 @@
 import { Callout } from 'nextra/components'
 import { GlossaryTerm } from '@/components/GlossaryTerm'
 
-# Logical Operators
 
-In this section you'll learn **logical operators**—they let you combine two or more conditions into one. You've already used comparison operators to build a single condition (e.g. `age >= 18`). Logical operators are how you say "this condition **and** that condition" or "this condition **or** that condition" or "**not** this condition."
+# 逻辑操作符
 
-The three logical operators in Python:
+本节将学习**逻辑运算符**--它们可以让你将两个或多个条件合二为一。您已经使用过比较运算符来构建单个条件（例如，"年龄 >= 18"）。逻辑运算符可以让你说 "这个条件**和**那个条件 "或 "这个条件**或**那个条件 "或 "**不**这个条件"。
 
-- **`and`** — True only when both conditions are true.
-- **`or`** — True when at least one condition is true.
-- **`not`** — Flips the result: true becomes false, false becomes true.
+Python 中的三个逻辑运算符：
 
-## The `and` operator
+- **`and`** - 只有当两个条件都为真时才为真。
+- **`or`** - 至少一个条件为真时为真。
+- **`not`** - 翻转结果："真 "变为 "假"，"假 "变为 "真"。
 
-Use `and` when you need **both** conditions to be true. If either one is false, the whole expression is false.
+## `and` 运算符
+
+当需要两个**条件都为真时，使用 `and` 运算符。如果其中一个为假，则整个表达式为假。
+
 
 ```python
 age = 20
@@ -25,11 +27,12 @@ else:
     print("Sorry, you cannot enter the club.")
 ```
 
-The person can enter only if they are 18 or older **and** they have an ID. Both must be true.
+只有年满 18 岁且***有身份证件的人才能参赛。这两项必须都是真实的。
 
-## The `or` operator
+## `or` 运算符
 
-Use `or` when **at least one** of the conditions can be true. If either one is true, the whole expression is true.
+当**个条件中至少有一个**为真时，使用 `or` 运算符。如果其中一个条件为真，则整个表达式为真。
+
 
 ```python
 day = "Saturday"
@@ -40,11 +43,12 @@ else:
     print("It's a weekday.")
 ```
 
-If the day is Saturday or Sunday, we print the weekend message. Only one of the conditions has to be true.
+如果当天是周六或周日，我们将打印周末信息。只有一个条件必须为真。
 
-## The `not` operator
+## `not` 运算符
 
-Use `not` to flip a condition: if it was true, `not` makes it false, and vice versa.
+使用 `not` 可以翻转条件：如果条件为真，则 `not` 使其为假，反之亦然。
+
 
 ```python
 is_raining = False
@@ -55,11 +59,12 @@ else:
     print("Don't forget your umbrella!")
 ```
 
-Here, `is_raining` is `False`. So `not is_raining` is `True`, and we print "It's a nice day outside!" If `is_raining` were `True`, we'd print the umbrella message instead.
+这里，`is_raining`是`假`。所以 `not is_raining` 是 `True`，我们就会打印 "外面的天气真好！"。如果 `is_raining` 是 `True`，我们就会打印雨伞信息。
 
-## Combining logical operators
+## 组合逻辑运算符
 
-You can use more than one logical operator in a single condition. Parentheses help make the order clear.
+在一个条件中可以使用多个逻辑运算符。括号有助于明确顺序。
+
 
 ```python
 age = 25
@@ -72,8 +77,8 @@ else:
     print("Sorry, you cannot enter the club.")
 ```
 
-You can enter if (you're 18+ and have an ID) **or** if you're a member. The parentheses show that we check "18+ and has ID" first, then we allow members with the `or`.
+如果（您年满 18 周岁并有身份证）**或**您是会员，则可以输入。括号表示我们首先检查 "18 岁以上并有身份证"，然后才允许使用 "或 "输入会员。
 
-<Callout type="info" title="Order of evaluation">
-Python evaluates logical operators in this order: `not` first, then `and`, then `or`. Using parentheses (as in the example above) makes your intent clear and helps you avoid mistakes.
-</Callout>
+<Callout type="info" title="运算顺序">逻辑运算符的运算顺序。
+Python 按此顺序评估逻辑运算符：先是 `not`，然后是 `and`，最后是 `or`。使用括号（如上面的示例）可以明确您的意图，并帮助您避免错误。
+</Callout> 注

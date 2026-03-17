@@ -1,40 +1,80 @@
-# Project 2: Data Explorer
+import { Checkbox } from '@/components/Checkbox'
+import { Checklist } from '@/components/Checklist'
 
-You'll build a program that loads movie data from a file, analyzes it (average rating, highest-rated, filter by genre), and saves the results. This project uses **lists**, **loops**, **functions**, and **file handling** only. You do **not** need dicts, classes, or objects for this project (those are covered later).
 
-**Representing movie data with lists:** Use a list of lists—each movie is a list with a fixed order, e.g. `[title, rating, genre]`. So `movies` might look like: `[["Inception", 8.8, "Sci-Fi"], ["Comedy Movie", 7.5, "Comedy"], ...]`. You'll use index `0` for title, `1` for rating, `2` for genre (e.g. `movie[1]` for the rating).
+# 项目 2：数据资源管理器
 
-## Stage 1: Lists
-    - Learning Objective: Get comfortable with creating lists and list elements and accessing and modifying list elements.
-    - Tasks:
-        - Create a list of movies, where each movie is a list of [title, rating, genre]
-        - Create a function to access and modify elements in the list
-        - Create a function to add new movies to the list
-    - Topics Covered:
-        - [Lists](../../Variables/TypesOfVariables/DataStructures/Lists)
-- Stage 2: Loops
-    - Learning Objective: Get comfortable using loops to loop through lists and perform operations
-    - Write a loop to print each movie title from the list
-    - Use a loop to calculate the sum of ratings in the list
-    - Tasks:
-        - Exercise 1: Create a loop that prints both the movie title and its rating from a list.
-        - Exercise 2: Write a loop to find the highest-rated movie in the list
-        - Exercise 3: Create a loop that filters the movies by genre and stores them in a new list
-    - Topics Covered:
-        - [Loops](../../ControlFlow/Loops)
-        - [Math Operations](../../Variables/TypesOfVariables/NumericTypes)
-- Stage 3: 
-    - Exercise 1: Write a function calculate_average_rating that takes a list of ratings and returns the average
-    - Exercise 2: Write a function find_highest_rated that takes a list of movies and uses a loop to find the highest-rated movie
-    - Topics Covered:
-        - [Functions](../../Functions)
-        - [Math Operations](../../Variables/TypesOfVariables/NumericTypes)
-- Stage 4: Reading movie data from Files
-    - Task 1: Write a function load_movies that reads movie data from a file and inserts the movies into a list
-    - Task 2: Write a function `save_analysis(results,filename) that saves analysis results (average ratings, genre summaries) to a text file
-    - Task 3: Practice reading a movie dataset from a file and processing it using the functions created earlier
-    - Topics Covered:
-        - [Handling Files](../../InputAndOutput/HandlingFiles)
-        - [Functions](../../Functions)
+你将制作一个电影分析器。你的程序将从文件中加载一个电影列表，运行一些分析--平均评分、评分最高的电影、按类型过滤--并保存结果。您将练习**列表**、**循环**、**函数**和**文件处理**。
 
-The final application should load a movie dataset from a file, analyze it using the functions (calculate average rating, find the highest-rated movie, etc.) and save the results to a new file
+**您将如何存储电影数据：** 每部电影都是一个列表，按固定顺序包含三个值：标题、评分、类型]"。您的完整集合就是这些列表的一个列表。因此，`movies`可能看起来像`[["Inception", 8.8, "Sci-Fi"], ["Clueless", 7.1, "Comedy"]]`。要获取标题，请使用索引 `0`。分级是索引 `1`，类型是索引 `2`。
+
+---
+
+## 阶段 1：列表
+
+### 你将学会
+如何创建列表并处理其值--读取、更改和添加新项目。
+
+### 任务
+
+<检查列表
+  <Checkbox id="proj2de-stage1-task1" label="创建一个名为电影的列表，其中每个项都是 [标题、评级、类型] 列表。从您选择的 3-5 部电影开始"。/>
+  <Checkbox id="proj2de-stage1-task2" label="编写一个接收电影和索引并返回该值的函数。通过打印标题和评分对其进行测试"。/>
+  <Checkbox id="proj2de-stage1-task3" label="编写一个接收电影列表并添加新电影的函数"。/>
+</检查列表
+
+**涉及主题：** [Lists](../../Variables/TypesOfVariables/DataStructures/Lists)
+
+---
+
+## 第二阶段：循环
+
+### 你将学会
+如何在列表中循环显示数据，并对每个项目进行计算。
+
+### 任务
+
+<检查列表
+  <Checkbox id="proj2de-stage2-task1" label="编写一个循环，打印列表中每部电影的标题和评分"。/>
+  <Checkbox id="proj2de-stage2-task2" label="编写一个循环，找出评分最高的电影。在此过程中跟踪最佳影片"。/>
+  <Checkbox id="proj2de-stage2-task3" label="编写一个循环，按流派筛选电影，并将匹配结果存储在新列表中。打印结果"。/>
+</Checklist> 检查列表
+
+**涉及主题：** [循环]（.../.../ControlFlow/循环）、[数学运算]（.../.../变量/变量类型/原始类型/数字类型）
+
+---
+
+### 第三阶段：函数
+
+### 你将学到
+如何将逻辑封装在可重复使用的函数中，使程序更易于阅读和构建。
+
+### 任务
+
+<检查列表
+  <Checkbox id="proj2de-stage3-task1" label="编写一个名为 calculate_average_rating 的函数，接收评分列表并返回平均值"。/>
+  <Checkbox id="proj2de-stage3-task2" label="编写一个名为 find_highest_rated 的函数，获取电影列表并返回评分最高的电影"。/>
+</Checklist> 检查列表
+
+**涉及主题：** [函数]（.../.../函数）、[数学运算]（.../.../变量/变量类型/原始类型/数字类型）
+
+---
+
+### 第 4 阶段：文件
+
+### 你将学会
+如何从文件中加载数据并保存结果--这样你的程序就能使用真实数据而不是硬编码列表。
+
+### 任务
+
+<检查列表
+  <Checkbox id="proj2de-stage4-task1" label="编写一个名为 load_movies 的函数，从文件中读取电影数据并返回电影列表"。/>
+  <Checkbox id="proj2de-stage4-task2" label="编写一个名为 save_analysis 的函数，该函数接收您的结果和文件名，并将分析结果（平均评分、评分最高的电影）保存到文本文件中"。/>
+  <Checkbox id="proj2de-stage4-task3" label="将这一切整合在一起：从文件中加载电影数据，运行分析函数，并保存结果"。/>
+</Checklist> 检查列表
+
+**涵盖主题：** [处理文件](.../.../InputAndOutput/HandlingFiles), [函数](.../.../Functions)
+
+---
+
+完成后，您的程序将从文件中加载一个电影数据集，对其进行分析并保存结果。这就是一个真正的、可运行的数据管道--干得漂亮。

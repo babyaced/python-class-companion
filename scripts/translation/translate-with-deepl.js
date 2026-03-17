@@ -15,7 +15,7 @@ const { readFileSync, writeFileSync, existsSync, mkdirSync } = require('fs')
 const { dirname, join } = require('path')
 
 // ——— Insert your DeepL API key here, or set env DEEPL_AUTH_KEY ———
-const DEEPL_AUTH_KEY = process.env.DEEPL_AUTH_KEY || ''
+const DEEPL_AUTH_KEY = process.env.DEEPL_AUTH_KEY || '54243ab2-2df9-4bd6-9de3-92dd2c5117ae:fx'
 
 // Free tier: api-free.deepl.com — Pro: api.deepl.com
 const DEEPL_BASE = process.env.DEEPL_BASE || 'https://api-free.deepl.com'

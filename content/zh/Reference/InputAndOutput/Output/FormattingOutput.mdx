@@ -1,11 +1,12 @@
-# Formatting Output
+# 输出格式化
 
-When displaying output in Python, you may want to format it so its easier to read.
-Python provides several ways to format strings for output. Here are some common methods:
+在 Python 中显示输出时，您可能希望将其格式化，以便于阅读。
+Python 提供了几种格式化输出字符串的方法。下面是一些常用的方法：
 
-## Using f-strings (Python 3.6+)
+## 使用 f-string (Python 3.6+)
 
-F-strings provide a way to embed expressions inside string literals, using curly braces `{}`. They are prefixed with the letter `f`.
+f-string 提供了一种使用大括号 `{}` 将表达式嵌入字符串字面量的方法。它们的前缀是字母 `f`。
+
 
 ```python
 # Example of f-string formatting
@@ -14,17 +15,19 @@ age = 30
 print(f"Name: {name}, Age: {age}")
 ```
 
-This will output:
+这将输出
+
 
 ```
 Name: Alice, Age: 30
 ```
 
-You can use the variable names directly inside the curly braces, and Python will replace them with their values. 
-However this only works if you prefix the string with `f` as shown above.
+您可以直接在大括号内使用变量名，Python 会用它们的值替换它们。
+不过，这只有在字符串前加上 `f` 才有效，如上所示。
 
-## Using the `format()` method
-The `format()` method allows you to format strings by placing curly braces `{}` as placeholders within the string and then calling the `format()` method on the string.
+## 使用 `format()` 方法
+使用 `format()` 方法可以格式化字符串，方法是在字符串中放置大括号 `{}` 作为占位符，然后在字符串上调用 `format()` 方法。
+
 
 ```python
 # Example of format() method
@@ -33,17 +36,19 @@ age = 25
 print("Name: {}, Age: {}".format(name, age))
 ```
 
-Here the first `{}` is replaced by the first argument given to the format method (`name`) and the second `{}` is replaced by the second argument given to the format method (`age`).
+这里，第一个 `{}` 由格式化方法的第一个参数（`name`）代替，第二个 `{}` 由格式化方法的第二个参数（`age`）代替。
 
-This will output:
+这将输出
+
 
 ```
 Name: Bob, Age: 25
 ```
 
-## Using the `%` operator
-The `%` operator can also be used for string formatting. 
-It uses format specifiers to indicate where to insert values.
+## 使用 `%` 操作符
+操作符 `%` 也可用于字符串格式化。
+它使用格式指定符来指示插入数值的位置。
+
 
 ```python
 # Example of % operator formatting
@@ -52,30 +57,28 @@ age = 28
 print("Name: %s, Age: %d" % (name, age))
 ```
 
-Here the placeholders are `%s`  and `%d` . 
-The values to be inserted are provided in parentheses after the `%` operator. They are inserted in the order they appear.
+这里的占位符是 `%s` 和 `%d` 。
+要插入的值位于 `%` 操作符后的括号中。它们按出现的顺序插入。
 
 
-This will output:
+这将输出
+
 
 ```
 Name: Charlie, Age: 28
 ```
 
-You may be wondering why we use the letters `s` and `d` in the placeholders.
+你可能想知道为什么我们在占位符中使用字母 `s` 和 `d`。
 
-- `%s` is used for strings.
-- `%d` is used for integers (decimal numbers).
-- `%f` is used for floating-point numbers.
+- `%s` 用于字符串。
+- `%d` 用于整数（十进制数）。
+- `%f` 用于浮点数。
 
-This means you can format different types of data appropriately. 
-You must make sure to use the correct format specifier for the type of data you are inserting.
+这就意味着你可以适当地格式化不同类型的数据。
+您必须确保针对插入的数据类型使用正确的格式指定符。
 
-## Summary
+## 摘要
 
-We have covered three common methods for formatting output in Python: f-strings, the `format()` method, and the `%` operator.
+我们已经介绍了在 Python 中格式化输出的三种常用方法：f-string、`format()` 方法和 `%` 操作符。
 
-Try each one out to see which you prefer!
-
-
-
+试试看你更喜欢哪一种！

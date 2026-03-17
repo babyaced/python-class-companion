@@ -1,26 +1,28 @@
-# User Input
+# 用户输入
 
-User Input is a way for a program to receive data from the user while the program is running.
-In Python, we can use the **built-in** `input()` function to get input from the user.
+用户输入是程序运行时接收用户数据的一种方式。
+在 Python 中，我们可以使用**内置的** `input()`函数来获取用户输入。
 
-To use the `input()` function, we simply call it and optionally *pass* a string as a prompt to display to the user.
+要使用`input()`函数，我们只需调用它，并选择性地*pass*一个字符串作为提示显示给用户。
 
-Let's ask the user for their name and then greet them:
+让我们询问用户的姓名，然后向他们问好：
+
 
 ```python
 name = input("What is your name? ")
 print("Hello, " + name + "!")
 ```
 
-Here's how this code works:
-1. We call the `input()` function with the prompt `"What is your name? "`
-2. The program waits for the user to type their name and press Enter.
-3. The user's input is then stored in the variable `name` as the input function always returns the entered string.
-4. Finally, we print a greeting message that includes the user's name.
+代码的工作原理如下
+1.我们调用`input()`函数，提示`"你叫什么名字？"`
+2.程序等待用户输入姓名并按 Enter 键。
+3.用户输入的内容将存储在变量 `name` 中，因为输入函数总是返回输入的字符串。
+4.最后，我们会打印一条包含用户姓名的问候信息。
 
-You can use the `input()` function to get different types of input from the user as well by using type conversion. 
+通过类型转换，您还可以使用 `input()` 函数从用户获取不同类型的输入。
 
-For example, if you want to get a number from the user, you can convert the input string to an integer using the `int()` function:
+例如，如果想从用户那里获取一个数字，可以使用 `int()` 函数将输入字符串转换为整数：
+
 
 ```python
 ageString = (input("How old are you? ")) # use the input function to get user input and store in ageString variable
@@ -28,12 +30,4 @@ age = int(ageString) # convert our ageString variable that is string type to int
 print("You are " + str(age) + " years old.") # print the message to the user - converting age back to string for concatenation
 ```
 
-If you want to read more about type conversion, check out the [Type Conversion](../DataTypesAndTypeConversion/page.mdx) page.
-
-
-
-
-
-
-
-
+如果您想了解有关类型转换的更多信息，请查看 [Type Conversion](../../Variables/TypesOfVariables/TypeConversions) 页面。
