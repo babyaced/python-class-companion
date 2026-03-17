@@ -1,0 +1,58 @@
+# random
+
+The `random` library lets you introduce randomness into your programs — picking a random number, shuffling a list, or choosing a random item.
+
+```python
+import random
+```
+
+## Common Functions
+
+### `random.randint()` — Random Integer
+
+Returns a random whole number between two values (inclusive — both endpoints can be returned).
+
+```python
+random.randint(1, 6)   # simulates a dice roll: 1, 2, 3, 4, 5, or 6
+random.randint(0, 100) # random number from 0 to 100
+```
+
+### `random.choice()` — Pick from a List
+
+Returns one random item from a list.
+
+```python
+options = ["rock", "paper", "scissors"]
+random.choice(options)   # returns one of the three at random
+```
+
+### `random.shuffle()` — Shuffle a List
+
+Shuffles a list **in place** (modifies the original list).
+
+```python
+cards = [1, 2, 3, 4, 5]
+random.shuffle(cards)
+print(cards)   # something like [3, 1, 5, 2, 4]
+```
+
+### `random.random()` — Float Between 0 and 1
+
+Returns a random decimal number between `0.0` and `1.0`. Useful for probabilities.
+
+```python
+random.random()   # something like 0.7341...
+
+# 30% chance of something happening:
+if random.random() < 0.3:
+    print("lucky!")
+```
+
+## Example: Coin Flip
+
+```python
+import random
+
+flip = random.choice(["heads", "tails"])
+print(f"You got: {flip}")
+```

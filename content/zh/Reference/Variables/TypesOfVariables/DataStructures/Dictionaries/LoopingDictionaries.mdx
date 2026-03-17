@@ -1,0 +1,55 @@
+import { Callout } from 'nextra/components'
+
+# Looping over a Dictionary
+
+When you loop through a dictionary, you only get the keys by default.
+
+## Looping over keys
+
+```python
+person = {"name": "Alice", "age": 16, "city": "San Francisco"}
+
+for key in person:
+    print(key)
+# name
+# age
+# city
+```
+
+You can use the key to access each value inside the loop:
+
+```python
+for key in person:
+    print(key, ":", person[key])
+# name : Alice
+# age : 16
+# city : San Francisco
+```
+
+## Looping over values
+
+Use `.values()` if you only need the values:
+
+```python
+for value in person.values():
+    print(value)
+# Alice
+# 16
+# San Francisco
+```
+
+## Looping over keys and values together
+
+Use `.items()` to get both at once. Each pair comes back as a tuple `(key, value)`:
+
+```python
+for key, value in person.items():
+    print(key, ":", value)
+# name : Alice
+# age : 16
+# city : San Francisco
+```
+
+<Callout type="info">
+  `.items()` is the most common way to loop over a dictionary when you need both the key and the value.
+</Callout>

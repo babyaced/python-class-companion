@@ -1,0 +1,87 @@
+# Pillow (PIL)
+
+Pillow is a library for working with images in Python. You can open, edit, draw on, and save image files. It's used in the **Generative Art** project.
+
+## Installation
+
+```bash
+pip install pillow
+```
+
+## Importing
+
+Even though the library is called Pillow, you import it as `PIL`:
+
+```python
+from PIL import Image, ImageDraw
+```
+
+import { Callout } from 'nextra/components'
+
+<Callout type="info">
+  Pillow is the modern, maintained version of an older library called PIL (Python Imaging Library). The name stuck for the import.
+</Callout>
+
+## Opening and Saving Images
+
+```python
+from PIL import Image
+
+img = Image.open("photo.jpg")
+img.save("copy.png")
+```
+
+## Creating a Blank Image
+
+```python
+from PIL import Image
+
+# Image.new(mode, size, color)
+img = Image.new("RGB", (500, 500), color=(255, 255, 255))  # white canvas
+img.save("canvas.png")
+```
+
+`"RGB"` means the image uses red, green, and blue channels. Colors are tuples of three values from 0–255.
+
+## Drawing Shapes
+
+```python
+from PIL import Image, ImageDraw
+
+img = Image.new("RGB", (500, 500), color=(0, 0, 0))  # black background
+draw = ImageDraw.Draw(img)
+
+# Rectangle
+draw.rectangle([50, 50, 200, 200], fill=(255, 0, 0))  # red square
+
+# Circle (ellipse with equal width/height)
+draw.ellipse([250, 250, 400, 400], fill=(0, 100, 255))  # blue circle
+
+# Line
+draw.line([0, 0, 500, 500], fill=(255, 255, 0), width=3)  # yellow diagonal
+
+img.save("shapes.png")
+```
+
+## Common Colors
+
+Colors in Pillow are `(red, green, blue)` tuples, each value 0–255:
+
+| Color | Tuple |
+|-------|-------|
+| Red | `(255, 0, 0)` |
+| Green | `(0, 255, 0)` |
+| Blue | `(0, 0, 255)` |
+| White | `(255, 255, 255)` |
+| Black | `(0, 0, 0)` |
+| Yellow | `(255, 255, 0)` |
+| Purple | `(128, 0, 128)` |
+
+## Image Size and Pixels
+
+```python
+img = Image.open("photo.jpg")
+
+print(img.size)    # (width, height) in pixels, e.g. (1920, 1080)
+print(img.mode)    # color mode, e.g. "RGB"
+```

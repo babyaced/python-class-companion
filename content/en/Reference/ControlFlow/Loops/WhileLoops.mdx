@@ -63,6 +63,26 @@ print(f"Your age is {age}.")
 
 The loop keeps asking until `age` is 0 or greater.
 
+### Stopping on a specific input
+
+You can also let the user exit the loop by typing a specific value. Use `break` to stop the loop immediately:
+
+```python
+while True:
+    answer = input("Enter a number (or 'q' to quit): ")
+    if answer == "q":
+        break
+    print("You entered:", answer)
+
+print("Goodbye!")
+```
+
+`while True` creates an intentional infinite loop — it only ends when `break` is hit. This pattern is common when you want to keep a program running until the user decides to stop.
+
+<Callout type="info">
+  `break` exits the loop immediately, skipping the rest of the current iteration and the condition check. The program continues with whatever comes after the loop.
+</Callout>
+
 ## When to use a `while` loop
 
 Use a `while` loop when you **don't know in advance how many iterations you need** — you just know the condition that should keep things going. If you're stepping through a list or a fixed range, a `for` loop is usually cleaner.

@@ -1,0 +1,61 @@
+import { Checkbox } from '@/components/Checkbox'
+import { Checklist } from '@/components/Checklist'
+
+# Project 3: Generative Art
+In this project, you will create a simple generative art program using Python.
+
+# Stage 1: Setting up your Project Environment
+- Learning Objective: Get comfortable with setting up a Python project environment
+- Topics Covered:
+    - [Setting up Python Environment](../../GettingStarted/SettingUpPythonEnvironment/page.mdx)
+    - [Installing Packages with pip](../../GettingStarted/InstallingPackages/page.mdx)
+
+**Tasks:**
+
+<Checklist>
+  <Checkbox id="ga-v1-s1-1" label="Install Pillow library for image creation and manipulation." />
+</Checklist>
+
+# Stage 2: Creating the ArtElement class
+- Learning Objective: Learn how to create a class to represent an individual object.
+- Topics Covered:
+    - [Classes and Objects](../../Variables/TypesOfVariables/DataStructures/Objects/page.mdx)
+
+**Tasks:**
+
+<Checklist>
+  <Checkbox id="ga-v1-s2-1" label="Define a class named ArtElement that will represent a basic shape in your generative art." />
+  <Checkbox id="ga-v1-s2-2" label="Define attributes for position, height, width, and color." />
+  <Checkbox id="ga-v1-s2-3" label="Create a constructor method (__init__) that initializes the attributes of the class." />
+  <Checkbox id="ga-v1-s2-4" label="Create a method called draw that will draw the shape onto an image canvas." />
+</Checklist>
+
+# Stage 3: Creating the Canvas Class
+- Learning Objective: Learn how to create a class that manages a collection of objects.
+- Topics Covered:
+    - [Classes and Objects](../../Variables/TypesOfVariables/DataStructures/Objects/page.mdx)
+    - [Loops](../../ControlFlow/Loops/page.mdx)
+
+**Tasks:**
+
+<Checklist>
+  <Checkbox id="ga-v1-s3-1" label="Define a class named Canvas that will represent your digital canvas." />
+  <Checkbox id="ga-v1-s3-2" label="Define attributes for height, width, and background color." />
+  <Checkbox id="ga-v1-s3-3" label="Create a constructor method that will create a blank image with a specified height, width, and background color." />
+  <Checkbox id="ga-v1-s3-4" label="Write a method called add_element that takes an ArtElement object as a parameter and draws it onto the canvas." />
+  <Checkbox id="ga-v1-s3-5" label="Create a method called render that loops through the stored ArtElement objects and calls their draw method to render them onto the canvas." />
+</Checklist>
+
+# Stage 4: Composing and Generating Art
+- Topics Covered:
+    - [Loops](../../ControlFlow/Loops/page.mdx)
+    - [Random Module](../../Libraries/StandardLibrary/random)
+
+**Tasks:**
+
+<Checklist>
+  <Checkbox id="ga-v1-s4-1" label="Create a function that creates a Canvas object." />
+  <Checkbox id="ga-v1-s4-2" label="Generate multiple ArtElement objects with random attributes (position, size, color)." />
+  <Checkbox id="ga-v1-s4-3" label="Add the elements to the canvas." />
+  <Checkbox id="ga-v1-s4-4" label="Render the final image and save it to a file." />
+</Checklist>

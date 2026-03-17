@@ -3,105 +3,70 @@ import { GlossaryTerm } from '@/components/GlossaryTerm'
 
 # Classes and Objects
 
-Objects are a fundamental data structure in Python and programming in general. 
-An <GlossaryTerm>object</GlossaryTerm> is a collection of related data and functionality.
-In Python, everything is an object, including numbers, strings, lists, and even functions.
+You've already been using objects this whole time. Strings, lists, and even the `img` and `draw` variables from Pillow are all objects. Now you'll learn what that means — and how to build your own.
 
-Objects are are created using **classes**. You can think of a <GlossaryTerm>class</GlossaryTerm> as a blueprint for creating objects.
-A class defines the properties and behaviors that the objects created from it will have.
+## What is an Object?
 
-## Creating Classes
-You can create a class in Python using the `class` keyword.
+An <GlossaryTerm>object</GlossaryTerm> is a variable that bundles together **data** (attributes) and **behavior** (methods).
 
-When you use the `class` keyword you are creating a **class definition**
+For example, a list object stores items (data) and has methods like `.append()` and `.pop()` (behavior).
 
-Here's an example of a simple class that represents a `Dog`:
+## What is a Class?
+
+A <GlossaryTerm>class</GlossaryTerm> is a blueprint for creating objects. It defines what attributes and methods every object of that type will have.
+
+Here's a simple class that represents a dog:
+
+```python
+class Dog:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+```
+
+`Dog` is the blueprint. `self.name` and `self.age` are the attributes — every dog will have its own name and age.
+
+## Creating an Object
+
+To create an object from a class, call the class like a function:
+
+```python
+dog1 = Dog("Buddy", 3)
+dog2 = Dog("Max", 5)
+```
+
+Each object is called an **instance** of the class. `dog1` and `dog2` are two separate instances — they share the same blueprint but have different names and ages.
+
+## Accessing Attributes
+
+Use **dot notation** to access an object's attributes:
+
+```python
+print(dog1.name)  # Buddy
+print(dog2.age)   # 5
+```
+
+<Callout type="info">
+  You've used dot notation before — `my_list.append()`, `"hello".upper()`. Those are method calls on list and string objects.
+</Callout>
+
+## Class Variables
+
+Some attributes are the same for every instance. You can define these directly on the class — outside of `__init__` — and they'll be shared across all objects:
 
 ```python
 class Dog:
     species = "Canis familiaris"
-    number_of_legs = 4
-```
-You have now defined a class named `Dog` with two **class variables**: `species` and `number_of_legs`.
 
-### Class Variables
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
-Notice that the dog properties defined in the previous section ,`species` and `number_of_legs`, are the same for all dogs.
+dog1 = Dog("Buddy", 3)
+dog2 = Dog("Max", 5)
 
-They make good candidates to be **class variables** because **class variables** are shared across all <GlossaryTerm term="instance">instances</GlossaryTerm> of a class.
-
-AKA every dog will all have the same `species` and `number_of_legs`.
-
-## Creating an Object using a Class
-Now you can use the class `Dog` to create an object (also called an **instance**) of that class.
-Basically, you can create a new "Dog" with the species ("Canis familiaris") and number of legs (4) defined in the class:
-
-```python
-my_dog = Dog()
+print(dog1.species)  # Canis familiaris
+print(dog2.species)  # Canis familiaris
 ```
 
-The my_dog <GlossaryTerm>variable</GlossaryTerm> now represents a specific dog object with the species "Canis familiaris" and number of legs 4.
-
-We can create as many objects as we want to using this class. 
-
-## Object Methods
-
-You can define functions (<GlossaryTerm term="method">methods</GlossaryTerm>) inside a class to represent behaviors of the object.
-**Methods** are defined just like regular functions, but they are indented inside the class definition.
-
-Here's an example of adding a method to the `Dog` class:
-
-```python
-class Dog:
-    species = "Canis familiaris"
-    number_of_legs = 4
-
-    def bark():
-        print("Woof!")
-```
-
-We added a `bark` method to the `Dog` class that returns the string "Woof!" when called.
-
-## Accessing Object Properties
-
-An object's **properties** are any variables and methods that are defined in the object's class definition.
-
-Now that we have created our dog objects, we can access their properties using the **dot notation**.
-
-**Dot notation** is a way to access the properties and methods of an object using a dot (`.`) followed by the property or method name.
-
-Here's how we can access the properties of our dog objects:
-
-```python
-print(dog1.name)  # Output: Buddy
-print(dog1.age)   # Output: 3
-print(dog2.name)  # Output: Max
-print(dog2.age)   # Output: 5
-```
-
-We can also use the `bark` method we defined earlier in this same way with **dot notation**:
-
-```python
-dog1.bark()  # Output: Woof!
-dog2.bark()  # Output: Woof!
-```
-
-Notice that when we call the `bark` method, we use parentheses `()` after the method name to indicate that we are calling a function.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+`species` is a **class variable** — every dog shares it. `name` and `age` are **instance variables** — each dog has its own.

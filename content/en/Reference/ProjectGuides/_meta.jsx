@@ -6,5 +6,9 @@ export default {
         title: "Data Explorer",
         display: "hidden"
     },
-    GenerativeArt: "Project 3: Generative Art"
+    GenerativeArt: "Project 3: Generative Art",
+    GenerativeArtV1: {
+        title: "Project 3: Generative Art (original)",
+        display: "hidden"
+    }
 }

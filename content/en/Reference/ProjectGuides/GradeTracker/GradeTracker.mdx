@@ -1,4 +1,5 @@
 import { Checkbox } from '@/components/Checkbox'
+import { Checklist } from '@/components/Checklist'
 
 # Project 2: Grade Tracker
 
@@ -12,31 +13,30 @@ You'll build a program that stores grades in a list, computes stats (average, hi
 
 **Tasks:**
 
-<Checkbox
-  id="proj2-phase1-task1"
-  label="Create a static list of grades in your code, for example grades = [85, 92, 78, 88]. This will be the list you use for the rest of the tasks."
-/>
-
-<Checkbox
-  id="proj2-phase1-task2"
-  label="Write a for loop that prints each grade in the list (one per line or all on one line)."
-/>
-
-<Checkbox
-  id="proj2-phase1-task3"
-  label="Use a for loop to add up all the grades into a variable and print the sum."
-/>
-
-<Checkbox
-  id="proj2-phase1-task4"
-  label="Compute and print the average grade using the sum and len(grades)."
-/>
+<Checklist>
+  <Checkbox
+    id="proj2-phase1-task1"
+    label="Create a static list of grades in your code, for example grades = [85, 92, 78, 88]. This will be the list you use for the rest of the tasks."
+  />
+  <Checkbox
+    id="proj2-phase1-task2"
+    label="Write a for loop that prints each grade in the list (one per line or all on one line)."
+  />
+  <Checkbox
+    id="proj2-phase1-task3"
+    label="Use a for loop to add up all the grades into a variable and print the sum."
+  />
+  <Checkbox
+    id="proj2-phase1-task4"
+    label="Compute and print the average grade using the sum and len(grades)."
+  />
+</Checklist>
 
 **Topics covered:** [Lists](../../Variables/TypesOfVariables/DataStructures/Lists), [Loops](../../ControlFlow/Loops)
 
 **End of Day 1:** You have a program with a list of grades that prints them and shows the sum and average.
 
-**Challenge (optional):** Instead of a static list, add grades using a loop. For example: use a **for** loop that runs 5 times and asks for a grade with `input()` each time, appending the result to the list (convert to float).
+**Challenge (optional):** Instead of a static list, add grades using a loop. For example: use a **for** loop that runs 5 times and asks for a grade with `input()` each time, appending the result to the list (convert to float). Want to let the user keep entering grades until they're done? Try using a `while` loop with a quit keyword — see [Stopping on a specific input](/en/Reference/ControlFlow/Loops/WhileLoops#stopping-on-a-specific-input).
 
 ---
 
@@ -46,24 +46,24 @@ You'll build a program that stores grades in a list, computes stats (average, hi
 
 **Tasks:**
 
-<Checkbox
-  id="proj2-phase2-task1"
-  label="Loop through the list of grades, track the highest grade seen so far in a variable like highest, and print the highest grade at the end."
-/>
-
-<Checkbox
-  id="proj2-phase2-task2"
-  label="Loop through the list again (or in the same loop) to track and print the lowest grade."
-/>
-
-<Checkbox
-  id="proj2-phase2-task3"
-  label='Based on the average grade, use if/elif/else to print a message (for example: 90+ → "Great job!", 70–89 → "You&apos;re on track.", below 70 → "Let&apos;s work on bringing this up.").'
-/>
+<Checklist>
+  <Checkbox
+    id="proj2-phase2-task1"
+    label="Loop through the list of grades, track the highest grade seen so far in a variable like highest, and print the highest grade at the end."
+  />
+  <Checkbox
+    id="proj2-phase2-task2"
+    label="Loop through the list again (or in the same loop) to track and print the lowest grade."
+  />
+  <Checkbox
+    id="proj2-phase2-task3"
+    label='Based on the average grade, use if/elif/else to print a message (for example: 90+ → "Great job!", 70–89 → "You&apos;re on track.", below 70 → "Let&apos;s work on bringing this up.").'
+  />
+</Checklist>
 
 **Topics covered:** [If statements](../../ControlFlow/Conditionals/IfStatements), [Comparison operators](../../ControlFlow/Conditionals/ComparisonOperators), [Loops](../../ControlFlow/Loops)
 
-**Challenge** (optional):   Loop through the list and print only the grades that are below 70 (or another number you choose). This practices "filtering" with an `if` inside a loop. Add a print statement to label these grades as "Needs Improvement".
+**Challenge** (optional): Loop through the list and print only the grades that are below 70 (or another number you choose). This practices "filtering" with an `if` inside a loop. Add a print statement to label these grades as "Needs Improvement".
 
 **End of Day 2:** Your program shows highest, lowest, a message based on the average, and optionally which grades need work.
 
@@ -73,26 +73,28 @@ You'll build a program that stores grades in a list, computes stats (average, hi
 
 **Learning focus:** Save the grades list to a file and load it back so data persists between runs.
 
-**Before you start:** Create a file named `grades.txt` in the same folder as your program. You can leave it empty, or put a few grades in it (one number per line). That way the file exists when your program runs—no error handling needed for this project.
+**Before you start:** Create a file named `grades.txt` in the same folder as your program. Put a few grades in it (one number per line), or leave it empty if you want to add them while the program is running. That way the file exists when your program runs—no error handling needed for this project.
 
 **Tasks:**
 
-<Checkbox
-  id="proj2-phase3-task1"
-  label="Write code (or a function) that opens your file grades.txt for writing and writes each grade on its own line, then closes the file."
-/>
-
-<Checkbox
-  id="proj2-phase3-task2"
-  label="Write code (or a function) that opens grades.txt for reading, converts each line to a float, appends it to a list, and returns or uses that list as your grades list."
-/>
-
-<Checkbox
-  id="proj2-phase3-task3"
-  label="When the program starts, load grades from the file; at the end, after showing stats, save the current list back to the file so data persists between runs."
-/>
+<Checklist>
+  <Checkbox
+    id="proj2-phase3-task1"
+    label="Write code (or a function) that opens your file grades.txt for writing,writes each grade on its own line, and then closes the file."
+  />
+  <Checkbox
+    id="proj2-phase3-task2"
+    label="Write code (or a function) that opens grades.txt for reading, converts each line to a float, appends it to a list, and returns or uses that list as your grades list."
+  />
+  <Checkbox
+    id="proj2-phase3-task3"
+    label="When the program starts, load grades from the file; at the end, after showing stats, save the current list back to the file so data persists between runs."
+  />
+</Checklist>
 
 **Topics covered:** [Handling files](../../InputAndOutput/HandlingFiles), [Lists](../../Variables/TypesOfVariables/DataStructures/Lists), [Loops](../../ControlFlow/Loops)
+
+**Challenge** (optional): If you've finished early and haven't done so already, add the ability for users to input new grades in a loop (as described in the Day 1 challenge). When you save the list back to the file at the end, it will now include any new grades you added. Check the
 
 **End of Day 3:** You have a full grade tracker: load grades from the file, see stats (sum, average, highest, lowest, messages), and save the list back to the file so it persists next time.
 

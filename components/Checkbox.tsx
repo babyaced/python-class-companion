@@ -26,12 +26,7 @@ export function Checkbox({
   }, [storageKey, checked])
 
   return (
-    <label style={{ display: 'inline-flex', gap: 8, alignItems: 'center' }}>
-      <input
-        type="checkbox"
-        checked={checked}
-        onChange={(e) => setChecked(e.target.checked)}
-      />
+    <label style={{ display: 'flex', gap: 8, alignItems: 'flex-start', justifyContent: 'space-between' }}>
       <span
         style={{
           textDecoration: checked ? 'line-through' : 'none',
@@ -40,6 +35,12 @@ export function Checkbox({
       >
         {label}
       </span>
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={(e) => setChecked(e.target.checked)}
+        style={{ marginTop: 'calc((1.75em - 1em) / 2)', flexShrink: 0 }}
+      />
     </label>
   )
 }
