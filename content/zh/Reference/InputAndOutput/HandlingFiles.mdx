@@ -21,7 +21,7 @@ import { Callout } from 'nextra/components'
 my_file = open("scores.txt", "r")
 ```
 
-这会以读取模式打开 `scores.txt`，并将结果存储在 <GlossaryTerm> 变量</GlossaryTerm>中。您将使用该变量进行读取或写入。
+这会以读取模式打开 `scores.txt`，并将结果存储在 <GlossaryTerm term="variable">变量</GlossaryTerm>中。您将使用该变量进行读取或写入。
 
 ## 从文件中读取
 
@@ -70,9 +70,9 @@ my_file.write("Bob: 88\n")
 my_file.close()
 ```
 
-<Callout type="warning" title="写模式会替换文件">用 "w "打开文件时，会清除文件中的所有内容。
+<Callout type="warning" title="写模式会替换文件">
 使用 `"w"`打开文件时，会删除文件中已有的内容。如果想在文件末尾添加内容而不删除原有内容，请使用 `"a"` （追加）。
-</Callout> 呼出
+</Callout>
 
 
 ```python

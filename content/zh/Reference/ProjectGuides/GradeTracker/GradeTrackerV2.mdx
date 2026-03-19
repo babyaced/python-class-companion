@@ -9,8 +9,8 @@ import { Checklist } from '@/components/Checklist'
 
 您将使用相同的主题（列表、循环、条件、文件 I/O），但使用的是二维结构，因此您可以练习嵌套循环和索引。
 
-<Callout type="warning" title="开始之前！">请将您的原始 Grade Tracker 代码保存在一个文件夹中。
-将你的原始 Grade Tracker 代码保存在一个单独的文件中。这是一个新项目--请在完成原始成绩跟踪器每天的步骤后再开始工作。
+<Callout type="warning" title="开始之前！">
+请将你的原始 Grade Tracker 代码保存在一个单独的文件中。这是一个新项目--请在完成原始成绩跟踪器每天的步骤后再开始工作。
 </Callout>
 
 **您的数据将如下所示：** `[["数学", 85, 92, 78],["科学", 88, 91],["英语", 76, 82, 90]]`。每个内列表的索引`0`是科目名称。其余为该科目的成绩。
@@ -24,12 +24,12 @@ import { Checklist } from '@/components/Checklist'
 
 ###任务
 
-<检查列表
-  <Checkbox id="proj2v2-phase1-task1" label="创建一个名为 grades_by_subject 的变量，并将其设置为一个静态列表，例如 [['Math', 85, 92, 78], ['Science', 88, 91], ['English', 76, 82]]。这就是您的起始数据"。/>
-  <Checkbox id="proj2v2-phase1-task2" label="循环外层列表。对于每个内层列表，索引 0 为科目名称，其余为成绩。打印科目，然后打印每个等级"。/>
-  <Checkbox id="proj2v2-phase1-task3" label="循环处理每个科目的成绩并将其相加。打印每个科目名称及其总分"。/>
-  <Checkbox id="proj2v2-phase1-task4" label="计算每个科目的平均分：总分÷成绩数。打印每个科目及其平均分"。/>
-</Checklist> 检查表
+<Checklist>
+  <Checkbox id="proj2v2-phase1-task1" label="创建一个名为 grades_by_subject 的变量，并将其设置为一个静态列表，例如 [['Math', 85, 92, 78], ['Science', 88, 91], ['English', 76, 82]]。这就是您的起始数据。"/>
+  <Checkbox id="proj2v2-phase1-task2" label="循环外层列表。对于每个内层列表，索引 0 为科目名称，其余为成绩。打印科目，然后打印每个等级。"/>
+  <Checkbox id="proj2v2-phase1-task3" label="循环处理每个科目的成绩并将其相加。打印每个科目名称及其总分。"/>
+  <Checkbox id="proj2v2-phase1-task4" label="计算每个科目的平均分：总分÷成绩数。打印每个科目及其平均分。"/>
+</Checklist>
 
 **涉及主题：** [Lists](../../Variables/TypesOfVariables/DataStructures/Lists), [Loops](../../ControlFlow/Loops)
 
@@ -47,14 +47,14 @@ import { Checklist } from '@/components/Checklist'
 
 ### 任务
 
-<检查列表
-  <Checkbox id="proj2v2-phase2-task1" label="循环查看每个科目的成绩，并记录最高分。打印科目名称及其最高分"。/>
-  <Checkbox id="proj2v2-phase2-task2" label="对每个科目的最低成绩做同样处理"。/>
-  <Checkbox id="proj2v2-phase2-task3" label="计算出各科平均分后，根据分数打印一条信息--例如，90 分或以上：'干得漂亮！'，70-89 分：'步入正轨'，70 分以下：'让我们再接再厉'"。/>
+<Checklist>
+  <Checkbox id="proj2v2-phase2-task1" label="循环查看每个科目的成绩，并记录最高分。打印科目名称及其最高分。"/>
+  <Checkbox id="proj2v2-phase2-task2" label="对每个科目的最低成绩做同样处理。"/>
+  <Checkbox id="proj2v2-phase2-task3" label="计算出各科平均分后，根据分数打印一条信息--例如，90 分或以上：'干得漂亮！'，70-89 分：'步入正轨'，70 分以下：'让我们再接再厉'。"/>
   <Checkbox id="proj2v2-phase2-task4" label="（可选）打印每个科目低于 70 分的成绩。用科目名称标注它们，以便您知道它们属于哪个科目。"/>
-</Checklist> 检查表
+</Checklist>
 
-**涉及主题：** [If 语句]（.../.../ControlFlow/Conditionals/IfStatements）、[比较运算符]（.../.../ControlFlow/Conditionals/ComparisonOperators）、[循环]（.../../ControlFlow/Loops）
+**涉及主题：** [If 语句](../../ControlFlow/Conditionals/IfStatements)、[比较运算符](../../ControlFlow/Conditionals/ComparisonOperators)、[循环](../../ControlFlow/Loops)
 
 **第 2 天结束：** 您的程序将显示每个科目的最高分、最低分、平均分和状态信息。
 
@@ -70,13 +70,13 @@ import { Checklist } from '@/components/Checklist'
 
 ### 任务
 
-<检查列表
-  <Checkbox id="proj2v2-phase3-task1" label="编写一个打开文件的函数。在列表中循环，每个主题写一行，值用逗号连接"。/>
-  <Checkbox id="proj2v2-phase3-task2" label="编写一个函数，打开文件，读取每一行，并用逗号分割。第一个值是主题名称，其余的是等级--将它们转换为浮点数。返回重建后的列表"。/>
-  <Checkbox id="proj2v2-phase3-task3" label="在程序开始时，从文件中加载成绩。在程序结束时，将成绩保存回去。现在，您的数据将在运行之间持续存在"。/>
-</Checklist> 检查列表
+<Checklist>
+  <Checkbox id="proj2v2-phase3-task1" label="编写一个打开文件的函数。在列表中循环，每个主题写一行，值用逗号连接。"/>
+  <Checkbox id="proj2v2-phase3-task2" label="编写一个函数，打开文件，读取每一行，并用逗号分割。第一个值是主题名称，其余的是等级--将它们转换为浮点数。返回重建后的列表。"/>
+  <Checkbox id="proj2v2-phase3-task3" label="在程序开始时，从文件中加载成绩。在程序结束时，将成绩保存回去。现在，您的数据将在运行之间持续存在。"/>
+</Checklist>
 
-**涉及主题：** [Handling files]（.../.../InputAndOutput/HandlingFiles）、[Lists]（.../.../Variables/TypesOfVariables/DataStructures/Lists）、[Loops]（.../../ControlFlow/Loops）
+**涉及主题：** [处理文件](../../InputAndOutput/HandlingFiles)、[Lists](../../Variables/TypesOfVariables/DataStructures/Lists)、[循环](../../ControlFlow/Loops)
 
 **第 3 天结束：** 您的科目成绩跟踪器已经完成--它可以加载、分析和保存各次运行的数据。
 
@@ -84,10 +84,10 @@ import { Checklist } from '@/components/Checklist'
 
 ## 摘要
 
-| 日 | 重点 | 你建造了什么 | 日 | 重点 | 你建造了什么 | 日 | 重点 | 你建造了什么 | 日 | 重点
+| 日 | 重点 | 你建造了什么 |
 |-----|---------------|----------------|
-| 1 | 列表 + 循环 | 每个科目成绩的列表；显示总分和平均分 | 2 | 条件 | 每个科目的最高分、最低分和状态信息
-| 2 | 条件 | 每个科目的最高分、最低分和状态信息 | 3 | 文件 I/O
-| 3 | 文件输入/输出 | 保存和加载数据，以便在运行期间持续保存。
+| 1 | 列表 + 循环 | 每个科目成绩的列表；显示总分和平均分 |
+| 2 | 条件 | 每个科目的最高分、最低分和状态信息 |
+| 3 | 文件输入/输出 | 保存和加载数据，以便在运行期间持续保存。|
 
 您使用的核心主题与最初的成绩跟踪器相同--列表、循环、条件、文件 I/O，但现在使用的是二维结构。嵌套循环需要一些练习，你会掌握窍门的。
