@@ -1,10 +1,20 @@
-# Python Class Companion
+# 欢迎
 
-A companion for the Mission Bit Python course. Use it to follow along with lessons or look things up as a reference.
+您好，欢迎！这是一个为我们的学生提供的 Python 学习伴侣网站。本网站有两个主要部分，您可以通过点击下方卡片或页面顶部导航栏中的链接来访问：
+- 学习：按照课堂教授主题的顺序跟随课程单元。
+- 参考：查找 Python 概念、语法和示例。以更具概念性的方式组织，便于参考。
 
 import { Cards } from 'nextra/components'
+import { Callout } from 'nextra/components'
+
+<Callout type="info" title="关于内容的说明">
+  部分页面仍在完善中。如果您发现任何问题或有任何建议，请告知我们。
+
+  此外，学习部分在设计上不会包含参考部分中的所有内容。
+  这是因为我们希望学习部分专注于最重要的内容，而参考部分则更加全面。
+</Callout>
 
 <Cards>
-  <Cards.Card title="Learn" description="Follow the course units in order, each ending with a project." href="/zh/Learn/LearnOverview" />
-  <Cards.Card title="Reference" description="Look up Python concepts, syntax, and examples." href="/zh/Reference/ReferenceOverview" />
+  <Cards.Card title="Learn" description="按照课堂教授主题的顺序跟随课程单元，每个单元以项目结束。" href="/zh/Learn/LearnOverview" />
+  <Cards.Card title="Reference" description="查找 Python 概念、语法和示例。以更具概念性的方式组织，便于参考。" href="/zh/Reference/ReferenceOverview" />
 </Cards>
