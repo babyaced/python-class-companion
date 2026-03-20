@@ -1,90 +1,234 @@
+import { Details } from 'nextra/components'
+import { Checkbox } from '@/components/Checkbox'
+import { Checklist } from '@/components/Checklist'
+
 # 项目 2：成绩跟踪器
 
-您将建立一个程序，在列表中存储成绩，计算统计数字（平均分、最高分、最低分），然后从文件中保存和加载成绩。该项目分为三个阶段，与每天学习的主题相匹配。
+您将建立一个程序，在列表中存储成绩，计算统计数据（平均分、最高分、最低分），然后从文件中保存和加载成绩。该项目分为四个阶段，与每天学习的主题相匹配。
 
 ---
 
-### 第 1 阶段（第 1 天）：列表和循环
+## 第 1 阶段（第 1 天）：列表和循环
 
-**学习重点：** 创建一个列表，循环显示列表并计算总和。
+### 学习重点
+创建一个列表，循环显示列表并计算总和。
 
-**任务：**
+### 任务
 
-1.**创建成绩列表**
-   从一个**静态列表**开始--直接在代码中写入一些成绩，例如`grades = [85, 92, 78, 88]`。在接下来的任务中，你将使用这个列表。
+<Checklist>
+  <Checkbox
+    id="proj2-phase1-task1"
+    label="在代码中创建一个静态成绩列表，例如 grades = [85, 92, 78, 88]。这将是您在其余任务中使用的列表。"
+  />
+  <Checkbox
+    id="proj2-phase1-task2"
+    label="编写一个 for 循环，打印列表中的每个成绩（每行一个或全部在一行）。"
+  />
+  <Checkbox
+    id="proj2-phase1-task3"
+    label="使用 for 循环将所有成绩累加到一个变量中，并打印总和。"
+  />
+  <Checkbox
+    id="proj2-phase1-task4"
+    label="使用总和和 len(grades) 计算并打印平均成绩。"
+  />
+</Checklist>
 
-2.**显示所有成绩**
-   编写一个**for**循环，打印列表中的每个成绩（每行一个或一行一个）。
+**涉及主题：** [Lists](../../Variables/TypesOfVariables/DataStructures/Lists)、[Loops](../../ControlFlow/Loops)
 
-3.**计算总和**
-   使用**for**循环将所有成绩加到一个变量中。打印总和。
+**第 1 天结束：** 您有一个包含成绩列表的程序，可以打印成绩并显示总分和平均分。
 
-4.**计算平均值**
-   平均分 = 总分 ÷ 成绩数。使用上一步的和及 `len(grades)` 计算并打印平均值。
-
-**涉及主题：** [Lists](../../Variables/TypesOfVariables/DataStructures/Lists), [Loops](../../ControlFlow/Loops)
-
-**第 1 天结束：** 你有一个包含成绩列表的程序，可以打印成绩并显示总分和平均分。
-
-**挑战（可选）：** 使用循环来添加成绩，而不是静态列表。例如：使用一个**for**循环，运行 5 次，每次使用 "input() "询问成绩，并将结果追加到列表中（转换为浮点数）。
+### 挑战（可选）
+使用循环来添加成绩，而不是静态列表。例如：使用一个 **for** 循环，运行 5 次，每次使用 `input()` 询问成绩，并将结果追加到列表中（转换为浮点数）。想让用户持续输入成绩直到完成？尝试使用带有退出关键字的 `while` 循环——参见[在特定输入时停止](/zh/Reference/ControlFlow/Loops/WhileLoops#stopping-on-a-specific-input)。
 
 ---
 
-## 第 2 阶段（第 2 天）：条件
+## 第 2 阶段（第 2 天）：条件判断
 
-**学习重点：** 使用 `if` / `elif` / `else` 根据成绩做出决定。
+### 学习重点
+使用 `if` / `elif` / `else` 根据成绩做出决定。
 
-**任务：**
+### 任务
 
-1.**找到最高分**
-   在列表中循环，跟踪迄今为止最大的成绩。在循环中使用一个变量（如 `highest`）和一个 `if`：如果当前成绩大于 `highest`，则更新 `highest`。打印结果。
-
-2.**查找最低成绩**
-   与最高分的想法相同，但要跟踪最小的分数。打印结果。
-
-3.**基于平均分的信息**
-   计算平均分后，使用条件来打印信息，例如
-   - 如果平均值≥ 90："干得好！"
-   - Else if average ≥ 70: "You're on track." 否则："让我们继续努力，取得更好的成绩。
-   - 否则："让我们努力把它提高"。
+<Checklist>
+  <Checkbox
+    id="proj2-phase2-task1"
+    label="循环遍历成绩列表，在变量（如 highest）中跟踪迄今为止最高的成绩，并在最后打印最高成绩。"
+  />
+  <Checkbox
+    id="proj2-phase2-task2"
+    label="再次循环遍历列表（或在同一循环中）以跟踪并打印最低成绩。"
+  />
+  <Checkbox
+    id="proj2-phase2-task3"
+    label='根据平均成绩，使用 if/elif/else 打印一条消息（例如：90 分以上 → "干得好！"，70–89 分 → "你走在正轨上。"，低于 70 分 → "让我们努力把它提高。"）。'
+  />
+</Checklist>
 
 **涉及主题：** [If 语句](../../ControlFlow/Conditionals/IfStatements)、[比较运算符](../../ControlFlow/Conditionals/ComparisonOperators)、[循环](../../ControlFlow/Loops)
 
-挑战（可选）：   在列表中循环，只打印低于 70 分（或您选择的其他数字）的成绩。这就是在循环中使用 "if "进行 "过滤"。添加一条打印语句，将这些成绩标记为 "需要改进"。
+**第 2 天结束：** 您的程序将显示最高分、最低分、基于平均分的消息，以及可选的需要改进的成绩。
 
-**第 2 天结束：** 你的程序将显示最高分、最低分、平均分的信息，以及需要改进的成绩。
+### 挑战（可选）
+循环遍历列表，只打印低于 70 分（或您选择的其他数字）的成绩。这练习了在循环中使用 `if` 进行"过滤"。添加一条打印语句，将这些成绩标记为"需要改进"。
 
 ---
 
 ## 第 3 阶段（第 3 天）：文件输入/输出
 
-**学习重点：** 将成绩列表保存到文件中，然后加载回来，这样数据就能在两次运行之间持续存在。
+### 学习重点
+将成绩列表保存到文件中，然后加载回来，这样数据就能在两次运行之间持续存在。
 
-**开始前：** 在与程序相同的文件夹下创建一个名为 "grades.txt "的文件。文件可以留空，也可以放入一些成绩（每行一个数字）。这样，程序运行时该文件就会存在--本项目无需进行错误处理。
+### 开始前
+在与程序相同的文件夹下创建一个名为 `grades.txt` 的文件。文件中放入几个成绩（每行一个数字），或者如果您想在程序运行时添加成绩则留空。这样，程序运行时该文件就会存在。
 
-**任务：**
+### 任务
 
-1.**将成绩保存到文件**
-   编写一个函数（或代码块），打开一个文件进行写入，并将每个成绩写在自己的一行上。写完后，关闭文件。使用简单的文件名（如 `grades.txt`）。
+<Checklist>
+  <Checkbox
+    id="proj2-phase3-task1"
+    label="编写代码（或函数），打开 grades.txt 文件进行写入，将每个成绩写在自己的一行上，然后关闭文件。"
+  />
+  <Checkbox
+    id="proj2-phase3-task2"
+    label="编写代码（或函数），打开 grades.txt 进行读取，将每一行转换为浮点数，追加到列表中，并返回或使用该列表作为成绩列表。"
+  />
+  <Checkbox
+    id="proj2-phase3-task3"
+    label="程序启动时，从文件中加载成绩；在程序结束时，显示统计数据后，将当前列表保存回文件，以便数据在两次运行之间持续存在。"
+  />
+</Checklist>
 
-2.**从文件加载成绩**
-   编写一个函数（或代码块），打开文件，读取每一行，将每一行转换为浮点数，并将其追加到一个列表中。返回或使用该列表作为成绩列表。
+**涉及主题：** [Handling files](../../InputAndOutput/HandlingFiles)、[Lists](../../Variables/TypesOfVariables/DataStructures/Lists)、[Loops](../../ControlFlow/Loops)
 
-3.**将其编入程序**
-   程序启动时，从文件中加载成绩。在程序结束时，也就是显示完统计数据后，将当前列表保存到文件中。现在，成绩跟踪器可以在两次运行之间保存数据。(如果您进行了第一阶段的挑战，并有一个交互式循环，用户可以在其中添加成绩，那么您可以在用户选择退出时保存数据）。
+**第 3 天结束：** 您拥有了一个完整的成绩跟踪器：从文件中加载成绩，查看统计数据（总和、平均分、最高分、最低分、消息），并将列表保存回文件，以便下次继续使用。
 
-**涉及主题：** [Handling files]（.../.../InputAndOutput/HandlingFiles）、[Lists]（.../.../Variables/TypesOfVariables/DataStructures/Lists）、[Loops]（.../../ControlFlow/Loops）
+### 挑战（可选）
+如果您已提前完成且尚未完成，请添加让用户在循环中输入新成绩的功能（如第 1 天挑战所述）。当您在结束时将列表保存回文件时，现在将包括您添加的任何新成绩。
 
-**第 3 天结束：** 您拥有了一个完整的成绩跟踪器：从文件中加载成绩，查看统计数据（总和、平均分、最高分、最低分、信息），并将列表保存回文件，以便下次继续使用。
+## 第 4 阶段（第 4 天）：函数和用户输入
+
+### 学习重点
+将现有逻辑封装到命名函数中，然后添加一个用户输入循环，使其自然地融入整洁的结构中。
+
+### 任务
+
+**第 1 部分 — 先整理成函数**
+
+<Checklist>
+  <Checkbox
+    id="proj2-phase4-task1"
+    label="编写一个 load_grades 函数，接收文件名并返回从该文件加载的成绩列表。"
+  />
+  <Checkbox
+    id="proj2-phase4-task2"
+    label="编写一个 calculate_average 函数，接收成绩列表并返回平均值。"
+  />
+  <Checkbox
+    id="proj2-phase4-task3"
+    label="编写一个 find_highest 函数和一个 find_lowest 函数，各自接收成绩列表并返回结果。"
+  />
+  <Checkbox
+    id="proj2-phase4-task4"
+    label="编写一个 print_stats 函数，接收成绩列表，并使用上面三个函数显示平均分、最高分、最低分和状态消息。"
+  />
+  <Checkbox
+    id="proj2-phase4-task5"
+    label="编写一个 save_grades 函数，接收成绩列表和文件名，并将成绩保存到该文件中。"
+  />
+  <Checkbox
+    id="proj2-phase4-task6"
+    label="用一个简短的 main 部分替换旧的顶层代码，按顺序调用您的函数：加载，然后打印统计数据，然后保存。"
+  />
+</Checklist>
+
+<Details>
+  <summary>提示 — 每个函数的结构</summary>
+
+  ```
+  function calculate_average:
+      takes: a list of grades
+      add up all the grades
+      divide by the number of grades
+      return the result
+
+  function find_highest:
+      takes: a list of grades
+      keep track of the highest grade seen so far
+      loop through the list, updating highest when you find a bigger value
+      return highest
+
+  function find_lowest:
+      takes: a list of grades
+      same idea as find_highest, but track the smallest value instead
+
+  function print_stats:
+      takes: a list of grades
+      call calculate_average, find_highest, find_lowest
+      print each result
+      use if/elif/else to print a status message based on the average
+
+  function load_grades:
+      takes: a filename
+      open the file for reading
+      for each line, convert it to a float and add it to a list
+      return the list
+
+  function save_grades:
+      takes: a list of grades and a filename
+      open the file for writing
+      write each grade on its own line
+  ```
+</Details>
+
+<Details>
+  <summary>提示 — main 部分的结构</summary>
+
+  ```
+  grades = load_grades("grades.txt")
+  print_stats(grades)
+  save_grades(grades, "grades.txt")
+  ```
+</Details>
+
+**第 2 部分 — 添加用户输入**
+
+<Checklist>
+  <Checkbox
+    id="proj2-phase4-task7"
+    label="在 main 部分的 load_grades 和 print_stats 之间，添加一个 while 循环，询问用户输入成绩（或退出关键字以停止），并将每个成绩追加到列表中。"
+  />
+  <Checkbox
+    id="proj2-phase4-task8"
+    label="测试在运行期间输入的成绩是否包含在统计数据中并保存到文件中。"
+  />
+</Checklist>
+
+<Details>
+  <summary>提示 — 添加输入循环</summary>
+
+  ```
+  repeat until the user is done:
+      ask for a grade or a quit word
+      if quit word, stop the loop
+      otherwise convert the input to a number and append it to grades
+  ```
+</Details>
+
+### 挑战（可选）
+将输入循环封装到自己的 `add_grades` 函数中，该函数接收成绩列表，在循环中添加成绩，然后返回它。这样您的 main 部分保持整洁：`grades = add_grades(grades)`。
+
+**涉及主题：** [Functions](../../Functions)、[While loops](../../ControlFlow/Loops/WhileLoops)、[Handling files](../../InputAndOutput/HandlingFiles)
+
+**第 4 天结束：** 您的程序从文件中加载成绩，允许用户添加更多成绩，显示统计数据，并将所有内容保存回来——全部整理成函数。
 
 ---
 
 ## 摘要
 
-| 日 | 重点 | 你建造了什么 | 日 | 重点 | 你建造了什么 | 日 | 重点 | 你建造了什么 | 日 | 重点
-|------|-----------------|----------------|
-| 1 | List + Loops | List of grades, add/display, sum, average | 2 | Conditionals | Highest, lowest, message from average, optional filter
-| 2 | 条件句 | 最高分、最低分、来自平均分的信息、可选过滤器 | 3 | 文件 I/O
-| 3 | 文件 I/O | 保存和加载成绩，使其持久化
-
-如果有时间，您可以添加一些小的改进（例如，一个简单的菜单："1）添加成绩 2）显示统计 3）保存 4）退出"），但核心是列表、循环、条件和文件 I/O，分为三个容易消化的阶段。
+| 天 | 重点 | 您构建的内容 |
+|-----|-------|----------------|
+| 1 | 列表 + 循环 | 成绩列表、显示、求和、平均分 |
+| 2 | 条件判断 | 最高分、最低分、基于平均分的消息 |
+| 3 | 文件输入/输出 | 保存和加载成绩，使其在两次运行之间持续存在 |
+| 4 | 函数 + 用户输入 | 整理成函数，添加用于输入成绩的 while 循环 |

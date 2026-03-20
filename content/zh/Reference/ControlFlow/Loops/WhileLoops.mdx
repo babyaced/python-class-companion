@@ -61,15 +61,41 @@ while age < 0:
 print(f"Your age is {age}.")
 ```
 
-The loop keeps asking until `age` is 0 or greater.
+循环会一直询问，直到 `age` 大于等于 0。
 
-## When to use a `while` loop
+### 在特定输入时停止
 
-Use a `while` loop when you **don't know in advance how many iterations you need** — you just know the condition that should keep things going. If you're stepping through a list or a fixed range, a `for` loop is usually cleaner.
+您也可以让用户通过输入特定值来退出循环。使用 `break` 立即停止循环：
 
-| Situation | Loop to use |
+```python
+while True:
+    answer = input("Enter a number (or 'q' to quit): ")
+    if answer == "q":
+        break
+    print("You entered:", answer)
+
+print("Goodbye!")
+```
+
+`while True` 创建一个有意的无限循环——只有在触发 `break` 时才会结束。当您希望程序持续运行直到用户决定停止时，这种模式很常见。
+
+<Callout type="info">
+  `break` 会立即退出循环，跳过当前迭代的剩余部分和条件检查。程序将继续执行循环之后的内容。
+</Callout>
+
+## 何时使用 `while` 循环
+
+当您**事先不知道需要重复多少次**时，使用 `while` 循环——您只需知道应该继续执行的条件。如果您在遍历列表或固定范围，`for` 循环通常更简洁。
+
+| 情况 | 使用的循环 |
 |-----------|-------------|
-| Loop a fixed number of times | `for` with `range()` |
-| Loop over every item in a list | `for` |
-| Loop until a condition changes | `while` |
-| Keep asking until valid input | `while` |
+| 循环固定次数 | `for` 与 `range()` |
+| 遍历列表中的每个元素 | `for` |
+| 循环直到条件改变 | `while` |
+| 持续询问直到获得有效输入 | `while` |
+
+## 摘要
+
+- `while` 循环在其条件保持为真时重复执行。
+- 确保循环内部有某些内容发生变化，使条件最终能变为假。
+- 当您不知道需要重复多少次时，使用 `while`。
