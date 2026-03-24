@@ -12,7 +12,7 @@ You'll build it one piece at a time over six classes — each class adds somethi
 
 # Class 1 — Define Your Color Palette
 
-**What you'll use:** [Lists](/en/Reference/Variables/TypesOfVariables/DataStructures/Lists/page)
+**What you'll use:** [Lists](/en/Reference/Variables/TypesOfVariables/DataStructures/Lists/page), [Dictionaries](/en/Reference/Variables/TypesOfVariables/DataStructures/Dictionaries/page)
 
 Your first task is to define the colors your artwork will use. Colors in Pillow are tuples of `(red, green, blue)` — each value is between 0 and 255.
 
@@ -23,7 +23,8 @@ You can use [Coolors](https://coolors.co/) to generate a palette, but you'll nee
 <Checklist>
   <Checkbox id="ga-s1-1" label="Choose a theme (sunset, ocean, forest, neon, etc.) and pick colors that fit it." />
   <Checkbox id="ga-s1-2" label="Create a variable `background_color` for your canvas background." />
-  <Checkbox id="ga-s1-3" label="Create a list `palette` with at least 4 colors. These will be the colors you draw shapes with." />
+  <Checkbox id="ga-s1-3" label="Create a dictionary `palette` that maps color names to RGB tuples — at least 4 colors. For example: `palette = {'orange': (255, 87, 51), 'blue': (0, 128, 255)}`." />
+  <Checkbox id="ga-s1-4" label="Try accessing a color by name (e.g. `palette['orange']`) and print it to confirm it works." />
 </Checklist>
 
 ---
@@ -54,7 +55,7 @@ Install Pillow, create a blank canvas, and use `random` to scatter circles acros
       pick a random x between 0 and canvas width
       pick a random y between 0 and canvas height
       pick a random size (e.g. between 10 and 100 pixels)
-      pick a random color from your palette
+      pick a random color from the values in your palette dictionary
       draw a circle at (x, y) with that size and color
   ```
 </Details>

@@ -7,5 +7,9 @@ export default {
     Reference: {
         title: 'Reference',
         type: 'page'
+    },
+    Activities: {
+        title: 'Activities',
+        type: 'page'
     }
 }
