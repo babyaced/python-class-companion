@@ -1,0 +1,73 @@
+import { Checkbox } from '@/components/Checkbox'
+import { Checklist } from '@/components/Checklist'
+
+# Pillow Activity
+
+In this activity you'll explore the Pillow library for image processing — loading images, applying transformations, reading documentation, and saving your results.
+
+**Install Pillow first** if you haven't already:
+
+```bash
+pip install pillow
+```
+
+Then import what you need at the top of your file:
+
+```python
+from PIL import Image, ImageFilter
+```
+
+---
+
+## Part 1 — Load an image
+
+<Checklist>
+  <Checkbox id="pillow-1" label="1. Find an image file on your computer and note its file path." />
+  <Checkbox id="pillow-2" label="2. Load the image using Pillow and display it." />
+</Checklist>
+
+**Topics covered:** [Image.open()](https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.open), [Image.show()](https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.show)
+
+---
+
+## Part 2 — Apply basic transformations
+
+<Checklist>
+  <Checkbox id="pillow-3" label="1. Resize the image to 100x100 pixels and display it." />
+  <Checkbox id="pillow-4" label="2. Rotate the image 90 degrees and display it." />
+  <Checkbox id="pillow-5" label="3. Convert the image to grayscale and display it." />
+</Checklist>
+
+**Topics covered:** [resize()](https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize), [rotate()](https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.rotate), [convert()](https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.convert)
+
+---
+
+## Part 3 — Explore the documentation
+
+<Checklist>
+  <Checkbox id="pillow-6" label="1. Look up the Pillow documentation and find at least two transformations you haven't used yet." />
+  <Checkbox id="pillow-7" label="2. Apply both transformations to your image and display the results." />
+</Checklist>
+
+**Topics covered:** [Image module reference](https://pillow.readthedocs.io/en/stable/reference/Image.html)
+
+---
+
+## Part 4 — Custom filter
+
+<Checklist>
+  <Checkbox id="pillow-8" label="1. Apply a filter from ImageFilter to your image and display the result." />
+  <Checkbox id="pillow-9" label="2. Try combining multiple transformations — for example, resize first, then apply a filter." />
+</Checklist>
+
+**Topics covered:** [ImageFilter module](https://pillow.readthedocs.io/en/stable/reference/ImageFilter.html)
+
+---
+
+## Part 5 — Save your work
+
+<Checklist>
+  <Checkbox id="pillow-10" label="1. Save at least two of your modified images to your project folder." />
+</Checklist>
+
+**Topics covered:** [Image.save()](https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.save)

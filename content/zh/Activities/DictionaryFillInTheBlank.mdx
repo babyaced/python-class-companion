@@ -1,0 +1,67 @@
+import { Checkbox } from '@/components/Checkbox'
+import { Checklist } from '@/components/Checklist'
+
+# 字典填空
+
+通过填写缺失的键和值来练习构建字典。
+
+---
+
+## 第 1 部分 — 填写空白
+
+下面的字典缺少一些键和值。用正确的答案填写每个 `____`。不知道的内容可以 Google。
+
+```python
+movie = {
+    "title": "The Dark Knight",
+    "____": 2008,
+    "genre": "____",
+    "____": "Christopher Nolan",
+    "cast": ["Christian Bale", "____", "Aaron Eckhart"]
+}
+```
+
+<Checklist>
+  <Checkbox id="fitb-1" label="填写 2008 的缺失键（提示：这个数字代表什么？）。" />
+  <Checkbox id="fitb-2" label="填写类型（genre）。" />
+  <Checkbox id="fitb-3" label='填写 "Christopher Nolan" 的缺失键。' />
+  <Checkbox id="fitb-4" label="填写缺失的演员（提示：他凭借这个角色获得了奥斯卡奖）。" />
+</Checklist>
+
+**涉及主题：** [什么是字典？](/zh/Reference/Variables/TypesOfVariables/DataStructures/Dictionaries/page)
+
+---
+
+## 第 2 部分 — 自己创建
+
+现在为你选择的电影创建一个字典。使用相同的字段。
+
+```python
+movie = {
+    "title": "",
+    "year": ____,
+    "genre": "",
+    "director": "",
+    "cast": ["", "", ""]
+}
+```
+
+<Checklist>
+  <Checkbox id="fitb-5" label="选择一部电影并填写所有五个字段。" />
+  <Checkbox id="fitb-6" label='打印一个使用字典中至少两个值的句子。例如："The Dark Knight 由 Christopher Nolan 执导。"' />
+</Checklist>
+
+**涉及主题：** [访问字典值](/zh/Reference/Variables/TypesOfVariables/DataStructures/Dictionaries/AccessingValues)
+
+---
+
+## 第 3 部分 — 遍历你的字典
+
+字典有一个 `.items()` 方法，可以像遍历列表一样遍历每个键值对。
+
+<Checklist>
+  <Checkbox id="fitb-7" label="使用 .items() 遍历你的电影字典，并将每个键和值打印在单独的一行上。" />
+  <Checkbox id="fitb-8" label="对第 1 部分中的 Dark Knight 字典进行同样的循环。注意到 cast 字段有什么不同吗？" />
+</Checklist>
+
+**涉及主题：** [遍历字典](/zh/Reference/Variables/TypesOfVariables/DataStructures/Dictionaries/LoopingDictionaries)

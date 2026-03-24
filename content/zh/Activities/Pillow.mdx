@@ -1,0 +1,73 @@
+import { Checkbox } from '@/components/Checkbox'
+import { Checklist } from '@/components/Checklist'
+
+# Pillow 活动
+
+在本活动中，你将探索用于图像处理的 Pillow 库——加载图像、应用变换、阅读文档并保存结果。
+
+**首先安装 Pillow**（如果尚未安装）：
+
+```bash
+pip install pillow
+```
+
+然后在文件顶部导入所需内容：
+
+```python
+from PIL import Image, ImageFilter
+```
+
+---
+
+## 第 1 部分 — 加载图像
+
+<Checklist>
+  <Checkbox id="pillow-1" label="在你的电脑上找到一个图像文件并记下它的文件路径。" />
+  <Checkbox id="pillow-2" label="使用 Pillow 加载图像并显示它。" />
+</Checklist>
+
+**涉及主题：** [Image.open()](https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.open)、[Image.show()](https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.show)
+
+---
+
+## 第 2 部分 — 应用基本变换
+
+<Checklist>
+  <Checkbox id="pillow-3" label="将图像调整为 100x100 像素并显示。" />
+  <Checkbox id="pillow-4" label="将图像旋转 90 度并显示。" />
+  <Checkbox id="pillow-5" label="将图像转换为灰度并显示。" />
+</Checklist>
+
+**涉及主题：** [resize()](https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize)、[rotate()](https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.rotate)、[convert()](https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.convert)
+
+---
+
+## 第 3 部分 — 探索文档
+
+<Checklist>
+  <Checkbox id="pillow-6" label="查阅 Pillow 文档，找到至少两个你还没用过的变换。" />
+  <Checkbox id="pillow-7" label="将这两个变换应用到你的图像上并显示结果。" />
+</Checklist>
+
+**涉及主题：** [Image 模块参考](https://pillow.readthedocs.io/en/stable/reference/Image.html)
+
+---
+
+## 第 4 部分 — 自定义滤镜
+
+<Checklist>
+  <Checkbox id="pillow-8" label="对图像应用 ImageFilter 中的一个滤镜并显示结果。" />
+  <Checkbox id="pillow-9" label="尝试组合多个变换——例如先调整大小，再应用滤镜。" />
+</Checklist>
+
+**涉及主题：** [ImageFilter 模块](https://pillow.readthedocs.io/en/stable/reference/ImageFilter.html)
+
+---
+
+## 第 5 部分 — 保存你的作品
+
+<Checklist>
+  <Checkbox id="pillow-10" label="将至少两张修改后的图像保存到你的项目文件夹中。" />
+</Checklist>
+
+**涉及主题：** [Image.save()](https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.save)
