@@ -1,0 +1,67 @@
+import { Checkbox } from '@/components/Checkbox'
+import { Checklist } from '@/components/Checklist'
+
+# Dictionary Fill in the Blank
+
+Practice building dictionaries by filling in missing keys and values.
+
+---
+
+## Part 1 — Fill in the blanks
+
+The dictionary below is missing some keys and values. Fill in each `____` with the correct answer. You can Google anything you don't know.
+
+```python
+movie = {
+    "title": "The Dark Knight",
+    "____": 2008,
+    "genre": "____",
+    "____": "Christopher Nolan",
+    "cast": ["Christian Bale", "____", "Aaron Eckhart"]
+}
+```
+
+<Checklist>
+  <Checkbox id="fitb-1" label='1. Fill in the missing key for 2008 (hint: what does that number represent?).' />
+  <Checkbox id="fitb-2" label='2. Fill in the genre.' />
+  <Checkbox id="fitb-3" label='3. Fill in the missing key for "Christopher Nolan".' />
+  <Checkbox id="fitb-4" label='4. Fill in the missing cast member (hint: he won an Academy Award for this role).' />
+</Checklist>
+
+**Topics covered:** [What is a Dictionary?](/en/Reference/Variables/TypesOfVariables/DataStructures/Dictionaries/page)
+
+---
+
+## Part 2 — Build your own
+
+Now create a dictionary for a movie of your choice. Use the same fields.
+
+```python
+movie = {
+    "title": "",
+    "year": ____,
+    "genre": "",
+    "director": "",
+    "cast": ["", "", ""]
+}
+```
+
+<Checklist>
+  <Checkbox id="fitb-5" label="1. Pick a movie and fill in all five fields." />
+  <Checkbox id="fitb-6" label='2. Print a sentence using at least two values from your dictionary. For example: "The Dark Knight was directed by Christopher Nolan."' />
+</Checklist>
+
+**Topics covered:** [Accessing Dictionary Values](/en/Reference/Variables/TypesOfVariables/DataStructures/Dictionaries/AccessingValues)
+
+---
+
+## Part 3 — Loop through your dictionary
+
+Dictionaries have a `.items()` method that lets you loop through every key-value pair — the same way you loop through a list.
+
+<Checklist>
+  <Checkbox id="fitb-7" label="1. Use .items() to loop through your movie dictionary and print each key and value on its own line." />
+  <Checkbox id="fitb-8" label="2. Try the same loop on the Dark Knight dictionary from Part 1. Notice anything different about the cast field?" />
+</Checklist>
+
+**Topics covered:** [Looping over a Dictionary](/en/Reference/Variables/TypesOfVariables/DataStructures/Dictionaries/LoopingDictionaries)
