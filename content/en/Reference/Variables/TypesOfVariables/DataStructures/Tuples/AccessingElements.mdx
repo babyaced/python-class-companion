@@ -1,0 +1,59 @@
+import { Callout } from 'nextra/components'
+import { GlossaryTerm } from '@/components/GlossaryTerm'
+
+# Accessing Elements
+
+## Accessing items
+
+You access items in a tuple the same way as a list — by index, using square brackets:
+
+```python
+point = (100, 200)
+print(point[0])  # Output: 100
+print(point[1])  # Output: 200
+```
+
+<Callout type="info" title="Indexes start at 0">
+The first item is at index `0`, not `1`. A tuple with 3 items has indexes `0`, `1`, and `2`.
+</Callout>
+
+Negative indexes work too — `-1` is the last item:
+
+```python
+color = (255, 128, 0)
+print(color[-1])  # Output: 0
+print(color[-2])  # Output: 128
+```
+
+## Unpacking
+
+You can assign each item in a tuple to its own variable all at once. This is called **unpacking**:
+
+```python
+point = (100, 200)
+x, y = point
+print(x)  # Output: 100
+print(y)  # Output: 200
+```
+
+This is really common with tuples since they usually represent related values that each have a clear meaning.
+
+## Tuples are immutable
+
+You **cannot** change, add, or remove items in a tuple after it's created:
+
+```python
+point = (100, 200)
+point[0] = 50  # Error! Tuples can't be changed
+```
+
+If you need a collection you can modify, use a list instead.
+
+## len()
+
+`len()` works the same as with lists — it returns how many items are in the tuple:
+
+```python
+color = (255, 128, 0)
+print(len(color))  # Output: 3
+```
