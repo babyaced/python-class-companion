@@ -1,0 +1,85 @@
+import { Callout } from 'nextra/components'
+
+# Inheritance
+
+Inheritance lets you create a new class that automatically gets all the attributes and methods of an existing class — and then add or change whatever you need.
+
+Think of it like a family: a child inherits traits from a parent, but can also have their own unique traits.
+
+## A Parent Class
+
+Here's a general `Animal` class:
+
+```python
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def eat(self):
+        print(self.name + " is eating.")
+
+    def sleep(self):
+        print(self.name + " is sleeping.")
+```
+
+## A Child Class
+
+To inherit from `Animal`, put the parent class name in parentheses:
+
+```python
+class Dog(Animal):
+    def bark(self):
+        print(self.name + " says: Woof!")
+```
+
+`Dog` inherits everything from `Animal` — `__init__`, `eat()`, and `sleep()` — without you having to rewrite any of it. You only define what's new or different.
+
+```python
+dog = Dog("Buddy")
+dog.eat()    # Buddy is eating.
+dog.bark()   # Buddy says: Woof!
+```
+
+## Overriding a Method
+
+A child class can replace a parent's method with its own version. This is called **method overriding**:
+
+```python
+class Cat(Animal):
+    def eat(self):
+        print(self.name + " is eating... slowly and judgmentally.")
+```
+
+```python
+cat = Cat("Luna")
+cat.eat()    # Luna is eating... slowly and judgmentally.
+cat.sleep()  # Luna is sleeping.  ← inherited from Animal
+```
+
+`Cat` uses its own `eat()` but still inherits `sleep()` from `Animal`.
+
+## Using `super()`
+
+Sometimes you want to *extend* a parent method instead of fully replacing it. Use `super()` to call the parent's version first:
+
+```python
+class Dog(Animal):
+    def __init__(self, name, breed):
+        super().__init__(name)   # runs Animal's __init__
+        self.breed = breed
+
+    def bark(self):
+        print(self.name + " says: Woof!")
+```
+
+```python
+dog = Dog("Buddy", "Labrador")
+print(dog.name)   # Buddy
+print(dog.breed)  # Labrador
+```
+
+`super().__init__(name)` lets `Animal` handle setting up `self.name`, so you don't have to repeat that code in `Dog`.
+
+<Callout type="info">
+  Inheritance is the foundation for the OOP concepts coming up next — Encapsulation, Abstraction, and Polymorphism all build on the idea of classes sharing and extending behavior.
+</Callout>
