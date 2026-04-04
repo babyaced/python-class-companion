@@ -1,0 +1,51 @@
+import { Callout } from "nextra/components";
+
+# Encapsulation
+
+Encapsulation means bundling data and the methods that work with it together in a class — and controlling who can access that data directly.
+
+Say you're building a class to represent a bank account. You want users to be able to check their balance and make deposits and withdrawals — but you don't want them to just reach in and change the balance directly.
+
+You can use encapsulation to protect the balance so it can only be changed through specific methods:
+
+```python
+class BankAccount:
+    def __init__(self, initial_balance):
+        self.__balance = initial_balance  # private variable
+
+    def deposit(self, amount):
+        self.__balance += amount
+
+    def withdraw(self, amount):
+        if amount <= self.__balance:
+            self.__balance -= amount
+        else:
+            print("Insufficient funds")
+
+    def get_balance(self):
+        return self.__balance
+```
+
+The `__balance` variable is **private** — the double underscore tells Python (and other developers) that it shouldn't be accessed directly from outside the class.
+
+Without encapsulation, someone could do this:
+
+```python
+account = BankAccount(100)
+account.__balance = 1000  # This would be a problem!
+```
+
+With encapsulation, the balance is protected. The only way to interact with it is through the methods you designed:
+
+```python
+account = BankAccount(100)
+account.deposit(50)         # Balance is now 150
+account.withdraw(20)        # Balance is now 130
+print(account.get_balance()) # Output: 130
+```
+
+This keeps your data safe and makes your class easier to use correctly. The methods act like a controlled door — users can get in and out, but only in the ways you allow.
+
+<Callout type="warning"> 
+Python doesn't truly enforce private variables the way some other languages do. Using `__balance` is a strong convention that signals "don't touch this directly," but it's technically still accessible via [name mangling](https://realpython.com/ref/glossary/name-mangling/). It's generally considered bad practice to do so.
+</Callout>

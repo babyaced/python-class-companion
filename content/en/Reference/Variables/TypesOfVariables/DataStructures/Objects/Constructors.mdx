@@ -2,21 +2,11 @@ import { GlossaryTerm } from '@/components/GlossaryTerm'
 
 # Constructors
 
-## What is a Constructor?
-A **constructor** is a special function that is called when an <GlossaryTerm>object</GlossaryTerm> is created from a <GlossaryTerm>class</GlossaryTerm>.
+When you create an object from a class, Python automatically runs a special method called the **constructor**. Its job is to set up the object's starting values.
 
-We often use a constructor to initialize the unique properties of an object.
+## `__init__`
 
-To create properties that are unique to each object we use **instance variables**.
-
-For a dog, properties we might use **instance variables** for could be its `name` and `age`.
-
-To set up these unique properties, we use something called a **constructor**.
-
-## Defining a Constructor
-In Python, we have to define the constructor function by defining the `__init__` <GlossaryTerm>method</GlossaryTerm>.
-
-Here's an example of how to use a constructor to create a `Dog` class with unique `name` and `age` properties:
+In Python, the constructor is always named `__init__`. It runs the moment you create a new object:
 
 ```python
 class Dog:
@@ -25,27 +15,17 @@ class Dog:
         self.age = age
 ```
 
-In this example, we created a constructor by defining the `__init__` method that takes two parameters: `name` and `age`.
+When you write `Dog("Buddy", 3)`, Python calls `__init__` automatically — you never call it yourself.
 
-The `self` parameter is a reference to the current <GlossaryTerm>instance</GlossaryTerm> of the class and is used to access variables that belong to the class.
+## Understanding `self`
 
-Now we can create multiple dog objects with different names and ages:
+`self` refers to the specific object being created. When Python runs `__init__`, it passes the new object in as `self` so the method knows *which* dog it's setting up.
 
 ```python
 dog1 = Dog("Buddy", 3)
 dog2 = Dog("Max", 5)
 ```
 
-To use the constructor, we simply write the class name followed by parentheses, passing in the required **arguments**, just like any other function call.
+When `dog1` is created, `self` is `dog1`. When `dog2` is created, `self` is `dog2`. That's how each object ends up with its own `name` and `age` — `self.name` and `self.age` are stored on that specific instance.
 
-`dog1` and `dog2` are two separate instances — each has its own `name` and `age`.
-
-
-### More on `self`
-The concept of `self` can be a bit tricky to understand at first.
-So let's break down what is happening in the constructor.
-
-When we create a new dog object using `Dog("Buddy", 3)`, 
-the `__init__` method is called with `self` referring to the new dog object being created aka its "self".
-
-The `name` of this new Dog object is set to "Buddy", and `age` set to 3.
+You don't pass `self` yourself — Python handles it automatically.

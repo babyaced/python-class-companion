@@ -128,42 +128,7 @@ Now build a `Canvas` class that stores a collection of shapes and renders them a
 
 ---
 
-# Class 5 — Add a Third Shape
-
-**What you'll use:** [Classes](/en/Reference/Variables/TypesOfVariables/DataStructures/Objects/page)
-
-Add a third shape type to your project — a `Line`, `Triangle`, or `Polygon`. Then update your composition to randomly mix all three shape types.
-
-**Tasks:**
-
-<Checklist>
-  <Checkbox id="ga-s5-1" label="Define a third shape class with __init__ and draw methods." />
-  <Checkbox id="ga-s5-2" label="Update your composition to randomly choose between all three shape types." />
-  <Checkbox id="ga-s5-3" label="Generate at least 150 shapes total and tune the composition until you like the result." />
-</Checklist>
-
-<Details>
-  <summary>Hint — randomly choosing a shape type</summary>
-
-  ```
-  repeat 150 times:
-      pick a random shape type from ["circle", "rectangle", "line"]
-      pick random attributes (position, size, color)
-
-      if shape type is "circle":
-          create a Circle with those attributes
-      elif shape type is "rectangle":
-          create a Rectangle with those attributes
-      elif shape type is "line":
-          create a Line with those attributes
-
-      add the shape to the canvas
-  ```
-</Details>
-
----
-
-# Class 6 — Polish and Present
+# Class 5 — Polish and Present
 
 Put the finishing touches on your piece and get ready to show it.
 

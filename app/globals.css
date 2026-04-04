@@ -17,6 +17,17 @@ html.dark .glossary-tooltip {
   border: 1px solid var(--x-color-neutral-700, #333333);
   color: var(--x-color-neutral-50, #fafafa);
 }
+/* Inline code: fix light mode background fallback when color-mix() is unsupported */
+:not(pre) > code.nextra-code {
+  background-color: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: inherit;
+}
+html.dark :not(pre) > code.nextra-code {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
 :root {  /* light */
     --nextra-primary-hue: 210 !important;
     --nextra-primary-saturation: 53% !important;

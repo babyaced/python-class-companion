@@ -1,0 +1,48 @@
+# Abstraction
+
+Abstraction means hiding the complicated stuff so you only have to deal with what matters.
+
+Think about driving a car. You don't need to know how the engine burns fuel, how the transmission shifts gears, or what the oil pressure is doing. You just turn the key, press the gas, and brake. All the complexity is hidden — you only see the simple controls you actually need.
+
+That's abstraction in code too. Here's a `Car` class where the messy internal details are hidden, and the user only needs to call simple methods:
+
+```python
+class Car:
+    def __init__(self):
+        self._fuel = 100
+        self._engine_temp = 0
+        self._battery_level = 100
+        self._oil_pressure = 80
+
+    def start(self):
+        self._battery_level -= 5
+        self._engine_temp += 20
+        self._oil_pressure += 15
+        self._fuel -= 1
+        print("Car started!")
+
+    def drive(self, miles):
+        self._fuel -= miles * 0.1
+        self._engine_temp += miles * 0.5
+        self._oil_pressure -= miles * 0.02
+        self._battery_level -= miles * 0.05
+        print(f"Drove {miles} miles!")
+
+    def stop(self):
+        self._engine_temp -= 20
+        self._oil_pressure -= 15
+        print("Car stopped.")
+```
+
+There's a lot going on inside those methods — fuel, temperature, oil pressure, battery — but someone using this class doesn't need to think about any of that. They just call `start()`, `drive()`, and `stop()`:
+
+```python
+my_car = Car()
+my_car.start()     # Car started!
+my_car.drive(10)   # Drove 10 miles!
+my_car.stop()      # Car stopped.
+```
+
+The complexity is still there — it's just tucked away where it doesn't get in the way.
+
+You've actually been using abstraction any time you import a library. When you used the Pillow library for image manipulation, you didn't need to know how it processes pixels internally — you just called the methods it gave you. That's abstraction at work.

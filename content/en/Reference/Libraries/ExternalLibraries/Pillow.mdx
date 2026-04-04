@@ -49,6 +49,13 @@ img.save("canvas.png")
 
 ## Drawing Shapes
 
+<Callout type="warning" title="circle() requires Pillow 10+">
+  `draw.circle()` was added in Pillow 10.0.0. If you get an error, upgrade with:
+  ```bash
+  pip install --upgrade pillow
+  ```
+</Callout>
+
 ```python
 from PIL import Image, ImageDraw
 
@@ -58,8 +65,8 @@ draw = ImageDraw.Draw(img)
 # Rectangle
 draw.rectangle([50, 50, 200, 200], fill=(255, 0, 0))  # red square
 
-# Circle (ellipse with equal width/height)
-draw.ellipse([250, 250, 400, 400], fill=(0, 100, 255))  # blue circle
+# Circle
+draw.circle([325, 325], radius=75, fill=(0, 100, 255))  # blue circle
 
 # Line
 draw.line([0, 0, 500, 500], fill=(255, 255, 0), width=3)  # yellow diagonal

@@ -1,0 +1,71 @@
+# Polymorphism
+
+Polymorphism means "many forms." In Python, it lets different objects respond to the same method call in their own way.
+
+Think of it like a TV remote's volume button — it works on any TV brand, but each brand handles the signal differently behind the scenes. You just press the same button and each TV knows what to do.
+
+In Python, polymorphism is mainly achieved through two things: **method overriding** and **duck typing**.
+
+## Method Overriding
+
+Method overriding is when a subclass has a method with the same name as one in its parent class, but does something different with it.
+
+The way a subclass gets methods from its parent in the first place is called **inheritance**.
+
+For example, here's a `Shape` class with an `area()` method, and two subclasses — `Circle` and `Rectangle` — that each override it to calculate their own area:
+
+```python
+class Shape:
+    def area(self):
+        pass  # 'pass' is a placeholder — this method does nothing on its own
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * self.radius ** 2
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+```
+
+Both `Circle` and `Rectangle` have an `area()` method, but each one calculates area differently. That's polymorphism in action.
+
+## Duck Typing
+
+Duck typing comes from the saying: *"If it walks like a duck and quacks like a duck, it's a duck."*
+
+In Python, this means: if an object has the method you need, you can use it — no matter what class it actually is.
+
+For example, this function works with any object that has an `area()` method:
+
+```python
+def print_area(shape):
+    print(f"The area is: {shape.area()}")
+
+circle = Circle(5)
+rectangle = Rectangle(4, 6)
+
+print_area(circle)      # The area is: 78.5
+print_area(rectangle)   # The area is: 24
+```
+
+Python doesn't check *what type* `shape` is — it just checks if it has `area()`. If it does, great. If not, you'll get an error:
+
+```python
+class Triangle(Shape):
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
+
+triangle = Triangle(4, 5)
+print_area(triangle)  # AttributeError: Triangle has no area() method
+```
+
+Because `Triangle` doesn't define `area()`, Python can't call it — even though `Triangle` inherits from `Shape` (remember, `Shape.area()` just has `pass`, so it doesn't actually return anything useful).
