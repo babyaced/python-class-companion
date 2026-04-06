@@ -1,0 +1,22 @@
+:root {
+  --slidev-theme-primary: #3574a5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  --slidev-code-font-family: Menlo, Consolas, 'Courier New', monospace;
+}
+
+.slidev-code code, code, pre {
+  font-family: Menlo, Consolas, 'Courier New', monospace !important;
+}
+
+/* Match heading color to site accent */
+h1 {
+  color: var(--slidev-theme-primary) !important;
+  background: none !important;
+  -webkit-text-fill-color: unset !important;
+}
+
+/* Remove secondary text dimming */
+h2, .slidev-layout p, .slidev-layout li {
+  opacity: 1 !important;
+  color: inherit !important;
+}

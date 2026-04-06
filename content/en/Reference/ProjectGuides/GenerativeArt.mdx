@@ -99,7 +99,7 @@ Define a `Circle` class and a `Rectangle` class. Each one should know its own po
 
 # Class 4 — The Canvas Class
 
-**What you'll use:** [Classes](/en/Reference/Variables/TypesOfVariables/DataStructures/Objects/page), [Lists](/en/Reference/Variables/TypesOfVariables/DataStructures/Lists/page), [Loops](/en/Reference/ControlFlow/Loops/page)
+**What you'll use:** [Classes](/en/Reference/Variables/TypesOfVariables/DataStructures/Objects/page), [Lists](/en/Reference/Variables/TypesOfVariables/DataStructures/Lists/page), [Loops](/en/Reference/ControlFlow/Loops/page), [Polymorphism](/en/Reference/Variables/TypesOfVariables/DataStructures/Objects/Polymorphism)
 
 Now build a `Canvas` class that stores a collection of shapes and renders them all. Here's the key idea: Canvas doesn't need to know whether a shape is a `Circle` or a `Rectangle` — it just calls `draw()` on each one and they handle the rest.
 
@@ -144,4 +144,14 @@ Put the finishing touches on your piece and get ready to show it.
   <Checkbox id="ga-s6-1" label="Finalize your color palette and composition." />
   <Checkbox id="ga-s6-2" label="Save a high-resolution version (try 1200x1200 or larger)." />
   <Checkbox id="ga-s6-3" label="Be ready to share your image and explain one creative choice you made." />
+</Checklist>
+
+**Stretch goal — Refactor with inheritance:**
+
+Notice that `Circle` and `Rectangle` both store `x`, `y`, and `color` in their `__init__`. That's repeated code. Create a `Shape` base class that holds those shared attributes, then have `Circle` and `Rectangle` inherit from it.
+
+<Checklist>
+  <Checkbox id="ga-s6-stretch-1" label="Define a Shape base class with __init__ (x, y, color)." />
+  <Checkbox id="ga-s6-stretch-2" label="Update Circle and Rectangle to inherit from Shape using super().__init__()." />
+  <Checkbox id="ga-s6-stretch-3" label="Confirm your Canvas still renders correctly after the refactor." />
 </Checklist>

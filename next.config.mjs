@@ -2,8 +2,15 @@ import nextra from 'nextra'
  
 // Set up Nextra with its configuration
 const withNextra = nextra({
-  // Prefix locale to all sidebar/links for i18n (recommended instead of manual pageMap transform)
   unstable_shouldAddLocaleToLinks: true,
+  mdxOptions: {
+    rehypePrettyCodeOptions: {
+      theme: {
+        dark: 'dark-plus',
+        light: 'light-plus',
+      },
+    },
+  },
 })
  
 // Export the final Next.js config with Nextra included

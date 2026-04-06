@@ -1,0 +1,72 @@
+import { GlossaryTerm } from '@/components/GlossaryTerm'
+
+# Object Composition
+
+You already know that objects can hold data as attributes. Those attributes can be numbers, strings, or booleans. They can also be other objects.
+
+When one object holds other objects as attributes, that's called **composition**. It lets you build complex things out of simpler, focused pieces.
+
+## A Playlist Made of Songs
+
+Say you're building a playlist. Without composition, every song is a separate set of variables:
+
+```python
+playlist_name = "My Favorites"
+
+song1_title = "Bohemian Rhapsody"
+song1_artist = "Queen"
+song1_duration = 354
+
+song2_title = "Thriller"
+song2_artist = "Michael Jackson"
+song2_duration = 357
+
+song3_title = "Billie Jean"
+song3_artist = "Michael Jackson"
+song3_duration = 294
+```
+
+Every new song means three new variables. There's no way to pass "a song" anywhere — it's always three separate pieces.
+
+With composition, you create a `Song` class to bundle that data, and a `Playlist` class to hold a collection of songs:
+
+```python
+class Song:
+    def __init__(self, title, artist, duration):
+        self.title = title
+        self.artist = artist
+        self.duration = duration
+
+class Playlist:
+    def __init__(self, name):
+        self.name = name
+        self.songs = []
+
+    def add(self, song):
+        self.songs.append(song)
+```
+
+```python
+playlist = Playlist("My Favorites")
+playlist.add(Song("Bohemian Rhapsody", "Queen", 354))
+playlist.add(Song("Thriller", "Michael Jackson", 357))
+playlist.add(Song("Billie Jean", "Michael Jackson", 294))
+```
+
+Each song travels as one unit. The playlist holds a list of them and doesn't need to know anything about the songs themselves.
+
+## Why This Is Useful
+
+Composition lets you group related data into one object and pass it around as a single unit. When something needs to change, you change it in one place.
+
+Adding a 50th song means one new line — not three new variables.
+
+## Has-a vs Is-a
+
+Composition describes a **has-a** relationship. A playlist *has* songs. A game *has* players. A team *has* members.
+
+This is different from inheritance, where a `Circle` *is a* `Shape`. You'll see how those two ideas work together in the next section.
+
+## In the Generative Art Project
+
+`Canvas` and `Shape` follow the same pattern. A `Canvas` holds a list of shape objects, and each shape carries its own data. When it's time to render, `Canvas` loops through its shapes and hands each one off to be drawn.
