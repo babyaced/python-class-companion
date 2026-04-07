@@ -14,7 +14,6 @@ fonts:
 
 # Agenda
 
-- Warm up
 - What is an object?
 - Classes and constructors
 - Attributes and methods
@@ -75,11 +74,11 @@ p { font-size: 1.3rem; line-height: 1.8; }
 
 # What is an object?
 
-Take the `List` object:
+Take the `List`s we've been using:
 
-**Data** — the list itself: `[0, 1, 2, 3, 4, 5]`
+**Data** is the list itself: `[0, 1, 2, 3, 4, 5]`
 
-**Methods** — functions that work on the list: `.append()`, `.pop()`
+**Methods** are functions that work on the list: `.append()`, `.pop()`
 
 
 The data and the behavior are bundled together.
@@ -92,7 +91,9 @@ p { font-size: 1.3rem; line-height: 2; }
 
 # Creating objects using classes
 
-A **class** is like a factory. You run it and it produces objects — each one built the same way, but with its own data.
+A **class** is like a factory. You run it and it produces objects. Each one is built the same way, but holds its own data.
+
+If we were building a social app, we'd need a way to create thousands of user accounts — each with their own username, email, and password. That's exactly what a class does.
 
 <div class="flex gap-8 justify-center items-center text-center mt-10">
   <div>
@@ -118,6 +119,25 @@ A **class** is like a factory. You run it and it produces objects — each one b
 
 <style>
 p { font-size: 1.4rem; line-height: 1.8; }
+</style>
+
+---
+
+# Defining a Class
+
+The keyword `class` is how you define that factory in Python.
+
+```python {all|1|2}
+class UserAccount:
+    pass
+```
+
+<p v-if="$clicks >= 1">Use the <code>class</code> keyword followed by the name. Class names are written in <strong>PascalCase</strong>: each word capitalized, no underscores.</p>
+<p v-if="$clicks >= 2"><code>pass</code> is a placeholder that means "nothing here yet." We'll replace it with real code next.</p>
+
+<style>
+.slidev-code code { font-size: 1.2rem; line-height: 1.7; }
+p { font-size: 1.1rem; line-height: 1.9; }
 </style>
 
 ---
@@ -159,6 +179,49 @@ p { font-size: 1.1rem; line-height: 1.8; }
 
 ---
 
+# Creating an Object
+
+Use the class name with `()` and pass in the arguments. Python calls our constructor `__init__` automatically.
+
+<div class="flex gap-4 items-center justify-center mt-4">
+<div>
+
+```python
+user1 = UserAccount(
+    "dsimpson",
+    "dsimpson@missionbit.org",
+    "password123"
+)
+```
+
+</div>
+<div class="text-3xl opacity-40 text-center">→</div>
+<div>
+
+```python
+def __init__(self,
+    username,
+    email,
+    password
+):
+```
+
+</div>
+</div>
+
+A new `UserAccount` object is created and stored inside the variable `user1`.
+
+<Callout>You never pass in <code>self</code>. Python handles that automatically.</Callout>
+
+
+
+<style>
+.slidev-code code { font-size: 1rem; line-height: 1.7; }
+p { font-size: 1.2rem; line-height: 1.9; }
+</style>
+
+---
+
 # Instance Attributes
 
 ```python {3-5}
@@ -173,7 +236,7 @@ Attributes set in the constructor are called **instance attributes**.
 
 They are unique to each **instance** or individual object. Every account has its own `username`, `email`, and `password`.
 
-You must prefix them with `self.` — that's what stores them on each instance.
+You must prefix them with `self.` so they get stored on each instance.
 
 
 <style>
@@ -210,7 +273,7 @@ p { font-size: 1.1rem; line-height: 1.8; }
 
 # Class Attributes in Action
 
-```python {2,6-8}
+```python {all|2|6-7|8-9}
 class UserAccount:
     max_login_attempts = 3
 
@@ -221,11 +284,10 @@ class UserAccount:
         if self.failed_attempts >= UserAccount.max_login_attempts:
             print("Account locked.")
 ```
-Let's use our new class variable
 
-Each failed login adds 1 to that account's `failed_attempts`.
-
-When it reaches `max_login_attempts`, the account locks. We access the class attribute using `UserAccount.max_login_attempts` — the class name, then a dot, then the attribute.
+<p v-if="$clicks >= 1"><code>max_login_attempts</code> is our class attribute, shared across every account.</p>
+<p v-if="$clicks >= 2">Each failed login adds 1 to that account's <code>failed_attempts</code>.</p>
+<p v-if="$clicks >= 3">When it reaches the limit, the account locks. We reference the class attribute using the class name and dot notation: <code>UserAccount.max_login_attempts</code>.</p>
 
 <style>
 .slidev-code code { font-size: 1rem; line-height: 1.7; }
@@ -248,30 +310,11 @@ class UserAccount:
             print("Account locked.")
 ```
 
-Methods are written just like regular functions.
-
-The difference: they have access to that specific object's data through `self`. `failed_login` knows which account's `failed_attempts` to update.
+Methods are written just like regular functions. The key difference is they have access to that specific object's data through `self`. `failed_login` knows which account's `failed_attempts` to update.
 
 <style>
 .slidev-code code { font-size: 1.1rem; line-height: 1.7; }
 p { font-size: 1.1rem; line-height: 1.8; }
-</style>
-
----
-
-# Creating an Object
-
-```python
-user1 = UserAccount("dsimpson", "dsimpson@missionbit.org", "password123")
-```
-
-Use the class name with `()` and pass in the arguments.
-
-Python calls `__init__` (our constructor) when you do this.
-
-<style>
-.slidev-code code { font-size: 1.2rem; line-height: 1.7; }
-p { font-size: 1.3rem; line-height: 1.9; }
 </style>
 
 ---
@@ -294,37 +337,17 @@ p { font-size: 1.3rem; line-height: 1.9; }
 
 ---
 
-# Abstraction
+# Using Library Methods
 
-In Python, abstraction means a method hides what's happening inside it.
+When you call a method from a library, you're trusting it to do the work without knowing what's inside.
 
-You call it, pass in what it needs, and it does the work.
+This is called **abstraction**. The method hides its complexity so you don't have to deal with it.
 
-<v-clicks>
-
-<div>
-
-```python {1}
+```python
 draw.circle((100, 100), radius=50, fill="red")
 ```
 
-For example, when we used Pillow we used the circle method to create circles.
-
-</div>
-
-<div>
-
-```python {2-3}
-def circle(self, xy, radius, fill=None, outline=None, width=1):
-    ellipse_xy = (xy[0] - radius, xy[1] - radius, xy[0] + radius, xy[1] + radius)
-    self.ellipse(ellipse_xy, fill, outline, width)
-```
-
-Inside, it calculates the bounding box and calls `ellipse()`. You never had to think about that.
-
-</div>
-
-</v-clicks>
+When we used Pillow, we called `circle()` to draw circles without knowing what was happening inside.
 
 <style>
 .slidev-code code { font-size: 1.09rem; line-height: 1.7; }
@@ -333,14 +356,23 @@ p { font-size: 1.2rem; line-height: 1.9; }
 
 ---
 
-# Activity
+# Using Library Methods
 
-Build a `Song` class and a `Playlist` class from scratch.
+Here's what's actually inside `circle()`:
 
-A playlist should hold multiple songs. Add at least 3 songs and print the title and artist for each one.
+```python
+def circle(self, xy, radius, fill=None, outline=None, width=1):
+    ellipse_xy = (xy[0] - radius, xy[1] - radius, xy[0] + radius, xy[1] + radius)
+    self.ellipse(ellipse_xy, fill, outline, width)
+```
+
+It calculates the bounding box for us and calls `ellipse()`. You never had to know about that.
+
+<Callout>What is important to know is what parameters the method needs and what it returns. That's what documentation is for.</Callout>
 
 <style>
-p { font-size: 1.4rem; line-height: 2; }
+.slidev-code code { font-size: 1.09rem; line-height: 1.7; }
+p { font-size: 1.2rem; line-height: 1.9; }
 </style>
 
 ---
