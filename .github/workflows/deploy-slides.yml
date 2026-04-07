@@ -1,0 +1,30 @@
+name: Deploy Slides
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'slides/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            set -e
+            cd /var/www/python.kaidan.dev
+            git fetch origin && git reset --hard origin/main
+            cd slides
+            npm ci
+            npm run build
+            sudo mkdir -p /var/www/slides
+            sudo cp -r dist/. /var/www/slides/
