@@ -16,6 +16,7 @@ jobs:
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
+          command_timeout: 30m
           script: |
             set -e
             cd /var/www/python.kaidan.dev
