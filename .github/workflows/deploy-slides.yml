@@ -25,6 +25,6 @@ jobs:
             git fetch origin && git reset --hard origin/main
             cd slides
             npm ci
-            npm run build
+            NODE_OPTIONS=--max-old-space-size=1536 npm run build
             sudo mkdir -p /var/www/slides
             sudo cp -r dist/. /var/www/slides/
