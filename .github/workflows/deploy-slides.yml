@@ -29,6 +29,15 @@ jobs:
         run: npm run build
         working-directory: slides
 
+      - name: Prepare slides directory
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: mkdir -p /var/www/slides
+
       - name: Copy slides to server
         uses: appleboy/scp-action@v0.1.7
         with:
