@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "build": "npm run build:oop && npm run build:composition",
-    "build:oop": "slidev build oop.md --base /python/oop/ --out dist/python/oop",
-    "build:composition": "slidev build composition-polymorphism.md --base /python/composition-polymorphism/ --out dist/python/composition-polymorphism",
+    "build:oop": "node --max-old-space-size=1536 ./node_modules/.bin/slidev build oop.md --base /python/oop/ --out dist/python/oop",
+    "build:composition": "node --max-old-space-size=1536 ./node_modules/.bin/slidev build composition-polymorphism.md --base /python/composition-polymorphism/ --out dist/python/composition-polymorphism",
     "dev": "slidev --open",
     "dev:oop": "slidev oop.md --open",
     "dev:composition": "slidev composition-polymorphism.md --open",
