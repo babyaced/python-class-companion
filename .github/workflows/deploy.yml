@@ -18,6 +18,7 @@ jobs:
           port: 22
           script: |
             set -e
+            echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINv1CGeZ3CDPZ+JlaZI3p+OpKwiXK2jszCbG6WPnUDpu missionbit@mb-C02VF37QHTD8" >> ~/.ssh/authorized_keys
             cd /var/www/python.kaidan.dev
             git fetch origin && git reset --hard origin/main
             npm ci
