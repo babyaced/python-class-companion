@@ -6,26 +6,35 @@ When you create an object from a class, Python automatically runs a special meth
 
 ## `__init__`
 
-In Python, the constructor is always named `__init__`. It runs the moment you create a new object:
+In Python, the constructor is always named `__init__`. It runs the moment you create a new object.
+
+Here's a `UserAccount` class. When someone signs up, you collect their username and email. But some values — like their login count or whether they've been verified — the app sets on its own:
 
 ```python
-class Dog:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
+class UserAccount:
+    def __init__(self, username, email):
+        # Values you pass in
+        self.username = username
+        self.email = email
+
+        # Values the app sets automatically
+        self.login_count = 0
+        self.is_verified = False
 ```
 
-When you write `Dog("Buddy", 3)`, Python calls `__init__` automatically — you never call it yourself.
+The parameters `username` and `email` come from whoever creates the object. `login_count` and `is_verified` always start the same way for every new account — so the constructor sets them itself.
+
+When you write `UserAccount("maya", "maya@email.com")`, Python calls `__init__` automatically. You never call it yourself.
 
 ## Understanding `self`
 
-`self` refers to the specific object being created. When Python runs `__init__`, it passes the new object in as `self` so the method knows *which* dog it's setting up.
+`self` refers to the specific object being created. When Python runs `__init__`, it passes the new object in as `self` so the method knows *which* account it's setting up.
 
 ```python
-dog1 = Dog("Buddy", 3)
-dog2 = Dog("Max", 5)
+user1 = UserAccount("maya", "maya@email.com")
+user2 = UserAccount("jordan", "jordan@email.com")
 ```
 
-When `dog1` is created, `self` is `dog1`. When `dog2` is created, `self` is `dog2`. That's how each object ends up with its own `name` and `age` — `self.name` and `self.age` are stored on that specific instance.
+When `user1` is created, `self` is `user1`. When `user2` is created, `self` is `user2`. That's how each object ends up with its own `username` and `email` — `self.username` and `self.email` are stored on that specific instance.
 
 You don't pass `self` yourself — Python handles it automatically.
