@@ -35,6 +35,20 @@ You can use [Coolors](https://coolors.co/) to generate a palette, but you'll nee
 
 Install Pillow, create a blank canvas, and use `random` to scatter circles across it. Your goal is to get an image file saved to your computer by the end of class.
 
+Make sure you have these imports at the top of your file: 
+```python
+from PIL import Image, ImageDraw
+import random
+```
+
+This is what your Pillow setup may look like:
+```python
+img = Image.new("RGB", (self.width, self.height), color=self.background_color)
+draw = ImageDraw.Draw(img) 
+# draw the random circles here
+img.save("/Users/missionbit/Documents/project3.png")
+```
+
 **Tasks:**
 
 <Checklist>
@@ -90,6 +104,12 @@ for i in range(50):
 By the end of this class, that same circle will be represented as an object:
 
 ```python
+class Circle:
+    def __init__(self, x, y, size, color):
+        # add code here to store each parameter as a class (self) attribute
+    def draw(self, draw):
+        draw.circle((self.x, self.y), self.radius, fill=self.color) 
+
 circle = Circle(x, y, size, color)
 circle.draw(draw)
 ```
@@ -105,7 +125,7 @@ Then you can create 50 Circle objects in a loop and draw each of them.
   <Checkbox id="ga-s3-4" label="Update your loop to create Circle objects instead of drawing directly." />
 </Checklist>
 
-**Stretch goal — Add a Rectangle class:**
+**Stretch goal — Add a Rectangle class, similarly to the Circle class:**
 
 <Checklist>
   <Checkbox id="ga-s3-stretch-1" label="Define a Rectangle class with __init__(self, x, y, width, height, color) and a draw(self, draw_context) method." />
@@ -136,8 +156,26 @@ Then you can create 50 Circle objects in a loop and draw each of them.
 
 **What you'll use:** [Classes](/en/Reference/Variables/TypesOfVariables/DataStructures/Objects/page), [Lists](/en/Reference/Variables/TypesOfVariables/DataStructures/Lists/page), [Loops](/en/Reference/ControlFlow/Loops/page), [Polymorphism](/en/Reference/Variables/TypesOfVariables/DataStructures/Objects/Polymorphism)
 
-Now build a `Canvas` class that stores a collection of shapes and renders them all. Here's the key idea: Canvas doesn't need to know whether a shape is a `Circle` or a `Rectangle` — it just calls `draw()` on each one and they handle the rest.
+Now add a `Canvas` class that stores a collection of shapes and renders them all. Here's the key idea: Canvas doesn't need to know whether a shape is a `Circle` or a `Rectangle` — it just calls `draw()` on each one and they handle the rest.
 
+```python
+class Canvas:
+
+    shapes = [] 
+
+    def __init__(self, width, height, background_color):
+        # add code here to store each parameter as a class (self) attribute
+    
+    def add_shape(self, shape):
+        # add the shape passed in as a parameter to the shapes list 
+
+    def render(self):
+        img = Image.new("RGB", (self.width, self.height), color=self.background_color)
+        draw = ImageDraw.Draw(img) 
+        # add code here to call the draw method of all the shapes in the shape list
+        img.save("/Users/missionbit/Documents/project3.png")
+
+```
 **Tasks:**
 
 <Checklist>
