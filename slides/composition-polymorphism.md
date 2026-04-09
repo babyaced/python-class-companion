@@ -29,7 +29,7 @@ li { font-size: 1.4rem; line-height: 2; }
 
 # Warm Up
 
-Write down 3 things that describe you and 3 things you can do.
+Write down 3 things that describe a pet and 3 things a pet does.
 
 <style>
 p { font-size: 1.4rem; line-height: 2; }
@@ -42,11 +42,13 @@ p { font-size: 1.4rem; line-height: 2; }
 Now let's turn that into Python.
 
 ```
-class Person:
-    write a constructor that takes those descriptive things  as parameters
+class Pet:
+    constructor takes those descriptive things as parameters
+        use self.attribute_name = parameter_name to store each one
 
-    write the three things you can do as functions
-        use pass inside the method block
+    write the three things a pet does as methods
+        remember: first parameter of a method is always self
+        use pass as the method body
 ```
 
 <style>
@@ -58,12 +60,14 @@ p { font-size: 1.2rem; line-height: 1.9; }
 
 # Activity
 
-Use your warm up answers to create a `Person` class.
-
-Create one object for yourself and one for the person next to you. Call a method on each one.
+1. Use your warm up answers to create a `Pet` class.
+  - look at the slides from last class or the website for help
+2. Create a pet object using your class.
+3. Print out the pet's attributes using dot notation: `print(pet.name)`
+4. Call a method on it.
 
 <style>
-p { font-size: 1.4rem; line-height: 2; }
+li { font-size: 1.3rem; line-height: 2; }
 </style>
 
 ---

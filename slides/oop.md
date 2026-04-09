@@ -330,9 +330,15 @@ user1.failed_login()  # Account locked.
 
 Use dot notation to call a method on an object. Each call updates `user1`'s own `failed_attempts`.
 
+You can also use dot notation to read an attribute directly:
+
+```python
+print(user1.username)  # dsimpson
+```
+
 <style>
 .slidev-code code { font-size: 1.2rem; line-height: 1.7; }
-p { font-size: 1.3rem; line-height: 1.9; }
+p { font-size: 1.2rem; line-height: 1.9; }
 </style>
 
 ---
