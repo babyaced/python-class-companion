@@ -15,6 +15,7 @@ fonts:
 # Agenda
 
 - Warm up
+- Review: Classes
 - Object Composition
 - Has-a relationship
 - Activity
@@ -22,6 +23,47 @@ fonts:
 
 <style>
 li { font-size: 1.4rem; line-height: 2; }
+</style>
+
+---
+
+# Warm Up
+
+Write down 3 things that describe you and 3 things you can do.
+
+<style>
+p { font-size: 1.4rem; line-height: 2; }
+</style>
+
+---
+
+# Review: Classes
+
+Now let's turn that into Python.
+
+```
+class Person:
+    write a constructor that takes those descriptive things  as parameters
+
+    write the three things you can do as functions
+        use pass inside the method block
+```
+
+<style>
+.slidev-code code { font-size: 1.1rem; line-height: 1.7; }
+p { font-size: 1.2rem; line-height: 1.9; }
+</style>
+
+---
+
+# Activity
+
+Use your warm up answers to create a `Person` class.
+
+Create one object for yourself and one for the person next to you. Call a method on each one.
+
+<style>
+p { font-size: 1.4rem; line-height: 2; }
 </style>
 
 ---
@@ -77,10 +119,10 @@ class Song:
 class Playlist:
     def __init__(self, name):
         self.name = name
-        self.songs = []
+        self.items = []
 
     def add(self, song):
-        self.songs.append(song)
+        self.items.append(song)
 ```
 
 <v-click at="1">
@@ -88,7 +130,7 @@ class Playlist:
 A `Song` bundles title, artist, and duration into one object.
 
 </v-click>
-<v-click at="2">A `Playlist` holds a list of those objects</v-click> <v-click at="3"> but doesn't need to carry any song info itself.</v-click>
+<v-click at="2">A <code>Playlist</code> holds a list of those objects</v-click> <v-click at="3"> but doesn't need to carry any song info itself.</v-click>
 
 
 
@@ -121,6 +163,32 @@ Add at least 3 songs and call `play()` on each one.
 
 <style>
 p { font-size: 1.4rem; line-height: 2; }
+</style>
+
+---
+
+# Adding play()
+
+```python
+class Song:
+    def __init__(self, title, artist, duration):
+        self.title = title
+        self.artist = artist
+        self.duration = duration
+
+    def play(self):
+        print(f"Now playing: {self.title} by {self.artist}")
+
+playlist = Playlist("My Favorites")
+playlist.add(Song("Bohemian Rhapsody", "Queen", 354))
+
+for song in playlist.items:
+    song.play()
+```
+
+<style>
+.slidev-code code { font-size: 1rem; line-height: 1.6; }
+p { font-size: 1.1rem; line-height: 1.8; }
 </style>
 
 ---
@@ -164,7 +232,7 @@ p { font-size: 1.2rem; line-height: 1.8; }
 
 # Building on our Playlist
 
-Yes — we can store them, because a list can hold any data type.
+Yes. A list can hold any data type, so adding them is no problem.
 
 But if we want to play them...
 
@@ -209,7 +277,7 @@ playlist.add(Song("Thriller", "Michael Jackson", 357))
 playlist.add(Podcast("How I Built This", "Guy Raz"))
 playlist.add(Audiobook("Atomic Habits", "James Clear"))
 
-for item in playlist.songs:
+for item in playlist.items:
     item.play()
 ```
 
@@ -236,7 +304,7 @@ p { font-size: 1.4rem; line-height: 2; }
 
 ---
 
-# Project Time — Class 4
+# Project Time — Phase 4
 
 Build a `Canvas` class that stores shapes and renders them all.
 

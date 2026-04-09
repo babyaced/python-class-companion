@@ -93,7 +93,7 @@ p { font-size: 1.3rem; line-height: 2; }
 
 A **class** is like a factory. You run it and it produces objects. Each one is built the same way, but holds its own data.
 
-If we were building a social app, we'd need a way to create thousands of user accounts — each with their own username, email, and password. That's exactly what a class does.
+If we were building a social app, we'd need a way to create thousands of user accounts, each with their own username, email, and password. That's exactly what a class does.
 
 <div class="flex gap-8 justify-center items-center text-center mt-10">
   <div>
@@ -377,7 +377,7 @@ p { font-size: 1.2rem; line-height: 1.9; }
 
 ---
 
-# Project Time — Class 3
+# Project Time — Phase 3
 
 Define a `Circle` class and a `Rectangle` class. Each one should know its own position, size, and color. Each one should know how to draw itself onto a canvas.
 

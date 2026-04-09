@@ -6,11 +6,11 @@ import { Checklist } from '@/components/Checklist'
 
 In this project you'll build a program that generates original artwork using code. By the end, your program will place random shapes on a canvas and save the result as an image file.
 
-You'll build it one piece at a time over six classes — each class adds something new to the project.
+You'll build it one piece at a time over five phases — each phase adds something new to the project.
 
 ---
 
-# Class 1 — Define Your Color Palette
+# Phase 1 — Define Your Color Palette
 
 **What you'll use:** [Lists](/en/Reference/Variables/TypesOfVariables/DataStructures/Lists/page), [Dictionaries](/en/Reference/Variables/TypesOfVariables/DataStructures/Dictionaries/page)
 
@@ -29,7 +29,7 @@ You can use [Coolors](https://coolors.co/) to generate a palette, but you'll nee
 
 ---
 
-# Class 2 — Draw Random Circles
+# Phase 2 — Draw Random Circles
 
 **What you'll use:** [random](/en/Reference/Libraries/StandardLibrary/random), [Pillow](/en/Reference/Libraries/ExternalLibraries/Pillow)
 
@@ -61,26 +61,61 @@ Install Pillow, create a blank canvas, and use `random` to scatter circles acros
 </Details>
 
 <Callout type="info">
-  `img` and `draw` are **objects** — variables that bundle data and behavior together. `draw.circle()` is a **method** — a function that belongs to the `draw` object. You'll learn more about this in Class 3.
+  `img` and `draw` are **objects** — variables that bundle data and behavior together. `draw.circle()` is a **method** — a function that belongs to the `draw` object. You'll learn more about this in Phase 3.
 </Callout>
 
 ---
 
-# Class 3 — Shape Classes
+# Phase 3 — Shape Classes
 
 **What you'll use:** [Classes](/en/Reference/Variables/TypesOfVariables/DataStructures/Objects/page)
 
-Right now your drawing code is loose — position, size, and color are just separate variables floating around. Let's fix that by creating classes that bundle a shape's data and its drawing logic together.
+Right now your drawing code generates circles using loose variables — `x`, `y`, `size`, and `color` are separate values scattered through your loop. The goal this class is to bundle that data together using classes.
 
-Define a `Circle` class and a `Rectangle` class. Each one should know its own position, size, and color — and how to draw itself onto a canvas.
+Instead of generating random values and immediately drawing them, you'll create a `Circle` object that holds its own position, size, and color, and knows how to draw itself. This sets you up for Phase 4 where a `Canvas` will manage a whole collection of shapes.
+
+**What to migrate:**
+
+In Class 2 your loop probably looked something like this:
+
+```python
+for i in range(50):
+    x = random.randint(0, width)
+    y = random.randint(0, height)
+    size = random.randint(10, 100)
+    color = random.choice(list(palette.values()))
+    draw.circle((x, y), radius=size, fill=color)
+```
+
+By the end of this class, that same circle will be represented as an object:
+
+```python
+circle = Circle(x, y, size, color)
+circle.draw(draw)
+```
+
+Then you can create 50 Circle objects in a loop and draw each of them.
 
 **Tasks:**
 
 <Checklist>
-  <Checkbox id="ga-s3-1" label="Define a Circle class with __init__ (x, y, radius, color) and a draw(draw_context) method." />
-  <Checkbox id="ga-s3-2" label="Define a Rectangle class with __init__ (x, y, width, height, color) and a draw(draw_context) method." />
-  <Checkbox id="ga-s3-3" label="Create one Circle and one Rectangle manually and draw them to test both work." />
+  <Checkbox id="ga-s3-1" label="Define a Circle class with __init__(self, x, y, radius, color) that stores each value as an attribute." />
+  <Checkbox id="ga-s3-2" label="Add a draw(self, draw_context) method to Circle that calls draw_context.circle() using the stored attributes." />
+  <Checkbox id="ga-s3-3" label="Create one Circle manually and draw it to confirm it works." />
+  <Checkbox id="ga-s3-4" label="Update your loop to create Circle objects instead of drawing directly." />
 </Checklist>
+
+**Stretch goal — Add a Rectangle class:**
+
+<Checklist>
+  <Checkbox id="ga-s3-stretch-1" label="Define a Rectangle class with __init__(self, x, y, width, height, color) and a draw(self, draw_context) method." />
+  <Checkbox id="ga-s3-stretch-2" label="Create one Rectangle manually and draw it to confirm it works." />
+  <Checkbox id="ga-s3-stretch-3" label="Add rectangles to your loop alongside circles." />
+</Checklist>
+
+<Callout type="info">
+  `draw_context` is the `ImageDraw` object you created in Phase 2 with `ImageDraw.Draw(img)`. When you call `circle.draw(draw)`, you're passing that object in so the shape can use it to draw itself onto the canvas. The shape doesn't create it — it just receives it and uses it.
+</Callout>
 
 <Details>
   <summary>Hint — structuring a shape class</summary>
@@ -97,7 +132,7 @@ Define a `Circle` class and a `Rectangle` class. Each one should know its own po
 
 ---
 
-# Class 4 — The Canvas Class
+# Phase 4 — The Canvas Class
 
 **What you'll use:** [Classes](/en/Reference/Variables/TypesOfVariables/DataStructures/Objects/page), [Lists](/en/Reference/Variables/TypesOfVariables/DataStructures/Lists/page), [Loops](/en/Reference/ControlFlow/Loops/page), [Polymorphism](/en/Reference/Variables/TypesOfVariables/DataStructures/Objects/Polymorphism)
 
@@ -128,7 +163,7 @@ Now build a `Canvas` class that stores a collection of shapes and renders them a
 
 ---
 
-# Class 5 — Polish and Present
+# Phase 5 — Polish and Present
 
 Put the finishing touches on your piece and get ready to show it.
 
