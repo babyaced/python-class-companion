@@ -22,7 +22,9 @@ class UserAccount:
         self.is_verified = False
 ```
 
-The parameters `username` and `email` come from whoever creates the object. `login_count` and `is_verified` always start the same way for every new account — so the constructor sets them itself.
+The parameters `username` and `email` come from whoever creates the object. `login_count` and `is_verified` always start the same way for every new account, so the constructor sets them itself.
+
+`self.username = username` stores the value on the object. Without that line, `username` only exists inside `__init__` and disappears when the constructor finishes. The `self.` prefix is what makes it stick to the object so you can access it later.
 
 When you write `UserAccount("maya", "maya@email.com")`, Python calls `__init__` automatically. You never call it yourself.
 
@@ -31,10 +33,28 @@ When you write `UserAccount("maya", "maya@email.com")`, Python calls `__init__` 
 `self` refers to the specific object being created. When Python runs `__init__`, it passes the new object in as `self` so the method knows *which* account it's setting up.
 
 ```python
-user1 = UserAccount("maya", "maya@email.com")
-user2 = UserAccount("jordan", "jordan@email.com")
+maya = UserAccount("maya", "maya@email.com")
+jordan = UserAccount("jordan", "jordan@email.com")
 ```
 
-When `user1` is created, `self` is `user1`. When `user2` is created, `self` is `user2`. That's how each object ends up with its own `username` and `email` — `self.username` and `self.email` are stored on that specific instance.
+When `maya` is created, inside the class: `self` is `maya`. 
+
+When `jordan` is created, `self` is `jordan`. 
+
+That's how each object ends up with its own `username` and `email` — `self.username` and `self.email` are stored on that specific instance.
 
 You don't pass `self` yourself — Python handles it automatically.
+
+## Accessing Attributes
+
+Once an object is created, use dot notation to read its attributes:
+
+```python
+maya = UserAccount("maya", "maya@email.com")
+
+print(maya.username)     # maya
+print(maya.email)        # maya@email.com
+print(maya.is_verified)  # False
+```
+
+The pattern is `object.attribute_name` — no parentheses, since you're reading a value, not calling a method.

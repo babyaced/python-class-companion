@@ -11,5 +11,9 @@ export default {
     Activities: {
         title: 'Activities',
         type: 'page'
+    },
+    Slides: {
+        title: 'Slides',
+        type: 'page'
     }
 }
