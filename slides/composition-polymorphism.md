@@ -37,41 +37,6 @@ p { font-size: 1.4rem; line-height: 2; }
 
 ---
 
-# Review: Classes
-
-Now let's turn that into Python.
-
-```
-class Pet:
-    constructor takes those descriptive things as parameters
-        use self.attribute_name = parameter_name to store each one
-
-    write the three things a pet does as methods
-        remember: first parameter of a method is always self
-        use pass as the method body
-```
-
-<style>
-.slidev-code code { font-size: 1.1rem; line-height: 1.7; }
-p { font-size: 1.2rem; line-height: 1.9; }
-</style>
-
----
-
-# Activity
-
-1. Use your warm up answers to create a `Pet` class.
-  - look at the slides from last class or the website for help
-2. Create a pet object using your class.
-3. Print out the pet's attributes using dot notation: `print(pet.name)`
-4. Call a method on it.
-
-<style>
-li { font-size: 1.3rem; line-height: 2; }
-</style>
-
----
-
 # Object Composition
 
 When one object holds other objects as attributes, that's called **composition**.
@@ -87,56 +52,19 @@ p { font-size: 1.5rem; line-height: 2; }
 # Without Composition
 
 ```python
-playlist_name = "My Favorites"
+img = Image.new("RGB", (800, 800), (255, 255, 255))
+draw = ImageDraw.Draw(img)
 
-song1_title = "Bohemian Rhapsody"
-song1_artist = "Queen"
-song1_duration = 354
+x = random.randint(0, 800)
+y = random.randint(0, 800)
+size = random.randint(10, 100)
+color = (255, 0, 0)
+draw.circle((x, y), radius=size, fill=color)
 
-song2_title = "Thriller"
-song2_artist = "Michael Jackson"
-song2_duration = 357
-
-song3_title = "Billie Jean"
-song3_artist = "Michael Jackson"
-song3_duration = 294
+img.save("output.png")
 ```
 
-Playlist information and songs are stored completely separately.
-
-<style>
-.slidev-code code { font-size: 1rem; line-height: 1.6; }
-p { font-size: 1.1rem; line-height: 1.8; }
-</style>
-
----
-
-# With Composition
-
-```python {all|1-6|10|7-13}
-class Song:
-    def __init__(self, title, artist, duration):
-        self.title = title
-        self.artist = artist
-        self.duration = duration
-
-class Playlist:
-    def __init__(self, name):
-        self.name = name
-        self.items = []
-
-    def add(self, song):
-        self.items.append(song)
-```
-
-<v-click at="1">
-
-A `Song` bundles title, artist, and duration into one object.
-
-</v-click>
-<v-click at="2">A <code>Playlist</code> holds a list of those objects</v-click> <v-click at="3"> but doesn't need to carry any song info itself.</v-click>
-
-
+Canvas info and shape info are just loose values floating at the top level.
 
 <style>
 .slidev-code code { font-size: 1rem; line-height: 1.6; }
@@ -149,57 +77,19 @@ p { font-size: 1.1rem; line-height: 1.8; }
 
 Composition describes a **has-a** relationship.
 
-A playlist **has** songs.
+A canvas **has** shapes.
+
+`Canvas` will own the image setup, store a list of shapes, and know how to render them all.
 
 <style>
-p { font-size: 1.6rem; line-height: 2; }
+p { font-size: 1.5rem; line-height: 2; }
 </style>
 
 ---
 
-# Activity
+# Building on our Canvas
 
-Build a `Song` class and a `Playlist` class from scratch.
-
-Add a `play()` method to `Song` that prints the song title and artist.
-
-Add at least 3 songs and call `play()` on each one.
-
-<style>
-p { font-size: 1.4rem; line-height: 2; }
-</style>
-
----
-
-# Adding play()
-
-```python
-class Song:
-    def __init__(self, title, artist, duration):
-        self.title = title
-        self.artist = artist
-        self.duration = duration
-
-    def play(self):
-        print(f"Now playing: {self.title} by {self.artist}")
-
-playlist = Playlist("My Favorites")
-playlist.add(Song("Bohemian Rhapsody", "Queen", 354))
-
-for song in playlist.items:
-    song.play()
-```
-
-<style>
-.slidev-code code { font-size: 1rem; line-height: 1.6; }
-p { font-size: 1.1rem; line-height: 1.8; }
-</style>
-
----
-
-# Building on our Playlist
-
-Say we want to allow users to add Podcasts and Audiobooks to our Playlist as well.
+Say we want to add `Rectangle` shapes to the canvas as well.
 
 **Do you think we can do that?**
 
@@ -209,23 +99,21 @@ p { font-size: 1.5rem; line-height: 2; }
 
 ---
 
-# Building on our Playlist
+# Building on our Canvas
 
-We've created two new classes: `Podcast` and `Audiobook`.
+We've created a new class: `Rectangle`.
 
 ```python
-class Podcast:
-    def __init__(self, title, host):
-        self.title = title
-        self.host = host
-
-class Audiobook:
-    def __init__(self, title, author):
-        self.title = title
-        self.author = author
+class Rectangle:
+    def __init__(self, x, y, width, height, color):
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+        self.color = color
 ```
 
-**Do you think we can add them to the playlist?**
+**Do you think we can add it to the canvas?**
 
 <style>
 .slidev-code code { font-size: 1.1rem; line-height: 1.6; }
@@ -234,11 +122,11 @@ p { font-size: 1.2rem; line-height: 1.8; }
 
 ---
 
-# Building on our Playlist
+# Building on our Canvas
 
-Yes. A list can hold any data type, so adding them is no problem.
+Yes. The shapes list can hold any object, so adding it is no problem.
 
-But if we want to play them...
+But if we want to render it...
 
 <style>
 p { font-size: 1.6rem; line-height: 2; }
@@ -248,22 +136,18 @@ p { font-size: 1.6rem; line-height: 2; }
 
 # Polymorphism
 
-Every item needs a `play()` method.
+Every shape needs a `draw()` method.
 
-Python doesn't know what type of object it has. It just tries to call `play()`. If the method isn't there, it crashes.
+`Canvas` doesn't know what type of shape it has. It just tries to call `draw()`. If the method isn't there, it crashes.
 
 ```python
-class Song:
-    def play(self):
-        print(f"Playing song: {self.title}")
+class Circle:
+    def draw(self, draw_context):
+        draw_context.circle((self.x, self.y), radius=self.radius, fill=self.color)
 
-class Podcast:
-    def play(self):
-        print(f"Playing podcast: {self.title}")
-
-class Audiobook:
-    def play(self):
-        print(f"Playing audiobook: {self.title}")
+class Rectangle:
+    def draw(self, draw_context):
+        draw_context.rectangle([self.x, self.y, self.x + self.width, self.y + self.height], fill=self.color)
 ```
 
 <style>
@@ -276,16 +160,14 @@ p { font-size: 1.1rem; line-height: 1.8; }
 # Polymorphism
 
 ```python
-playlist = Playlist("My Favorites")
-playlist.add(Song("Thriller", "Michael Jackson", 357))
-playlist.add(Podcast("How I Built This", "Guy Raz"))
-playlist.add(Audiobook("Atomic Habits", "James Clear"))
-
-for item in playlist.items:
-    item.play()
+canvas = Canvas(800, 800, (255, 255, 255))
+canvas.add_shape(Circle(100, 200, 50, (255, 0, 0)))
+canvas.add_shape(Rectangle(300, 400, 80, 60, (0, 0, 255)))
+canvas.add_shape(Circle(600, 300, 40, (0, 200, 100)))
+canvas.render("output.png")
 ```
 
-`Playlist` doesn't care what type of object it has. It just calls `play()` and each object handles the rest.
+`Canvas` doesn't care what type of shape it has. It just calls `draw()` and each shape handles the rest.
 
 <style>
 .slidev-code code { font-size: 1.1rem; line-height: 1.6; }
@@ -296,11 +178,12 @@ p { font-size: 1.2rem; line-height: 1.8; }
 
 # Activity
 
-Add a `play()` method to `Podcast` and `Audiobook`.
+If you haven't already, add a Rectangle class to your code.
+- It should be almost exactly the same as your Circle class except it will use the Pillow method for drawing a rectangle (Hint: that means your attributes should be the parameters needed for that method)
 
-Add a mix of all three to your playlist.
+Add a mix of `Circle` and `Rectangle` objects to your canvas.
 
-Loop through and call `play()` on each item.
+Call `render()` and confirm both shapes appear in the image.
 
 <style>
 p { font-size: 1.4rem; line-height: 2; }
@@ -313,7 +196,7 @@ p { font-size: 1.4rem; line-height: 2; }
 Build a `Canvas` class that stores shapes and renders them all.
 
 - Define a `Canvas` class with `__init__(width, height, background_color)`, `add_shape`, and `render` methods
-- `render()` should loop through the shapes list and call `draw()` on each one
+- `render(filename)` should take a filename, loop through the shapes list calling `draw()` on each one, then save the image to that file
 - Create a `Canvas`, add a mix of `Circle` and `Rectangle` objects, and call `render()` to produce an image
 - Use `random` to generate at least 50 shapes with randomized attributes
 
