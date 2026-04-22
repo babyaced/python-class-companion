@@ -3,12 +3,18 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "npm run build:oop && npm run build:composition",
+    "build": "npm run build:oop && npm run build:composition && npm run build:oop-review && npm run build:modules && npm run build:inheritance",
     "build:oop": "node --max-old-space-size=1536 ./node_modules/.bin/slidev build oop.md --base /python/oop/ --out dist/python/oop",
     "build:composition": "node --max-old-space-size=1536 ./node_modules/.bin/slidev build composition-polymorphism.md --base /python/composition-polymorphism/ --out dist/python/composition-polymorphism",
+    "build:oop-review": "node --max-old-space-size=1536 ./node_modules/.bin/slidev build oop-review.md --base /python/oop-review/ --out dist/python/oop-review",
+    "build:modules": "node --max-old-space-size=1536 ./node_modules/.bin/slidev build modules-organization.md --base /python/modules-organization/ --out dist/python/modules-organization",
+    "build:inheritance": "node --max-old-space-size=1536 ./node_modules/.bin/slidev build inheritance.md --base /python/inheritance/ --out dist/python/inheritance",
     "dev": "slidev --open",
     "dev:oop": "slidev oop.md --open",
     "dev:composition": "slidev composition-polymorphism.md --open",
+    "dev:oop-review": "slidev oop-review.md --open",
+    "dev:modules": "slidev modules-organization.md --open",
+    "dev:inheritance": "slidev inheritance.md --open",
     "export": "slidev export"
   },
   "dependencies": {

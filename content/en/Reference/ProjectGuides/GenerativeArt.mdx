@@ -138,11 +138,42 @@ Then you can create 50 Circle objects in a loop and draw each of them.
 
 Now build a `Canvas` class that stores a collection of shapes and renders them all. Here's the key idea: Canvas doesn't need to know whether a shape is a `Circle` or a `Rectangle` — it just calls `draw()` on each one and they handle the rest.
 
+**What to migrate:**
+
+In Phase 3 your code probably looked something like this — creating the image, draw context, and loop all at the top level:
+
+```
+create a blank image with width, height, and background_color
+create a draw context from the image
+
+repeat 50 times:
+    pick a random x, y, size, and color
+    create a Circle with those values
+    call circle.draw(draw context)
+
+save the image to "output.png"
+```
+
+By the end of this phase, all of that setup and teardown moves into `Canvas`:
+
+```
+create a Canvas with width, height, and background_color
+
+repeat 50 times:
+    pick a random x, y, size, and color
+    create a Circle with those values
+    call canvas.add_shape(circle)
+
+call canvas.render("output.png")
+```
+
+`Canvas` now owns the image, the draw context, and saving the file — your top-level code just adds shapes and calls `render()`.
+
 **Tasks:**
 
 <Checklist>
   <Checkbox id="ga-s4-1" label="Define a Canvas class with __init__ (width, height, background_color), add_shape, and render methods." />
-  <Checkbox id="ga-s4-2" label="Have Canvas store shapes in a list. render() should loop through the list and call draw() on each shape." />
+  <Checkbox id="ga-s4-2" label="Have Canvas store shapes in a list. render(filename) should take a filename as a parameter, loop through the list calling draw() on each shape, then save the image to that file." />
   <Checkbox id="ga-s4-3" label="Create a Canvas, add a mix of Circle and Rectangle objects (use a loop or random generation), and call render() to produce an image." />
   <Checkbox id="ga-s4-4" label="Use random to generate at least 50 shapes with randomized attributes." />
 </Checklist>
@@ -151,11 +182,11 @@ Now build a `Canvas` class that stores a collection of shapes and renders them a
   <summary>Hint — the render loop</summary>
 
   ```
-  render:
+  render(filename):
       create a draw context from the image
       for each shape in self.shapes:
           call shape.draw(draw_context)
-      save the image
+      save the image to filename
   ```
 
   Notice that render doesn't check what type of shape it has — it just calls draw(). This works because both Circle and Rectangle have a draw() method.

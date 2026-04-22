@@ -385,11 +385,10 @@ p { font-size: 1.2rem; line-height: 1.9; }
 
 # Project Time — Phase 3
 
-Define a `Circle` class and a `Rectangle` class. Each one should know its own position, size, and color. Each one should know how to draw itself onto a canvas.
+Define a `Circle` class that knows its own position, size, and color, and knows how to draw itself onto a canvas.
 
 - Define a `Circle` class with `__init__(x, y, radius, color)` and a `draw(draw_context)` method
-- Define a `Rectangle` class with `__init__(x, y, width, height, color)` and a `draw(draw_context)` method
-- Create one `Circle` and one `Rectangle` manually and draw them to confirm both work
+- Create a `Circle` manually and draw it to confirm it works
 
 <style>
 p { font-size: 1.2rem; line-height: 1.8; }
