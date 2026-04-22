@@ -31,3 +31,15 @@ If you use square brackets with a key that doesn't exist, Python raises an error
 <Callout type="info" title="When to use get()">
 Use `get()` when a key might not be in the dictionary. Use square brackets when you're sure the key exists and want Python to raise an error if it doesn't.
 </Callout>
+
+## Try it out
+
+<PythonRunner code={`person = {
+    "name": "Alice",
+    "age": 30,
+    "city": "New York"
+}
+print(person["age"])
+print(person["name"])
+print(person.get("occupation", "Not specified"))
+`} />

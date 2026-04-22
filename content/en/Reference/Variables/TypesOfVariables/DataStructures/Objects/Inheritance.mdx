@@ -83,3 +83,29 @@ print(dog.breed)  # Labrador
 <Callout type="info">
   Inheritance is the foundation for the OOP concepts coming up next — Encapsulation, Abstraction, and Polymorphism all build on the idea of classes sharing and extending behavior.
 </Callout>
+
+## Try it out
+
+<PythonRunner code={`class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def eat(self):
+        print(self.name + " is eating.")
+
+    def sleep(self):
+        print(self.name + " is sleeping.")
+
+class Dog(Animal):
+    def __init__(self, name, breed):
+        super().__init__(name)
+        self.breed = breed
+
+    def bark(self):
+        print(self.name + " says: Woof!")
+
+dog = Dog("Buddy", "Labrador")
+dog.eat()
+dog.bark()
+print(dog.breed)
+`} />

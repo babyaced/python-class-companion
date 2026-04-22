@@ -58,3 +58,12 @@ greet_user("Alice", "Hi")  # Output: Hi, Alice!
 ```
 
 Parameters with defaults must come **after** parameters without defaults.
+
+## Try it out
+
+<PythonRunner code={`def greet_user(name, greeting="Hello"):
+    print(f"{greeting}, {name}!")
+
+greet_user("Alice")
+greet_user("Alice", "Hi")
+`} />

@@ -101,3 +101,14 @@ Each `if` is checked on its own, so both blocks can run.
 - Use `if` to run code only when a condition is true.
 - Use `else` for "otherwise" and `elif` when you have several cases and want to pick one.
 - The condition is an expression that's true or false. On the **Comparison Operators** and **Logical Operators** pages you'll see how to write and combine conditions. You'll use the same ideas in **loops**, which run a block of code multiple times.
+
+## Try it out
+
+<PythonRunner code={`age = 15
+if age < 13:
+    print("Recommend family-friendly movies")
+elif age < 18:
+    print("Recommend teen movies")
+else:
+    print("Recommend adult movies")
+`} />

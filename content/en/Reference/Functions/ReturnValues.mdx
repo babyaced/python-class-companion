@@ -47,3 +47,13 @@ If `score` is negative, the first `return` fires and the function ends. The seco
 <Callout type="info" title="No return? You get None.">
 If a function doesn't have a `return` statement, Python automatically returns `None` — its way of saying "no value." You'll usually see this when a function just prints something instead of returning a result.
 </Callout>
+
+## Try it out
+
+<PythonRunner code={`def add_numbers(a, b):
+    return a + b
+
+total = add_numbers(3, 5)
+doubled = total * 2
+print(doubled)
+`} />
