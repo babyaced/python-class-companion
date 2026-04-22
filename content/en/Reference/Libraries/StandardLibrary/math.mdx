@@ -60,3 +60,14 @@ import { Callout } from 'nextra/components'
 <Callout type="info">
   `math` functions usually return a **float** (a decimal number), even if the result is a whole number. `math.sqrt(25)` gives `5.0`, not `5`. Use `int()` to convert if needed.
 </Callout>
+
+## Try it out
+
+<PythonRunner code={`import math
+
+print(math.sqrt(25))
+print(math.floor(4.9))
+print(math.ceil(4.1))
+print(math.pow(2, 8))
+print(math.pi)
+`} />

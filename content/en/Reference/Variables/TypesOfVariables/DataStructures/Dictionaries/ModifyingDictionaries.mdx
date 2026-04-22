@@ -89,3 +89,16 @@ print(palette["primary"])   # (255, 100, 80)
 for name, color in palette.items():
     print(f"{name}: {color}")
 ```
+
+## Try it out
+
+<PythonRunner code={`person = {"name": "Alice", "age": 30, "city": "New York"}
+
+person["age"] = 31
+person["occupation"] = "Engineer"
+print(person)
+
+occupation = person.pop("occupation")
+print(occupation)
+print(person)
+`} />

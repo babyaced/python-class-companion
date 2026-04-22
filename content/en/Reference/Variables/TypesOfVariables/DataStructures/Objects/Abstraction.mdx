@@ -46,3 +46,37 @@ my_car.stop()      # Car stopped.
 The complexity is still there — it's just tucked away where it doesn't get in the way.
 
 You've actually been using abstraction any time you import a library. When you used the Pillow library for image manipulation, you didn't need to know how it processes pixels internally — you just called the methods it gave you. That's abstraction at work.
+
+## Try it out
+
+<PythonRunner code={`class Car:
+    def __init__(self):
+        self._fuel = 100
+        self._engine_temp = 0
+        self._battery_level = 100
+        self._oil_pressure = 80
+
+    def start(self):
+        self._battery_level -= 5
+        self._engine_temp += 20
+        self._oil_pressure += 15
+        self._fuel -= 1
+        print("Car started!")
+
+    def drive(self, miles):
+        self._fuel -= miles * 0.1
+        self._engine_temp += miles * 0.5
+        self._oil_pressure -= miles * 0.02
+        self._battery_level -= miles * 0.05
+        print(f"Drove {miles} miles!")
+
+    def stop(self):
+        self._engine_temp -= 20
+        self._oil_pressure -= 15
+        print("Car stopped.")
+
+my_car = Car()
+my_car.start()
+my_car.drive(10)
+my_car.stop()
+`} />

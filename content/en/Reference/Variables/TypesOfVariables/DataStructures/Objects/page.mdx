@@ -70,3 +70,20 @@ print(dog2.species)  # Canis familiaris
 ```
 
 `species` is a **class variable** — every dog shares it. `name` and `age` are **instance variables** — each dog has its own.
+
+## Try it out
+
+<PythonRunner code={`class Dog:
+    species = "Canis familiaris"
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+dog1 = Dog("Buddy", 3)
+dog2 = Dog("Max", 5)
+
+print(dog1.name)
+print(dog2.age)
+print(dog1.species)
+`} />

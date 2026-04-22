@@ -49,3 +49,27 @@ This keeps your data safe and makes your class easier to use correctly. The meth
 <Callout type="warning"> 
 Python doesn't truly enforce private variables the way some other languages do. Using `__balance` is a strong convention that signals "don't touch this directly," but it's technically still accessible via [name mangling](https://realpython.com/ref/glossary/name-mangling/). It's generally considered bad practice to do so.
 </Callout>
+
+## Try it out
+
+<PythonRunner code={`class BankAccount:
+    def __init__(self, initial_balance):
+        self.__balance = initial_balance
+
+    def deposit(self, amount):
+        self.__balance += amount
+
+    def withdraw(self, amount):
+        if amount <= self.__balance:
+            self.__balance -= amount
+        else:
+            print("Insufficient funds")
+
+    def get_balance(self):
+        return self.__balance
+
+account = BankAccount(100)
+account.deposit(50)
+account.withdraw(20)
+print(account.get_balance())
+`} />

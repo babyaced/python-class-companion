@@ -58,3 +58,19 @@ print(maya.is_verified)  # False
 ```
 
 The pattern is `object.attribute_name` — no parentheses, since you're reading a value, not calling a method.
+
+## Try it out
+
+<PythonRunner code={`class UserAccount:
+    def __init__(self, username, email):
+        self.username = username
+        self.email = email
+        self.login_count = 0
+        self.is_verified = False
+
+maya = UserAccount("maya", "maya@email.com")
+
+print(maya.username)
+print(maya.email)
+print(maya.is_verified)
+`} />

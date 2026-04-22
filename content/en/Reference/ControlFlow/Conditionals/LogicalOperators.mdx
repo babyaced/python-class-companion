@@ -77,3 +77,15 @@ You can enter if (you're 18+ and have an ID) **or** if you're a member. The pare
 <Callout type="info" title="Order of evaluation">
 Python evaluates logical operators in this order: `not` first, then `and`, then `or`. Using parentheses (as in the example above) makes your intent clear and helps you avoid mistakes.
 </Callout>
+
+## Try it out
+
+<PythonRunner code={`age = 25
+has_id = True
+is_member = False
+
+if (age >= 18 and has_id) or is_member:
+    print("You can enter the club!")
+else:
+    print("Sorry, you cannot enter the club.")
+`} />

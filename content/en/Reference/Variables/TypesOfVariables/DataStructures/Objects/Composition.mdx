@@ -70,3 +70,29 @@ This is different from inheritance, where a `Circle` *is a* `Shape`. You'll see 
 ## In the Generative Art Project
 
 `Canvas` and `Shape` follow the same pattern. A `Canvas` holds a list of shape objects, and each shape carries its own data. When it's time to render, `Canvas` loops through its shapes and hands each one off to be drawn.
+
+## Try it out
+
+<PythonRunner code={`class Song:
+    def __init__(self, title, artist, duration):
+        self.title = title
+        self.artist = artist
+        self.duration = duration
+
+class Playlist:
+    def __init__(self, name):
+        self.name = name
+        self.songs = []
+
+    def add(self, song):
+        self.songs.append(song)
+
+playlist = Playlist("My Favorites")
+playlist.add(Song("Bohemian Rhapsody", "Queen", 354))
+playlist.add(Song("Thriller", "Michael Jackson", 357))
+playlist.add(Song("Billie Jean", "Michael Jackson", 294))
+
+print(playlist.name)
+for song in playlist.songs:
+    print(song.title, "-", song.artist)
+`} />

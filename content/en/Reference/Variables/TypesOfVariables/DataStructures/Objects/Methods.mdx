@@ -82,3 +82,20 @@ dog1.greet()
 # Hi, I'm Buddy
 # Woof!
 ```
+
+## Try it out
+
+<PythonRunner code={`class Dog:
+    def __init__(self, name):
+        self.name = name
+
+    def bark(self):
+        print("Woof!")
+
+    def greet(self):
+        print("Hi, I'm " + self.name)
+        self.bark()
+
+dog1 = Dog("Buddy")
+dog1.greet()
+`} />

@@ -34,3 +34,18 @@ You can see in the above explanation that the `match` statement is similar to ha
 As you code, you'll recognize situations where using `match` and `case` can make your code clearer than using multiple conditional statements, 
 but generally speaking, `match` is particularly useful when you have a variable that can take on many different values and you want to handle each value differently.
 
+## Try it out
+
+<PythonRunner code={`day = "Monday"
+
+match day:
+    case "Monday":
+        print("Start of the work week!")
+    case "Wednesday":
+        print("We're halfway through the week!")
+    case "Friday":
+        print("It's almost the weekend!")
+    case _:
+        print("Just another day.")
+`} />
+
